@@ -1,11 +1,18 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import Register from "./Pages/Register/Register";
+import Login from "./Pages/Login/Login";
+
+import { Routes, Route } from "react-router-dom";
+
 function App() {
   return (
     <div className="App">
-      <h1 className="tx-first-color">Hack Music</h1>
-      <p className="bg-third-color">Vamo lo pi</p>
+      <Routes>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+      </Routes>
     </div>
   );
 }
