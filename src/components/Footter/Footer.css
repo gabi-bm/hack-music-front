@@ -1,7 +1,4 @@
-*{
-    font-weight: 300;
-    font-size: 1.4vh;
-}
+
 .footer-main{
     margin-top: 5%;
     display: flex;
@@ -46,4 +43,8 @@ li:hover{
     .footer-first{
         display: none;
     }
+}
+.footer-text{
+    font-size: var(--font-size-sm);
+    font-weight: 200;
 }
