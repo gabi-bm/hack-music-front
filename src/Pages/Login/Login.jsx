@@ -12,9 +12,10 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
-    axios.post(process.env.REACT_APP_SERVER_URL + "/tokens", data);
+    const response = await axios.post(process.env.REACT_APP_SERVER_URL + "/tokens", data);
+    console.log(response.data);
   };
   return (
     <div>
