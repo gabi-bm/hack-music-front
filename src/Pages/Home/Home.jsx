@@ -4,15 +4,34 @@ import HeaderHome from "../../Components/HeaderHome/HeaderHome";
 import CategoryCard from "../../Components/CategoryCard/CategoryCard";
 import Footer from "../../Components/Footter/Footer";
 import React from "react";
+import axios from "axios";
+
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const getCategories = async () => {
+      const response = await axios.get(process.env.REACT_APP_SERVER_URL + "/categories");
+      console.log(response.data);
+      setCategories(response.data);
+    };
+    getCategories();
+  }, []);
+
   return (
     <div>
       <NavBar />
       <HeaderHome />
-      <CategoryCard />
-      <CategoryCard />
-      <CategoryCard />
+      {categories.map((category) => {
+        return (
+          <Link to={"/category/" + category.slug} key={"category-" + category.name}>
+            <CategoryCard category={category} />
+          </Link>
+        );
+      })}
       <Footer />
     </div>
   );

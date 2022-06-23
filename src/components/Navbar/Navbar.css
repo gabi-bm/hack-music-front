@@ -13,12 +13,10 @@
 .tx-color-navbar{
     color: var(--fourth-color) !important;
     font-size: 1rem !important;
-    font-weight: 100;
 }
 #basic-nav-dropdown{
     color: var(--fourth-color) !important;
     font-size: 1rem !important;
-    font-weight: 100;
 }
 .div-flex{
     display: flex;

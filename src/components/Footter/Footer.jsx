@@ -11,7 +11,7 @@ const Footer = () => {
               <ul>
                 <li className="foo-title">PRODUCTS</li>
                 <li>Featured Products</li>
-                <li>Pianos</li>
+                <li>Keyboards & Pianos</li>
                 <li>Drums & Percussion</li>
                 <li>Guitar & Bass</li>
                 <li>Wind Instruments</li>

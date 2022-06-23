@@ -11,7 +11,7 @@ const NavBar = () => {
             <Navbar.Brand className="tx-color-logo" href="/">
               HackMusic
             </Navbar.Brand>
-            <div class="vr"></div>
+            <div className="vr"></div>
           </div>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -19,7 +19,7 @@ const NavBar = () => {
               <Nav.Link className="tx-color-navbar" href="/">
                 Home
               </Nav.Link>
-              <div class="vr"></div>
+              <div className="vr"></div>
               <NavDropdown className="tx-color-navbar" title="Categories" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/category">Wind </NavDropdown.Item>
                 <NavDropdown.Divider />
@@ -27,15 +27,15 @@ const NavBar = () => {
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="/category">String</NavDropdown.Item>
               </NavDropdown>
-              <div class="vr"></div>
+              <div className="vr"></div>
               <Nav.Link className="tx-color-navbar" href="/aboutus">
                 About us
               </Nav.Link>
-              <div class="vr"></div>
+              <div className="vr"></div>
               <Nav.Link className="tx-color-navbar" href="#link">
                 Cart
               </Nav.Link>
-              <div class="vr"></div>
+              <div className="vr"></div>
               <Nav.Link className="tx-color-navbar" href="#link">
                 Dash
               </Nav.Link>

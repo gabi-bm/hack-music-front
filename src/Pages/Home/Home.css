@@ -19,7 +19,7 @@
     margin: auto;
     margin-top: 3%;
     background-color: white;
-    height: 200px;
+    height: 300px;
     width : 80%;
     display: flex;
     align-items: center;
@@ -31,7 +31,7 @@
     color: white;
     height: 100%;
     width: 100% ;
-    background-image: url(https://v9x5s2t2.rocketcdn.me/wp-content/uploads/2021/09/Super-Crush-100-Twitter-Header.jpg);
+    /* background-image: url(https://v9x5s2t2.rocketcdn.me/wp-content/uploads/2021/09/Super-Crush-100-Twitter-Header.jpg); */
     background-position: center;
     background-size: cover;
     border-radius: 5px;
