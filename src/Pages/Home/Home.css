@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+.header{
+    display: flex;
+    background-image: url(https://static.roland.com/assets/promos/jpg/billboard_roland_cloud.jpg);
+    justify-content: center;
+    align-items: center;
+    height: 640px;
+    background-size: cover;
+    margin-bottom: 6%;
+}
+h1{
+    font-size: 5rem;
+    text-shadow: -1px -1px 1px #f96d00, 1px -1px 1px #f96d00, -1px 1px 1px #f96d00, 1px 1px 1px #f96d00;
+    color: var(--fourth-color);
+    font-weight: 300;
+}
+
+.category-card{
+    margin: auto;
+    margin-top: 3%;
+    background-color: white;
+    height: 200px;
+    width : 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.category-img{
+    color: white;
+    height: 100%;
+    width: 100% ;
+    background-image: url(https://v9x5s2t2.rocketcdn.me/wp-content/uploads/2021/09/Super-Crush-100-Twitter-Header.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: 100%;
+    opacity: 1;
+    transition: all 0.8s ease;
+}
+.category-img:hover{
+    background-size: 120%;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.vr{
+    color: white;
+}
+@media (max-width: 750px){
+    .category-card{
+        height: 150px;
+        
+    }
+    .header{
+        height: 400px;
+    }
+}
