@@ -7,7 +7,6 @@ const userSlice = createSlice({
     loginUser(state, action) {
       state.token = action.payload;
     },
-    getUser() {},
   },
 });
 

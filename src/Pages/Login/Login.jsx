@@ -10,9 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { loginUser } from "../../Redux/userSlice";
 
 const Login = () => {
-  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
-
   const {
     register,
     handleSubmit,
