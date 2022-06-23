@@ -1,6 +1,6 @@
 import "./Product.css";
-import NavBar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footter/Footer";
+import NavBar from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Footter/Footer";
 const Product = () => {
   return (
     <div>

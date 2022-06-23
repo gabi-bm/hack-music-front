@@ -1,8 +1,8 @@
 import "./Home.css";
-import NavBar from "../../components/Navbar/Navbar";
-import HeaderHome from "../../components/HeaderHome/HeaderHome";
-import CategoryCard from "../../components/CategoryCard/CategoryCard";
-import Footer from "../../components/Footter/Footer";
+import NavBar from "../../Components/Navbar/Navbar";
+import HeaderHome from "../../Components/HeaderHome/HeaderHome";
+import CategoryCard from "../../Components/CategoryCard/CategoryCard";
+import Footer from "../../Components/Footter/Footer";
 import React from "react";
 
 const Home = () => {
