@@ -5,6 +5,8 @@ import AboutUs from "./Pages/AboutUs/AboutUs";
 import Product from "./Pages/Product/Product";
 import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
+import Logout from "./Pages/Logout/Logout";
+
 const MyRoutes = () => {
   return (
     <>
@@ -16,6 +18,7 @@ const MyRoutes = () => {
 
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </>
   );
