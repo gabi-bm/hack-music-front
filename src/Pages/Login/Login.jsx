@@ -6,7 +6,11 @@ import { Container, Form, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faKey, faPlay } from "@fortawesome/free-solid-svg-icons";
 
+import { useSelector, useDispatch } from "react-redux";
+import { loginUser } from "../../Redux/userSlice";
+
 const Login = () => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -15,7 +19,7 @@ const Login = () => {
   const onSubmit = async (data) => {
     console.log(data);
     const response = await axios.post(process.env.REACT_APP_SERVER_URL + "/tokens", data);
-    console.log(response.data);
+    dispatch(loginUser(response.data.token));
   };
   return (
     <div>
