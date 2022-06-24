@@ -9,10 +9,10 @@
     margin-bottom: 6%;
 }
 .titulo-header{
-    font-size: 5rem;
-    text-shadow: -1px -1px 1px #f96d00, 1px -1px 1px #f96d00, -1px 1px 1px #f96d00, 1px 1px 1px #f96d00;
+    font-size: 6rem;
+    /* text-shadow: -1px -1px 1px #f96d00, 1px -1px 1px #f96d00, -1px 1px 1px #f96d00, 1px 1px 1px #f96d00; */
     color: var(--fourth-color);
-    font-weight: 300;
+    font-weight: 500;
 }
 
 .category-card{

@@ -1,0 +1,12 @@
+.category-title {
+  font-weight: 200;
+  margin: 0 auto;
+}
+
+li:hover {
+  text-decoration: none;
+}
+
+.view-product-span:hover {
+  color: var(--third-color);
+}

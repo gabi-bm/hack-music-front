@@ -2,22 +2,28 @@
 .custom-navbar{
     background-color: black;
     display: flex; 
-    height: 80px;
+    height: 65px;
 }
 .tx-color-logo{
-    color: var(--third-color) !important;
+    color: white !important;
     font-size: 1.6rem !important;
     font-weight: 500;
-    
 }
 .tx-color-navbar{
     color: var(--fourth-color) !important;
     font-size: 1rem !important;
 }
-#basic-nav-dropdown{
+
+.tx-color-navbar span,
+ .dropdown a {
+    color: rgb(150, 148, 148); /* Mala mía que no uso variable*/
+    font-size: var(--font-size-sm);
+}
+
+/* #basic-nav-dropdown{
     color: var(--fourth-color) !important;
     font-size: 1rem !important;
-}
+} */
 .div-flex{
     display: flex;
     justify-content: center;

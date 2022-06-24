@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="footer-text container">
           <div className="row">
             <div className="col-2">
-              <ul>
+              <ul className="footer-ul">
                 <li className="foo-title">PRODUCTS</li>
                 <li>Featured Products</li>
                 <li>Keyboards & Pianos</li>
@@ -19,7 +19,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="col-2">
-              <ul>
+              <ul className="footer-ul">
                 <li className="foo-title">COMMUNITY</li>
                 <li>Facebook</li>
                 <li>Youtube</li>
@@ -27,7 +27,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="col-2">
-              <ul>
+              <ul className="footer-ul">
                 <li className="foo-title">SUPPORT</li>
                 <li>Update & Drivers</li>
                 <li>Owner's Manuals</li>
@@ -38,7 +38,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="col-2">
-              <ul>
+              <ul className="footer-ul">
                 <li className="foo-title">ARTICLES</li>
                 <li>Stories</li>
                 <li>Learn</li>
@@ -46,7 +46,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="col-2">
-              <ul>
+              <ul className="footer-ul">
                 <li className="foo-title">IR</li>
                 <li>Management Policy</li>
                 <li>Financial Information</li>
@@ -55,7 +55,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="col-2">
-              <ul className="font">
+              <ul className="font footer-ul">
                 <li className="foo-title">COMPANY</li>
                 <li>Corporate Information</li>
                 <li>Philosophy</li>
