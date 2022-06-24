@@ -9,6 +9,7 @@ import { Container } from "react-bootstrap";
 const Category = () => {
   const params = useParams();
   const [products, setProducts] = useState([]);
+  const [category, setCategory] = useState({});
 
   useEffect(() => {
     const getProducts = async () => {
@@ -16,7 +17,8 @@ const Category = () => {
         process.env.REACT_APP_SERVER_URL + "/products?category=" + params.slug,
       );
       console.log(response.data);
-      setProducts(response.data);
+      setProducts(response.data.products);
+      setCategory(response.data.category[0]);
     };
     getProducts();
   }, []);
@@ -32,12 +34,12 @@ const Category = () => {
         ></img>
       </div>
       <Container style={{ textAlign: "center" }}>
-        <h1 className="category-title mt-5">DRUMS & PERCUSSION</h1>
+        <h1 className="category-title mt-5">{category.alias}</h1>
         {/* VER DE TENER DISPONIBLE LA CATGORY PARA NO HARCODEAR */}
         <ul className="m-0 p-0" style={{ width: "100%" }}>
           {products.map((product) => {
             return (
-              <li key={product.id} className="tx-color-third w-100 my-4">
+              <li key={product._id} className="tx-color-third w-100 my-4">
                 <div className="d-flex border" style={{ height: "270px", padding: "40px 45px" }}>
                   <div
                     className="border-end"
