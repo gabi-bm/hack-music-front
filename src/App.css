@@ -15,6 +15,10 @@
   --font-size-xl: 1.2rem;
 }
 
+ul {
+  list-style-type: none !important;
+}
+
 h1 {
   font-size: 4rem;
 }
@@ -73,4 +77,8 @@ h2 {
 
 .tx-size-xl {
   font-size: var(--font-size-xl);
+}
+
+a {
+  text-decoration: none !important;
 }
