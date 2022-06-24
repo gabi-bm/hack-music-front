@@ -61,7 +61,10 @@ const NavBar = () => {
             <div className="vr"></div>
             {user.firstName && (
               <Nav.Link className="tx-color-navbar d-flex align-items-center px-4" href="/">
-                <span className="fs-6">{"Hello, " + user.firstName + "!"}</span>
+                <span className="fs-6">
+                  <FontAwesomeIcon icon="fa-solid fa-cart-shopping" />
+                  {"Hello, " + user.firstName + "!"}
+                </span>
               </Nav.Link>
             )}
           </Nav>

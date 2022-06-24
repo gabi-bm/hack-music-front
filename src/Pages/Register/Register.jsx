@@ -1,14 +1,17 @@
 import "./Register.css";
 import { useForm } from "react-hook-form";
-
+import NavBar from "../../Components/Navbar/Navbar";
 import axios from "axios";
-import { Container, Form, Button } from "react-bootstrap";
+import { Container, Form, Button, Navbar } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPencil, faKey, faHeadphonesSimple } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "../../Redux/userSlice";
 
 const Register = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -18,12 +21,16 @@ const Register = () => {
   const onSubmit = async (data) => {
     const response = await axios.post(process.env.REACT_APP_SERVER_URL + "/users", data);
     console.log(errors);
-    if (response.status === 201) return navigate("/login");
+    if (response.status === 201) {
+      dispatch(logoutUser());
+      return navigate("/login");
+    }
   };
 
   return (
     <div>
       {/* navbar solo con el logo */}
+      <NavBar />
       <Container className="mt-5" style={{ maxWidth: "760px" }}>
         <div className="d-flex justify-content-center align-items-center">
           <h1 className="me-4 tx-second-color">REGISTER</h1>
