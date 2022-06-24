@@ -5,8 +5,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 function ProductsCarousel() {
-  const [popularProducts, setPopularProducts] = useState([]);
-
+  const [popularProducts, setPopularProducts] = useState(null);
   useEffect(() => {
     const getPopularProducts = async () => {
       const response = await axios.get(process.env.REACT_APP_SERVER_URL + "/products?premium=true");
@@ -17,32 +16,43 @@ function ProductsCarousel() {
 
   return (
     <section>
-      {console.log(popularProducts[0])}
-      <h2>POPULAR PRODUCTS</h2>
-      <Carousel variant="dark">
-        <Carousel.Item>
-          <div
-            className="d-flex justify-content-evenly"
-            style={{ width: "85%", margin: "0 auto", padding: "50px 0" }}
-          >
-            {/* <ProductCardSmall productId={popularProducts[0]._id} /> */}
-            {/* <ProductCardSmall product={popularProducts[1]} />
-            <ProductCardSmall product={popularProducts[2]} />
-            <ProductCardSmall product={popularProducts[3]} /> */}
-          </div>
-        </Carousel.Item>
-        {/* <Carousel.Item>
-          <div
-            className="d-flex justify-content-evenly"
-            style={{ width: "85%", margin: "0 auto", padding: "50px 0" }}
-          >
-            <ProductCardSmall product={popularProducts[0]} />
-            <ProductCardSmall product={popularProducts[0]} />
-            <ProductCardSmall product={popularProducts[0]} />
-            <ProductCardSmall product={popularProducts[0]} />
-          </div>
-        </Carousel.Item> */}
-      </Carousel>
+      {popularProducts && (
+        <div>
+          <h2>POPULAR PRODUCTS</h2>
+          <Carousel variant="dark">
+            <Carousel.Item>
+              <div
+                className="d-flex justify-content-evenly"
+                style={{ width: "85%", margin: "0 auto", padding: "50px 0" }}
+              >
+                {popularProducts.slice(8, 13).map((prod, index) => {
+                  return <ProductCardSmall productId={prod._id} />;
+                })}
+              </div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <div
+                className="d-flex justify-content-evenly"
+                style={{ width: "85%", margin: "0 auto", padding: "50px 0" }}
+              >
+                {popularProducts.slice(0, 4).map((prod, index) => {
+                  return <ProductCardSmall productId={prod._id} />;
+                })}
+              </div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <div
+                className="d-flex justify-content-evenly"
+                style={{ width: "85%", margin: "0 auto", padding: "50px 0" }}
+              >
+                {popularProducts.slice(4, 8).map((prod, index) => {
+                  return <ProductCardSmall productId={prod._id} />;
+                })}
+              </div>
+            </Carousel.Item>
+          </Carousel>
+        </div>
+      )}
     </section>
   );
 }
