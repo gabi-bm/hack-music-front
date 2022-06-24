@@ -1,0 +1,15 @@
+.product-description{
+    font-weight: 300;
+    padding: 25px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.product-images{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.pr-image{
+    max-width: 500px;
+    max-height: 500px;
+}

@@ -1,7 +1,7 @@
 import "./Category.css";
 import NavBar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footter/Footer";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Container } from "react-bootstrap";
@@ -44,10 +44,7 @@ const Category = () => {
                     className="border-end"
                     style={{ minWidth: "250px", height: "100%", paddingRight: "45px" }}
                   >
-                    <img
-                      src="https://i.postimg.cc/yNB1LV2h/percussion-santana-front.jpg"
-                      style={{ width: "100%", maxHeight: "100%" }}
-                    ></img>
+                    <img src={product.picture} style={{ width: "100%", maxHeight: "100%" }}></img>
                   </div>
                   <div className="flex-grow-1" style={{ paddingLeft: "45px" }}>
                     <div className="d-flex flex-column align-items-start">
@@ -56,7 +53,9 @@ const Category = () => {
                         {product.description.slice(0, 300) + "..."}
                       </span>
                       <span className="tx-size-md py-2">USD{" $" + product.price}</span>
-                      <span className="tx-size-md view-product-span">View product {">"}</span>
+                      <a href={"/product/" + product._id}>
+                        <span className="tx-size-md view-product-span">View product {">"}</span>
+                      </a>
                     </div>
                   </div>
                 </div>
