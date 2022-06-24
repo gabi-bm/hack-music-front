@@ -28,7 +28,9 @@ const Home = () => {
       <HeaderHome />
       <ProductsCarousel />
       <section>
-        <h2>CATEGORIES</h2>
+        <Container className="mt-5" style={{ textAlign: "center" }}>
+          <h2>CATEGORIES</h2>
+        </Container>
         {categories.map((category) => {
           return (
             <Link to={"/category/" + category.slug} key={"category-" + category.name}>
