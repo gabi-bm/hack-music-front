@@ -5,16 +5,20 @@ import axios from "axios";
 import { Container, Form, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPencil, faKey, faHeadphonesSimple } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-    axios.post(process.env.REACT_APP_SERVER_URL + "/users", data);
+  const onSubmit = async (data) => {
+    const response = await axios.post(process.env.REACT_APP_SERVER_URL + "/users", data);
+    console.log(errors);
+    if (response.status === 201) return navigate("/login");
   };
 
   return (
@@ -37,7 +41,10 @@ const Register = () => {
                 <FontAwesomeIcon icon={faEnvelope} className="form-icon" />
               </Form.Text>
               <Form.Control
-                {...register("email")}
+                {...register("email", {
+                  required: true,
+                  maxLength: 30,
+                })}
                 type="email"
                 placeholder="Enter email"
                 className="form-control ps-0"
@@ -52,7 +59,7 @@ const Register = () => {
                 <FontAwesomeIcon icon={faPencil} className="form-icon" />
               </Form.Text>
               <Form.Control
-                {...register("firstName")}
+                {...register("firstName", { required: true, maxLength: 30 })}
                 type="text"
                 placeholder="Enter First Name"
                 className="form-control ps-0"
@@ -67,7 +74,7 @@ const Register = () => {
                 <FontAwesomeIcon icon={faPencil} className="form-icon" />
               </Form.Text>
               <Form.Control
-                {...register("lastName")}
+                {...register("lastName", { required: true, maxLength: 30 })}
                 type="text"
                 placeholder="Enter Last Name"
                 className="form-control ps-0"
@@ -82,7 +89,7 @@ const Register = () => {
                 <FontAwesomeIcon icon={faKey} className="form-icon" />
               </Form.Text>
               <Form.Control
-                {...register("password")}
+                {...register("password", { required: true, maxLength: 30 })}
                 type="password"
                 placeholder="Enter your password"
                 className="form-control ps-0"
@@ -99,7 +106,7 @@ const Register = () => {
                 <FontAwesomeIcon icon={faKey} className="form-icon" />
               </Form.Text>
               <Form.Control
-                {...register("passwordConfirmation")}
+                {...register("passwordConfirmation", { required: true, maxLength: 30 })}
                 type="password"
                 placeholder="Enter your password (Confirm)"
                 className="form-control ps-0"
@@ -107,9 +114,36 @@ const Register = () => {
             </div>
           </Form.Group>
 
+          {/* //ALERT MSGS */}
+          {errors.email?.type === "required" && (
+            <p className="custom-alert alert-danger fs-6" role="alert">
+              Email field is required.
+            </p>
+          )}
+          {errors.firstName?.type === "required" && (
+            <p className="custom-alert alert-danger fs-6" role="alert">
+              First name field is required.
+            </p>
+          )}
+          {errors.lastName?.type === "required" && (
+            <p className="custom-alert alert-danger fs-6 " role="alert">
+              Last name field is required.
+            </p>
+          )}
+          {errors.password?.type === "required" && (
+            <p className="custom-alert alert-danger fs-6" role="alert">
+              Password field is required.
+            </p>
+          )}
+          {errors.passwordConfirmation !== errors.password && (
+            <p className="custom-alert alert-danger fs-6 " role="alert">
+              Passwords don't match.
+            </p>
+          )}
+
           <Form.Group className="mt-5">
             <div className="d-flex align-items-center">
-              <input type="checkbox" className="flex-grow-2 form-icon"></input>
+              <input type="checkbox" className="flex-grow-2 form-icon" required></input>
               <Form.Text
                 className="tx-size-sm tx-second-color form-label flex-grow-2 "
                 style={{ marginLeft: "12px" }}

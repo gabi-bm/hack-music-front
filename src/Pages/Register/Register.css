@@ -54,3 +54,10 @@
   background-color: #ffcca6;
 }
 
+.custom-alert {
+  position: relative;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}

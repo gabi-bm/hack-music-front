@@ -8,18 +8,21 @@ import { faEnvelope, faKey, faPlay } from "@fortawesome/free-solid-svg-icons";
 
 import { useSelector, useDispatch } from "react-redux";
 import { loginUser } from "../../Redux/userSlice";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    console.log(data);
     const response = await axios.post(process.env.REACT_APP_SERVER_URL + "/tokens", data);
-    dispatch(loginUser(response.data.token));
+    console.log(response);
+    dispatch(loginUser(response.data));
+    if (response.status === 200) return navigate("/");
   };
   return (
     <div>
@@ -43,7 +46,10 @@ const Login = () => {
                 <FontAwesomeIcon icon={faEnvelope} className="form-icon" />
               </Form.Text>
               <Form.Control
-                {...register("email")}
+                {...register("email", {
+                  required: true,
+                  maxLength: 30,
+                })}
                 type="email"
                 placeholder="Enter email"
                 className="form-control ps-0"
@@ -58,21 +64,42 @@ const Login = () => {
                 <FontAwesomeIcon icon={faKey} className="form-icon" />
               </Form.Text>
               <Form.Control
-                {...register("password")}
+                {...register("password", {
+                  required: true,
+                  maxLength: 30,
+                })}
                 type="password"
                 placeholder="Enter your password"
                 className="form-control ps-0"
               />
             </div>
           </Form.Group>
+          {errors.email?.type === "required" && (
+            <p className="custom-alert alert-danger fs-6" role="alert">
+              Email field is required.
+            </p>
+          )}
+          {errors.password?.type === "required" && (
+            <p className="custom-alert alert-danger fs-6" role="alert">
+              Password field is required.
+            </p>
+          )}
 
           <Button variant="custom" type="submit" className="bg-third-color custom-btn my-3">
             Login
           </Button>
         </Form>
         <div className="tx-third-color d-flex justify-content-start mt-3">
-          <span className="tx-size-sm me-3">CREATE ACCOUNT</span>
-          <span className="tx-size-sm">RESTORE PASSWORD</span>
+          <span className="tx-size-sm me-3">
+            <Link to="/register" style={{ color: "inherit" }}>
+              CREATE ACCOUNT
+            </Link>
+          </span>
+          <span className="tx-size-sm">
+            <Link to="/register" style={{ color: "inherit" }}>
+              RESTORE PASSWORD
+            </Link>
+          </span>
         </div>
       </Container>
     </div>
