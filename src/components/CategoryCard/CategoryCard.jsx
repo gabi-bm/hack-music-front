@@ -1,6 +1,4 @@
 const CategoryCard = ({ category }) => {
-  console.log(category);
-  console.log(process.env.REACT_APP_SERVER_URL + category.img);
   return (
     <div className="category-card">
       <div

@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+   
     
     
 }
@@ -20,6 +21,7 @@
     align-items: center;
     justify-content: center;
     font-weight: 100;
+    
     
     
 }
