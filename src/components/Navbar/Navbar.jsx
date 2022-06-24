@@ -27,11 +27,22 @@ const NavBar = () => {
               title="CATEGORIES"
               id="basic-nav-dropdown"
             >
-              <NavDropdown.Item href="/category">Wind</NavDropdown.Item>
+              <NavDropdown.Item href="/category/drums-and-percussion">
+                Drums & Percussion{" "}
+              </NavDropdown.Item>
+
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/category">Percussion</NavDropdown.Item>
+              <NavDropdown.Item href="/category/guitar-and-bass/">Guitar & Bass</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/category">String</NavDropdown.Item>
+              <NavDropdown.Item href="/category/wind-instruments">
+                Wind instruments
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="/category/keyboards-and-pianos">
+                Keyboard & Pianos
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="/category/accessories">Accessories</NavDropdown.Item>
             </NavDropdown>
             <div className="vr"></div>
             <Nav.Link className="tx-color-navbar d-flex align-items-center px-4" href="/aboutus">
