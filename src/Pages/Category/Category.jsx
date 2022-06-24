@@ -16,7 +16,6 @@ const Category = () => {
       const response = await axios.get(
         process.env.REACT_APP_SERVER_URL + "/products?category=" + params.slug,
       );
-      console.log(response.data);
       setProducts(response.data.products);
       setCategory(response.data.category[0]);
     };
