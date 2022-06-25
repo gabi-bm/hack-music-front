@@ -38,13 +38,16 @@ const Category = () => {
         <ul className="m-0 p-0" style={{ width: "100%" }}>
           {products.map((product) => {
             return (
-              <li key={product._id} className="tx-color-third w-100 my-4">
+              <li key={product._id} className="tx-color-third w-100 my-4 list-items">
                 <div className="d-flex border" style={{ height: "270px", padding: "40px 45px" }}>
                   <div
                     className="border-end"
                     style={{ minWidth: "250px", height: "100%", paddingRight: "45px" }}
                   >
-                    <img src={product.picture} style={{ width: "100%", maxHeight: "100%" }}></img>
+                    <img
+                      src={product.picture}
+                      style={{ maxWidth: "100%", maxHeight: "100%" }}
+                    ></img>
                   </div>
                   <div className="flex-grow-1" style={{ paddingLeft: "45px" }}>
                     <div className="d-flex flex-column align-items-start">

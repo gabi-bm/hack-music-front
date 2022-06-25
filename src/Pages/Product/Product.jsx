@@ -1,11 +1,11 @@
 import "./Product.css";
 import NavBar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footter/Footer";
+import ProductsCarousel from "../../Components/ProductsCarousel/ProductsCarousel";
 import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
 const Product = () => {
   const params = useParams();
   const [product, setProduct] = useState([]);
@@ -62,6 +62,10 @@ const Product = () => {
           </div>
         </div>
       </Container>
+      <div className="similar-products">
+        <h2 className="home-titles ">SIMILAR PRODUCTS</h2>
+        <ProductsCarousel />
+      </div>
 
       <Footer />
     </>

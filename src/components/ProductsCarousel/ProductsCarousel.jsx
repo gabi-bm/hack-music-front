@@ -17,8 +17,7 @@ function ProductsCarousel() {
   return (
     <section>
       {popularProducts && (
-        <div style={{ textAlign: "center" }}>
-          <h2>POPULAR PRODUCTS</h2>
+        <div>
           <Carousel variant="dark">
             <Carousel.Item>
               <div

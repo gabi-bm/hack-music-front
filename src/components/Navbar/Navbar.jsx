@@ -18,12 +18,12 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="h-100" id="basic-navbar-nav">
           <Nav className="me-auto h-100">
-            <Nav.Link className="tx-color-navbar d-flex align-items-center px-4" href="/">
+            <Nav.Link className="tx-color-navbar d-flex align-items-center px-4 width-b" href="/">
               <span>HOME</span>
             </Nav.Link>
             <div className="vr"></div>
             <NavDropdown
-              className="tx-color-navbar d-flex align-items-center px-4"
+              className="tx-color-navbar d-flex align-items-center px-4 width-b"
               title="CATEGORIES"
               id="basic-nav-dropdown"
             >
@@ -45,20 +45,29 @@ const NavBar = () => {
               <NavDropdown.Item href="/category/accessories">Accessories</NavDropdown.Item>
             </NavDropdown>
             <div className="vr"></div>
-            <Nav.Link className="tx-color-navbar d-flex align-items-center px-4" href="/aboutus">
+            <Nav.Link
+              className="tx-color-navbar d-flex align-items-center px-4 width-b"
+              href="/aboutus"
+            >
               <span>ABOUT US</span>
             </Nav.Link>
             <div className="vr"></div>
-            <Nav.Link className="tx-color-navbar d-flex align-items-center px-4" href="#link">
+            <Nav.Link
+              className="tx-color-navbar d-flex align-items-center px-4 width-b"
+              href="#link"
+            >
               <span>CART</span>
             </Nav.Link>
             <div className="vr"></div>
-            <Nav.Link className="tx-color-navbar d-flex align-items-center px-4" href="#link">
+            <Nav.Link
+              className="tx-color-navbar d-flex align-items-center px-4 width-b"
+              href="#link"
+            >
               <span>DASHBOARD</span>
             </Nav.Link>
             <div className="vr"></div>
             <NavDropdown
-              className="tx-color-navbar d-flex align-items-center px-4"
+              className="tx-color-navbar d-flex align-items-center px-4 width-b"
               title="USER"
               id="basic-nav-dropdown"
             >

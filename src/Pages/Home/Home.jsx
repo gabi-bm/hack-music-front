@@ -26,10 +26,11 @@ const Home = () => {
     <div>
       <NavBar />
       <HeaderHome />
+      <h2 className="home-titles">POPULAR PRODUCTS</h2>
       <ProductsCarousel />
       <section>
-        <Container className="mt-5" style={{ textAlign: "center" }}>
-          <h2>CATEGORIES</h2>
+        <Container className="mt-5">
+          <h2 className="home-titles">CATEGORIES</h2>
         </Container>
         {categories.map((category) => {
           return (
