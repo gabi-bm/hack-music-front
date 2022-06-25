@@ -12,7 +12,10 @@ const NavBar = () => {
     <Navbar className="custom-navbar py-0 " expand="lg" variant="dark">
       <div className="div-flex h-100 w-100 ">
         <div className="div-logo bg-third-color h-100">
-          <Navbar.Brand className="tx-color-logo px-3 h-100 d-flex align-items-center" href="/">
+          <Navbar.Brand
+            className="tx-color-logo px-3 h-100 d-flex align-items-center justify-content-center"
+            href="/"
+          >
             <span>HackMusic</span>
           </Navbar.Brand>
         </div>
@@ -22,13 +25,12 @@ const NavBar = () => {
             <Nav.Link
               as={Link}
               to="/"
-              className="tx-color-navbar d-flex align-items-center px-4 width-b"
+              className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
             >
               <span>HOME</span>
             </Nav.Link>
-            <div className="vr"></div>
             <NavDropdown
-              className="tx-color-navbar d-flex align-items-center px-4 width-b"
+              className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
               title="CATEGORIES"
               id="basic-nav-dropdown"
             >
@@ -53,33 +55,29 @@ const NavBar = () => {
                 <span>Accessories</span>
               </NavDropdown.Item>
             </NavDropdown>
-            <div className="vr"></div>
             <Nav.Link
-              className="tx-color-navbar d-flex align-items-center px-4 width-b"
+              className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
               as={Link}
               to="/about-us"
             >
               <span>ABOUT US</span>
             </Nav.Link>
-            <div className="vr"></div>
             <Nav.Link
-              className="tx-color-navbar d-flex align-items-center px-4 width-b"
+              className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
               as={Link}
               to="/cart"
             >
               <span>CART</span>
             </Nav.Link>
-            <div className="vr"></div>
             <Nav.Link
-              className="tx-color-navbar d-flex align-items-center px-4 width-b"
+              className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
               as={Link}
               to="/dashboard"
             >
               <span>DASHBOARD</span>
             </Nav.Link>
-            <div className="vr"></div>
             <NavDropdown
-              className="tx-color-navbar d-flex align-items-center px-4 width-b"
+              className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
               title="USER"
               id="basic-nav-dropdown"
             >
@@ -96,10 +94,9 @@ const NavBar = () => {
               </NavDropdown.Item>
             </NavDropdown>
 
-            <div className="vr"></div>
             {user && (
-              <Nav.Link className="tx-color-navbar d-flex align-items-center px-4">
-                <span className="fs-6">{"Hello, " + user.firstName + "!"}</span>
+              <Nav.Link className="tx-color-navbar d-flex align-items-center justify-content-center">
+                <span className="tx-size-sm">{"Hello, " + user.firstName + "!"}</span>
               </Nav.Link>
             )}
           </Nav>
