@@ -29,9 +29,9 @@
     justify-content: center;
     align-items: center;
 }
-.width-b{
-    width: 20vh;
-}
+/* .width-b{
+    flex-grow: 1;
+} */
 .width-b:hover{
     
     background-color:  rgb(83, 82, 82);

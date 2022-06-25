@@ -56,9 +56,9 @@ const Category = () => {
                           {product.description.slice(0, 300) + "..."}
                         </span>
                         <span className="tx-size-md py-2">USD{" $" + product.price}</span>
-                        <a href={"/product/" + product._id}>
+                        <Link to={"/product/" + product._id}>
                           <span className="tx-size-md view-product-span">View product {">"}</span>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>

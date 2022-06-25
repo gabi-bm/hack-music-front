@@ -25,7 +25,7 @@ function ProductsCarousel() {
                 style={{ width: "85%", margin: "0 auto", padding: "50px 0" }}
               >
                 {popularProducts.slice(8, 13).map((prod, index) => {
-                  return <ProductCardSmall productId={prod._id} />;
+                  return <ProductCardSmall key={prod._id} productId={prod._id} />;
                 })}
               </div>
             </Carousel.Item>
@@ -35,7 +35,7 @@ function ProductsCarousel() {
                 style={{ width: "85%", margin: "0 auto", padding: "50px 0" }}
               >
                 {popularProducts.slice(0, 4).map((prod, index) => {
-                  return <ProductCardSmall productId={prod._id} />;
+                  return <ProductCardSmall key={prod._id} productId={prod._id} />;
                 })}
               </div>
             </Carousel.Item>
@@ -45,7 +45,7 @@ function ProductsCarousel() {
                 style={{ width: "85%", margin: "0 auto", padding: "50px 0" }}
               >
                 {popularProducts.slice(4, 8).map((prod, index) => {
-                  return <ProductCardSmall productId={prod._id} />;
+                  return <ProductCardSmall key={prod._id} productId={prod._id} />;
                 })}
               </div>
             </Carousel.Item>

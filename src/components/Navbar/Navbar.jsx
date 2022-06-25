@@ -3,22 +3,27 @@ import { Navbar, NavDropdown, Nav, Container } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const user = useSelector((state) => state.user);
 
   return (
     <Navbar className="custom-navbar py-0 " expand="lg" variant="dark">
-      <div className="div-flex h-100 ">
+      <div className="div-flex h-100 w-100 ">
         <div className="div-logo bg-third-color h-100">
           <Navbar.Brand className="tx-color-logo px-3 h-100 d-flex align-items-center" href="/">
             <span>HackMusic</span>
           </Navbar.Brand>
         </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse className="h-100" id="basic-navbar-nav">
+        <Navbar.Collapse className="h-100 flex-grow-1" id="basic-navbar-nav">
           <Nav className="me-auto h-100">
-            <Nav.Link className="tx-color-navbar d-flex align-items-center px-4 width-b" href="/">
+            <Nav.Link
+              as={Link}
+              to="/"
+              className="tx-color-navbar d-flex align-items-center px-4 width-b"
+            >
               <span>HOME</span>
             </Nav.Link>
             <div className="vr"></div>
@@ -27,41 +32,48 @@ const NavBar = () => {
               title="CATEGORIES"
               id="basic-nav-dropdown"
             >
-              <NavDropdown.Item href="/category/drums-and-percussion">
-                Drums & Percussion{" "}
+              <NavDropdown.Item as={Link} to="/category/drums-and-percussion">
+                <span>Drums & Percussion</span>
               </NavDropdown.Item>
 
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/category/guitar-and-bass/">Guitar & Bass</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/category/wind-instruments">
-                Wind instruments
+              <NavDropdown.Item as={Link} to="/category/guitar-and-bass">
+                <span>Guitar & Bass</span>
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/category/keyboards-and-pianos">
-                Keyboard & Pianos
+              <NavDropdown.Item as={Link} to="/category/wind-instruments">
+                <span>Wind instruments</span>
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/category/accessories">Accessories</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/category/keyboards-and-pianos">
+                <span>Keyboard & Pianos</span>
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item as={Link} to="/category/accessories">
+                <span>Accessories</span>
+              </NavDropdown.Item>
             </NavDropdown>
             <div className="vr"></div>
             <Nav.Link
               className="tx-color-navbar d-flex align-items-center px-4 width-b"
-              href="/aboutus"
+              as={Link}
+              to="/about-us"
             >
               <span>ABOUT US</span>
             </Nav.Link>
             <div className="vr"></div>
             <Nav.Link
               className="tx-color-navbar d-flex align-items-center px-4 width-b"
-              href="#link"
+              as={Link}
+              to="/cart"
             >
               <span>CART</span>
             </Nav.Link>
             <div className="vr"></div>
             <Nav.Link
               className="tx-color-navbar d-flex align-items-center px-4 width-b"
-              href="#link"
+              as={Link}
+              to="/dashboard"
             >
               <span>DASHBOARD</span>
             </Nav.Link>
@@ -71,16 +83,22 @@ const NavBar = () => {
               title="USER"
               id="basic-nav-dropdown"
             >
-              <NavDropdown.Item href="/register">Register</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/register">
+                <span>Register</span>
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/login">Login</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/login">
+                <span>Login</span>
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/logout">
+                <span>Logout</span>
+              </NavDropdown.Item>
             </NavDropdown>
 
             <div className="vr"></div>
-            {user.firstName && (
-              <Nav.Link className="tx-color-navbar d-flex align-items-center px-4" href="/">
+            {user && (
+              <Nav.Link className="tx-color-navbar d-flex align-items-center px-4">
                 <span className="fs-6">{"Hello, " + user.firstName + "!"}</span>
               </Nav.Link>
             )}

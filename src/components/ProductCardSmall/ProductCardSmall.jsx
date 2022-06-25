@@ -9,7 +9,7 @@ const ProductCardSmall = ({ productId }) => {
       setProduct(response.data);
     };
     getProduct();
-  });
+  }, []);
 
   return (
     <>
@@ -20,7 +20,6 @@ const ProductCardSmall = ({ productId }) => {
             maxWidth: "15rem",
             height: "17rem",
             maxHeight: "17rem",
-            border: "10px solid rgba(202, 202, 202, 0.2)",
           }}
         >
           <img
@@ -30,7 +29,7 @@ const ProductCardSmall = ({ productId }) => {
           ></img>
 
           <span
-            className="tx-size-md"
+            className="tx-size-md pt-3"
             style={{ height: "4rem", width: "80%", textAlign: "center" }}
           >
             {product.name}

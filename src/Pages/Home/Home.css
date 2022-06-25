@@ -9,10 +9,10 @@
     margin-bottom: 6%;
 }
 .titulo-header{
-    font-size: 6rem;
+    font-size: 9rem;
     /* text-shadow: -1px -1px 1px #f96d00, 1px -1px 1px #f96d00, -1px 1px 1px #f96d00, 1px 1px 1px #f96d00; */
-    color: var(--fourth-color);
-    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 700;
 }
 .home-titles{
     font-weight: 200;

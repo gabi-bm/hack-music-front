@@ -6,6 +6,7 @@ import Product from "./Pages/Product/Product";
 import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
 import Logout from "./Pages/Logout/Logout";
+import Cart from "./Pages/Cart/Cart";
 
 const MyRoutes = () => {
   return (
@@ -13,12 +14,12 @@ const MyRoutes = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/category/:slug" element={<Category />} />
-        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/about-us" element={<AboutUs />} />
         <Route path="/product/:id" element={<Product />} />
-
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </>
   );
