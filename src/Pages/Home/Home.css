@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 .header{
     display: flex;
-    background-image: url(https://static.roland.com/assets/promos/jpg/billboard_roland_cloud.jpg);
+    background-image: url(https://static.roland.com/assets/promos/jpg/billboard_aira_compact.jpg);
     justify-content: center;
     align-items: center;
     height: 640px;
