@@ -10,6 +10,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import MultiCarousel from "../../Components/MultiCarousel/MultiCarousel";
 
 const Home = () => {
   const [categories, setCategories] = useState([]);
@@ -27,7 +28,9 @@ const Home = () => {
       <NavBar />
       <HeaderHome />
       <h2 className="home-titles">POPULAR PRODUCTS</h2>
-      <ProductsCarousel />
+      {/* <ProductsCarousel /> */}
+      {/* GB: Traje este nuevo carousel para evtiar lo de poner varios productos por item (bootstrap). Con un poco de estilo en los botones queda cheto y ya es bien responsive */}
+      <MultiCarousel api_endpoint={"/products?premium=true"} />
       <section>
         <Container className="mt-5">
           <h2 className="home-titles">CATEGORIES</h2>

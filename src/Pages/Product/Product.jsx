@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { addProduct } from "../../Redux/cartSlice";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import MultiCarousel from "../../Components/MultiCarousel/MultiCarousel";
 
 const Product = () => {
   const params = useParams();
@@ -26,6 +27,14 @@ const Product = () => {
       setProduct(response.data);
     };
     getProduct();
+    // const getCategory = async (categoryId) => {
+    //   const response = await axios.get(
+    //     process.env.REACT_APP_SERVER_URL + `/categories/${categoryId}`,
+    //   );
+    //   console.log(response.data);
+    //   setCategory(response.data);
+    // };
+    // getCategory(product.categoryId);
   }, []);
 
   return (
@@ -74,7 +83,8 @@ const Product = () => {
         </Container>
         <div className="similar-products">
           <h2 className="home-titles ">SIMILAR PRODUCTS</h2>
-          <ProductsCarousel />
+          {/* GB: Hay que cambiar el endpoint para traer productos similares (misma categoria). Ver bien */}
+          <MultiCarousel api_endpoint={"/products?premium=true"} />
         </div>
 
         <Footer />

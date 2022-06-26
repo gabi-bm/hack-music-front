@@ -17,7 +17,6 @@ const ProductCardSmall = ({ productId }) => {
         <div
           className="d-flex flex-column align-items-center"
           style={{
-            maxWidth: "15rem",
             height: "17rem",
             maxHeight: "17rem",
           }}
@@ -29,7 +28,7 @@ const ProductCardSmall = ({ productId }) => {
           ></img>
 
           <span
-            className="tx-size-md pt-3"
+            className="tx-size-md pt-2"
             style={{ height: "4rem", width: "80%", textAlign: "center" }}
           >
             {product.name}
