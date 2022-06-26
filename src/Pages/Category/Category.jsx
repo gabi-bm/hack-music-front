@@ -1,14 +1,27 @@
 import "./Category.css";
 import NavBar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footter/Footer";
+import ProductCardLarge from "../../Components/ProductCardLarge/ProductCardLarge";
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Container } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../../Redux/cartSlice";
 
 const Category = () => {
+  const dispatch = useDispatch();
   const params = useParams();
   const [category, setCategory] = useState(null);
+
+  const notify = () => toast("Product added to cart!");
+
+  const handleAddProduct = (product) => {
+    dispatch(addProduct({ product }));
+    return;
+  };
 
   useEffect(() => {
     const getProducts = async () => {
@@ -25,6 +38,7 @@ const Category = () => {
       <div>
         {console.log(category)}
         <NavBar />
+        <ToastContainer />
         <div style={{ width: "100%", height: "500px", overflow: "hidden" }}>
           {/* Ver altura img en vh.. relacionar con altura nav y h1 para que cubran pantalla. Y ver caso pantallas con poco ancho */}
           <img
@@ -34,34 +48,17 @@ const Category = () => {
         </div>
         <Container style={{ textAlign: "center" }}>
           <h1 className="category-title mt-5">{category.alias}</h1>
-          {/* VER DE TENER DISPONIBLE LA CATGORY PARA NO HARCODEAR */}
           <ul className="m-0 p-0" style={{ width: "100%" }}>
             {category.products.map((product) => {
               return (
                 <li key={product._id} className="tx-color-third w-100 my-4 list-items">
-                  <div className="d-flex border" style={{ height: "270px", padding: "40px 45px" }}>
-                    <div
-                      className="border-end"
-                      style={{ minWidth: "250px", height: "100%", paddingRight: "45px" }}
-                    >
-                      <img
-                        src={product.picture}
-                        style={{ maxWidth: "100%", maxHeight: "100%" }}
-                      ></img>
-                    </div>
-                    <div className="flex-grow-1" style={{ paddingLeft: "45px" }}>
-                      <div className="d-flex flex-column align-items-start">
-                        <span className="tx-size-xl">{product.name}</span>
-                        <span className="tx-size-sm py-2" style={{ textAlign: "start" }}>
-                          {product.description.slice(0, 300) + "..."}
-                        </span>
-                        <span className="tx-size-md py-2">USD{" $" + product.price}</span>
-                        <Link to={"/product/" + product._id}>
-                          <span className="tx-size-md view-product-span">View product {">"}</span>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
+                  <Link to={"/product/" + product._id} style={{ color: "var(--first-color)" }}>
+                    <ProductCardLarge
+                      product={product}
+                      handleAddProduct={handleAddProduct}
+                      notify={notify}
+                    />
+                  </Link>
                 </li>
               );
             })}

@@ -13,6 +13,7 @@ import { Container } from "react-bootstrap";
 import MultiCarousel from "../../Components/MultiCarousel/MultiCarousel";
 
 const Home = () => {
+  const [carouselProducts, setCarouselProducts] = useState(null);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -21,6 +22,12 @@ const Home = () => {
       setCategories(response.data);
     };
     getCategories();
+
+    const getPopularProducts = async () => {
+      const response = await axios.get(process.env.REACT_APP_SERVER_URL + "/products?premium=true");
+      setCarouselProducts(response.data);
+    };
+    getPopularProducts();
   }, []);
 
   return (
@@ -30,7 +37,7 @@ const Home = () => {
       <h2 className="home-titles">POPULAR PRODUCTS</h2>
       {/* <ProductsCarousel /> */}
       {/* GB: Traje este nuevo carousel para evtiar lo de poner varios productos por item (bootstrap). Con un poco de estilo en los botones queda cheto y ya es bien responsive */}
-      <MultiCarousel api_endpoint={"/products?premium=true"} />
+      <MultiCarousel carouselProducts={carouselProducts} />
       <section>
         <Container className="mt-5">
           <h2 className="home-titles">CATEGORIES</h2>

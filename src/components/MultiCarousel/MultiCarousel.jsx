@@ -24,16 +24,7 @@ const responsive = {
   },
 };
 
-const MultiCarousel = ({ api_endpoint }) => {
-  const [carouselProducts, setCarouselProducts] = useState(null);
-  useEffect(() => {
-    const getPopularProducts = async () => {
-      const response = await axios.get(process.env.REACT_APP_SERVER_URL + api_endpoint);
-      setCarouselProducts(response.data);
-    };
-    getPopularProducts();
-  }, []);
-
+const MultiCarousel = ({ carouselProducts }) => {
   return (
     carouselProducts && (
       <Container>

@@ -2,18 +2,23 @@ import "./Product.css";
 import NavBar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footter/Footer";
 import ProductsCarousel from "../../Components/ProductsCarousel/ProductsCarousel";
-import { Container } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { addProduct } from "../../Redux/cartSlice";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import MultiCarousel from "../../Components/MultiCarousel/MultiCarousel";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Product = () => {
   const params = useParams();
+  const [carouselProducts, setCarouselProducts] = useState(null);
   const [product, setProduct] = useState(null);
   const dispatch = useDispatch();
+
+  const notify = () => toast("Product added to cart!");
 
   const handleAddProduct = () => {
     dispatch(addProduct({ product }));
@@ -27,21 +32,25 @@ const Product = () => {
       setProduct(response.data);
     };
     getProduct();
-    // const getCategory = async (categoryId) => {
-    //   const response = await axios.get(
-    //     process.env.REACT_APP_SERVER_URL + `/categories/${categoryId}`,
-    //   );
-    //   console.log(response.data);
-    //   setCategory(response.data);
-    // };
-    // getCategory(product.categoryId);
+
+    const getSimilarProducts = async () => {
+      console.log(product.categoryId);
+      // const response = await axios.get(
+      //   process.env.REACT_APP_SERVER_URL + "/categories/" + product.categoryId + "?products=true",
+      // );
+      // GB: Lo de arriba no funciona por la async de product. Ver como hacer ese fetch. Minetras queda el de productos premuim
+      const response = await axios.get(process.env.REACT_APP_SERVER_URL + "/products?premium=true");
+      console.log(response.data);
+      setCarouselProducts(response.data.products);
+    };
+    getSimilarProducts();
   }, []);
 
   return (
     product && (
       <>
         <NavBar />
-
+        <ToastContainer />
         <Container style={{ textAlign: "center", marginTop: "15px" }}>
           <div>
             <div className="d-flex border" style={{ height: "350px", padding: "40px 45px" }}>
@@ -61,9 +70,16 @@ const Product = () => {
                     </span>
                   )}
                   <span className="tx-size-md view-product-span">Brand img</span>
-                  <button onClick={handleAddProduct} className="btn btn-primary">
+                  <Button
+                    type="button"
+                    onClick={(e) => {
+                      handleAddProduct();
+                      notify();
+                      e.target.blur();
+                    }}
+                  >
                     Add to cart
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -83,8 +99,7 @@ const Product = () => {
         </Container>
         <div className="similar-products">
           <h2 className="home-titles ">SIMILAR PRODUCTS</h2>
-          {/* GB: Hay que cambiar el endpoint para traer productos similares (misma categoria). Ver bien */}
-          <MultiCarousel api_endpoint={"/products?premium=true"} />
+          <MultiCarousel carouselProducts={carouselProducts} />
         </div>
 
         <Footer />
