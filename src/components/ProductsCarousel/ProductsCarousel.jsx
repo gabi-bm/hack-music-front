@@ -1,5 +1,6 @@
 import { Carousel } from "react-bootstrap";
 import ProductCardSmall from "../ProductCardSmall/ProductCardSmall";
+import { Link } from "react-router-dom";
 
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -25,7 +26,11 @@ function ProductsCarousel() {
                 style={{ width: "85%", margin: "0 auto", padding: "50px 0" }}
               >
                 {popularProducts.slice(8, 13).map((prod, index) => {
-                  return <ProductCardSmall key={prod._id} productId={prod._id} />;
+                  return (
+                    <Link to={"/product/" + prod._id}>
+                      <ProductCardSmall key={prod._id} productId={prod._id} />
+                    </Link>
+                  );
                 })}
               </div>
             </Carousel.Item>
@@ -35,7 +40,11 @@ function ProductsCarousel() {
                 style={{ width: "85%", margin: "0 auto", padding: "50px 0" }}
               >
                 {popularProducts.slice(0, 4).map((prod, index) => {
-                  return <ProductCardSmall key={prod._id} productId={prod._id} />;
+                  return (
+                    <Link to={"/product/" + prod._id}>
+                      <ProductCardSmall key={prod._id} productId={prod._id} />
+                    </Link>
+                  );
                 })}
               </div>
             </Carousel.Item>
@@ -45,7 +54,12 @@ function ProductsCarousel() {
                 style={{ width: "85%", margin: "0 auto", padding: "50px 0" }}
               >
                 {popularProducts.slice(4, 8).map((prod, index) => {
-                  return <ProductCardSmall key={prod._id} productId={prod._id} />;
+                  return (
+                    <Link to={"/product/" + prod._id}>
+                      {" "}
+                      <ProductCardSmall key={prod._id} productId={prod._id} />
+                    </Link>
+                  );
                 })}
               </div>
             </Carousel.Item>
