@@ -7,6 +7,7 @@ import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
 import Logout from "./Pages/Logout/Logout";
 import Cart from "./Pages/Cart/Cart";
+import OffcanvasCart from "./Pages/OffcanvasCart/OffcanvasCart";
 
 const MyRoutes = () => {
   return (
@@ -20,6 +21,7 @@ const MyRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/cart" element={<Cart />} />
+        {/* <Route path="/off-cart" element={<OffcanvasCart />} /> */}
       </Routes>
     </>
   );
