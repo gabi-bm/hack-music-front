@@ -12,6 +12,7 @@ import DashboardAdmin from "./Pages/DashboardAdmin/DashboardAdmin";
 import DashboardCategories from "./Pages/DashboardCategories/DashboardCategories";
 import DashboardOrders from "./Pages/DashboardOrders/DashboardOrders";
 import DashboardProducts from "./Pages/DashboardProducts/DashboardProducts";
+import OffcanvasCart from "./Pages/OffcanvasCart/OffcanvasCart";
 
 const MyRoutes = () => {
   return (
@@ -30,6 +31,7 @@ const MyRoutes = () => {
         <Route path="/dashboard/categories" element={<DashboardCategories />} />
         <Route path="/dashboard/orders" element={<DashboardOrders />} />
         <Route path="/dashboard/products" element={<DashboardProducts />} />
+        {/* <Route path="/off-cart" element={<OffcanvasCart />} /> */}
       </Routes>
     </>
   );

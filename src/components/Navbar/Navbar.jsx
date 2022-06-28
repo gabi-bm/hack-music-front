@@ -97,7 +97,7 @@ const NavBar = () => {
               <span>DASHBOARD</span>
             </Nav.Link>
 
-            {user && (
+            {user.firstName && (
               <Nav.Link className="tx-color-navbar d-flex align-items-center justify-content-center">
                 <span className="tx-size-sm">{"Hello, " + user.firstName + "!"}</span>
               </Nav.Link>
