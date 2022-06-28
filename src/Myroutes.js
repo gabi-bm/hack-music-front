@@ -8,6 +8,7 @@ import Login from "./Pages/Login/Login";
 import Logout from "./Pages/Logout/Logout";
 import Cart from "./Pages/Cart/Cart";
 import OffcanvasCart from "./Pages/OffcanvasCart/OffcanvasCart";
+import Checkout from "./Pages/Checkout/Checkout";
 
 const MyRoutes = () => {
   return (
@@ -21,6 +22,7 @@ const MyRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
         {/* <Route path="/off-cart" element={<OffcanvasCart />} /> */}
       </Routes>
     </>
