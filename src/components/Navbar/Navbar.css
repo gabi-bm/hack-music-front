@@ -47,3 +47,18 @@
     background-color:  rgb(83, 82, 82);
     color: white;
 }
+.icon-size{
+    font-size: 1rem;
+}
+.icon-size-logo{
+    font-size: 1.5rem;
+    margin-left: 8px;
+}
+.title-size{
+ font-size: 1.2rem;
+}
+@media (max-width: 990px){
+    .title-size{
+     display: none;
+    }
+ }
