@@ -6,7 +6,6 @@ const cartSlice = createSlice({
   reducers: {
     addProduct: {
       reducer: (state, action) => {
-        console.log("Dentro del reducer");
         const addedItem = state.items.find(
           (cartItem) => cartItem.product._id === action.payload.addedItem.product._id,
         );
@@ -16,7 +15,6 @@ const cartSlice = createSlice({
         state.totalPrice += action.payload.addedItem.product.price;
       },
       prepare: ({ product }) => {
-        console.log("Dentro del prepare");
         const quantity = 1;
         return { payload: { addedItem: { product, quantity } } };
       },
@@ -26,16 +24,15 @@ const cartSlice = createSlice({
         (cartItem) => cartItem.product._id === action.payload.deletedItem.product._id,
       );
 
-      if (action.payload.deletedItem.quantity > 1) {
+      if (deletedItem.quantity > 1) {
         deletedItem.quantity -= 1;
       } else {
-        const index = state.items.indexOf(
-          (cartItem) => cartItem.product._id === deletedItem.product._id,
+        state.items = state.items.filter(
+          (cartItem) => cartItem.product._id !== deletedItem.product._id,
         );
-        state.items.splice(index, 1);
       }
 
-      state.totalQuantity -= 1;
+      state.totalQuantity <= 0 ? (state.totalQuantity = 0) : (state.totalQuantity -= 1);
       state.totalPrice -= action.payload.deletedItem.product.price;
     },
     deleteCartItem(state, action) {
@@ -44,15 +41,19 @@ const cartSlice = createSlice({
       state.totalQuantity -= quantity;
       state.totalPrice -= quantity * price;
 
-      const index = state.items.indexOf(
-        (cartItem) => cartItem.product._id === action.payload.deletedItem.product._id,
+      state.items = state.items.filter(
+        (cartItem) => cartItem.product._id !== action.payload.deletedItem.product._id,
       );
-      state.items.splice(index, 1);
+    },
+    resetCart(state) {
+      state.items = [];
+      state.totalPrice = 0;
+      state.totalQuantity = 0;
     },
   },
 });
 
 const { actions, reducer } = cartSlice;
 
-export const { addProduct, deleteProduct, deleteCartItem } = actions;
+export const { addProduct, deleteProduct, deleteCartItem, resetCart } = actions;
 export default reducer;

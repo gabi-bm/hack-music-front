@@ -25,7 +25,7 @@ function ProductsCarousel() {
                 className="d-flex justify-content-evenly"
                 style={{ width: "85%", margin: "0 auto", padding: "50px 0" }}
               >
-                {popularProducts.slice(8, 13).map((prod, index) => {
+                {popularProducts.slice(8, 13).map((prod) => {
                   return (
                     <Link to={"/product/" + prod._id}>
                       <ProductCardSmall key={prod._id} productId={prod._id} />
@@ -39,7 +39,7 @@ function ProductsCarousel() {
                 className="d-flex justify-content-evenly"
                 style={{ width: "85%", margin: "0 auto", padding: "50px 0" }}
               >
-                {popularProducts.slice(0, 4).map((prod, index) => {
+                {popularProducts.slice(0, 4).map((prod) => {
                   return (
                     <Link to={"/product/" + prod._id}>
                       <ProductCardSmall key={prod._id} productId={prod._id} />
@@ -53,7 +53,7 @@ function ProductsCarousel() {
                 className="d-flex justify-content-evenly"
                 style={{ width: "85%", margin: "0 auto", padding: "50px 0" }}
               >
-                {popularProducts.slice(4, 8).map((prod, index) => {
+                {popularProducts.slice(4, 8).map((prod) => {
                   return (
                     <Link to={"/product/" + prod._id}>
                       {" "}

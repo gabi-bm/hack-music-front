@@ -1,7 +1,7 @@
 import "./Product.css";
 import NavBar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footter/Footer";
-import ProductsCarousel from "../../Components/ProductsCarousel/ProductsCarousel";
+import { Link } from "react-router-dom";
 import { Button, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -34,14 +34,13 @@ const Product = () => {
     getProduct();
 
     const getSimilarProducts = async () => {
-      console.log(product.categoryId);
       // const response = await axios.get(
       //   process.env.REACT_APP_SERVER_URL + "/categories/" + product.categoryId + "?products=true",
       // );
       // GB: Lo de arriba no funciona por la async de product. Ver como hacer ese fetch. Minetras queda el de productos premuim
       const response = await axios.get(process.env.REACT_APP_SERVER_URL + "/products?premium=true");
       console.log(response.data);
-      setCarouselProducts(response.data.products);
+      setCarouselProducts(response.data);
     };
     getSimilarProducts();
   }, []);
@@ -99,6 +98,7 @@ const Product = () => {
         </Container>
         <div className="similar-products">
           <h2 className="home-titles ">SIMILAR PRODUCTS</h2>
+
           <MultiCarousel carouselProducts={carouselProducts} />
         </div>
 
