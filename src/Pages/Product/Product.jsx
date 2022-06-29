@@ -1,7 +1,6 @@
 import "./Product.css";
 import NavBar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footter/Footer";
-import { Link } from "react-router-dom";
 import { Button, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
@@ -17,9 +16,8 @@ const Product = () => {
   const [carouselProducts, setCarouselProducts] = useState(null);
   const [product, setProduct] = useState(null);
   const dispatch = useDispatch();
-  const isInitialMount = useRef(false);
 
-  const notify = () => toast("Product added to cart!");
+  const notify = () => toast(product.name + " added to cart!");
 
   const handleAddProduct = () => {
     dispatch(addProduct({ product }));
@@ -32,21 +30,17 @@ const Product = () => {
       setProduct(response.data);
     };
     getProduct();
-    isInitialMount.current = true;
   }, [params.id]);
 
   useEffect(() => {
-    if (isInitialMount.current) {
-      const getSimilarProducts = async () => {
-        console.log(product);
-        const response = await axios.get(
-          process.env.REACT_APP_SERVER_URL + "/products?categoryName=" + product.categoryName,
-        );
-        console.log(response.data);
-        setCarouselProducts(response.data);
-      };
-      getSimilarProducts();
-    }
+    const getSimilarProducts = async () => {
+      const response = await axios.get(
+        process.env.REACT_APP_SERVER_URL + "/products?categoryName=" + product.categoryName,
+      );
+      setCarouselProducts(response.data);
+    };
+    product && getSimilarProducts();
+    window.scrollTo(0, 0);
   }, [product]);
 
   return (

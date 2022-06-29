@@ -57,7 +57,9 @@ const Cart = () => {
       },
     );
 
+
     navigate(`/checkout/${response.data._id}`);
+
   };
 
   return cart.items.length > 0 ? (

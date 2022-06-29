@@ -7,9 +7,10 @@ const CategoryCard = ({ category }) => {
           backgroundImage: "url(" + category.img + ")",
         }}
       >
-        <h3 className="px-2 py-1" style={{ backgroundColor: "rgba(1, 1, 1, 0.5)" }}>
+        {/* <h3 className="px-2 py-1" style={{ backgroundColor: "rgba(1, 1, 1, 0.1)" }}>
           {category.alias}
-        </h3>
+        </h3> */}
+        <span></span>
       </div>
     </div>
   );

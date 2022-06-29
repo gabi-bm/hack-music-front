@@ -7,7 +7,7 @@ const ProductCardLarge = ({ product, handleAddProduct, notify }) => {
         className="border-end"
         style={{ minWidth: "250px", height: "100%", paddingRight: "45px" }}
       >
-        <img src={product.picture} style={{ maxWidth: "100%", maxHeight: "100%" }}></img>
+        <img src={product.picture} style={{ maxWidth: "auto", maxHeight: "100%" }}></img>
       </div>
       <div className="flex-grow-1" style={{ paddingLeft: "45px" }}>
         <div className="d-flex flex-column align-items-start">

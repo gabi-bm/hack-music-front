@@ -12,8 +12,8 @@ import DashboardAdmin from "./Pages/DashboardAdmin/DashboardAdmin";
 import DashboardCategories from "./Pages/DashboardCategories/DashboardCategories";
 import DashboardOrders from "./Pages/DashboardOrders/DashboardOrders";
 import DashboardProducts from "./Pages/DashboardProducts/DashboardProducts";
-import OffcanvasCart from "./Pages/OffcanvasCart/OffcanvasCart";
 import Checkout from "./Pages/Checkout/Checkout";
+import UserProfile from "./Pages/UserProfile/UserProfile";
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 
 const MyRoutes = () => {
@@ -29,6 +29,7 @@ const MyRoutes = () => {
         <Route path="/logout" element={<Logout />} />
         <Route path="/cart" element={<Cart />} />
 
+
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboard/admin" element={<DashboardAdmin />} />
         <Route path="/dashboard/categories" element={<DashboardCategories />} />
@@ -37,8 +38,15 @@ const MyRoutes = () => {
         <Route path="/checkout/:orderId" element={<Checkout />} />
 
         {/* <Route path="/off-cart" element={<OffcanvasCart />} /> */}
+
         <Route element={<ProtectedRoute />}>
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/admin" element={<DashboardAdmin />} />
+          <Route path="/dashboard/categories" element={<DashboardCategories />} />
+          <Route path="/dashboard/orders" element={<DashboardOrders />} />
+          <Route path="/dashboard/products" element={<DashboardProducts />} />
+          <Route path="/user-profile" element={<UserProfile />} />
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         </Route>
       </Routes>
