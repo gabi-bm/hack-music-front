@@ -28,8 +28,6 @@ const MyRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/cart" element={<Cart />} />
-<<<<<<< HEAD
-<<<<<<< HEAD
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboard/admin" element={<DashboardAdmin />} />
         <Route path="/dashboard/categories" element={<DashboardCategories />} />
@@ -37,17 +35,10 @@ const MyRoutes = () => {
         <Route path="/dashboard/products" element={<DashboardProducts />} />
         <Route path="/checkout" element={<Checkout />} />
         {/* <Route path="/off-cart" element={<OffcanvasCart />} /> */}
-=======
-=======
->>>>>>> 1601cbf0cf21298b62e34d2576811a5de30e4e5d
         <Route element={<ProtectedRoute />}>
           <Route path="/checkout" element={<Checkout />} />
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         </Route>
-<<<<<<< HEAD
->>>>>>> 1601cbf (Cart func, carousel links and useeffect fix)
-=======
->>>>>>> 1601cbf0cf21298b62e34d2576811a5de30e4e5d
       </Routes>
     </>
   );
