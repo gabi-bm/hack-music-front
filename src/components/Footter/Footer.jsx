@@ -70,7 +70,7 @@ const Footer = () => {
       </div>
       <div className="footer-second">
         <div> © Hack Music | Products can change withot notice </div>
-        <div>Contacta | Forum | Cookies & Terms</div>
+        <div className="resp-foot">Contacta | Forum | Cookies & Terms</div>
       </div>
     </div>
   );

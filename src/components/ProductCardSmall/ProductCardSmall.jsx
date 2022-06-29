@@ -24,7 +24,9 @@ const ProductCardSmall = ({ productId }) => {
           <img
             className="flex-grow-1"
             src={product.picture[0]}
-            style={{ width: "auto", maxHeight: "100%", maxWidth: "100%" }}
+
+            style={{ width: "auto", maxHeight: "100%" }}
+
           ></img>
 
           <span

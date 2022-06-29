@@ -1,5 +1,5 @@
 .sideBar{
-    width: 12rem;
+    width: 14rem;
     height: calc(100vh - 52px);
     border-right: 2px solid #0f0f0f;
 }
@@ -33,7 +33,7 @@
     
     
 }
-@media (max-width: 1090px){
+@media (max-width: 1190px){
     .sideBar{
         width: 7rem;
     }

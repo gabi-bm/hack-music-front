@@ -35,7 +35,7 @@ const Register = () => {
         </div>
         <Form onSubmit={handleSubmit(onSubmit)} className="px-5">
           <Form.Group className="mb-3">
-            <Form.Label className="tx-size-sm tx-second-color form-label">Email</Form.Label>
+            <Form.Label className="tx-size-sm tx-second-color form-label-margin">Email</Form.Label>
             <div className="d-flex align-items-center">
               <Form.Text className="form-icon-container">
                 <FontAwesomeIcon icon={faEnvelope} className="form-icon" />
@@ -53,7 +53,9 @@ const Register = () => {
           </Form.Group>
 
           <Form.Group className="mb-3 form-group-half">
-            <Form.Label className="tx-size-sm tx-second-color form-label">First Name</Form.Label>
+            <Form.Label className="tx-size-sm tx-second-color form-label-margin">
+              First Name
+            </Form.Label>
             <div className="d-flex align-items-center">
               <Form.Text className="form-icon-container">
                 <FontAwesomeIcon icon={faPencil} className="form-icon" />
@@ -68,7 +70,9 @@ const Register = () => {
           </Form.Group>
 
           <Form.Group className="mb-3 form-group-half" style={{ float: "right" }}>
-            <Form.Label className="tx-size-sm tx-second-color form-label">Last Name</Form.Label>
+            <Form.Label className="tx-size-sm tx-second-color form-label-margin">
+              Last Name
+            </Form.Label>
             <div className="d-flex align-items-center">
               <Form.Text className="form-icon-container">
                 <FontAwesomeIcon icon={faPencil} className="form-icon" />
@@ -83,7 +87,9 @@ const Register = () => {
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label className="tx-size-sm tx-second-color form-label">Password</Form.Label>
+            <Form.Label className="tx-size-sm tx-second-color form-label-margin">
+              Password
+            </Form.Label>
             <div className="d-flex align-items-center">
               <Form.Text className="form-icon-container">
                 <FontAwesomeIcon icon={faKey} className="form-icon" />
@@ -98,7 +104,7 @@ const Register = () => {
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label className="tx-size-sm tx-second-color form-label">
+            <Form.Label className="tx-size-sm tx-second-color form-label-margin">
               Password Confirmation
             </Form.Label>
             <div className="d-flex align-items-center">
@@ -145,7 +151,7 @@ const Register = () => {
             <div className="d-flex align-items-center">
               <input type="checkbox" className="flex-grow-2 form-icon" required></input>
               <Form.Text
-                className="tx-size-sm tx-second-color form-label flex-grow-2 "
+                className="tx-size-sm tx-second-color form-label-margin flex-grow-2 "
                 style={{ marginLeft: "12px" }}
               >
                 I have read and agree to the terms of use and privacy policy.

@@ -28,9 +28,17 @@ const MyRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/user-profile" element={<UserProfile />} />
 
-        {/* -- PRIVATE ROUTES -- */}
+
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/admin" element={<DashboardAdmin />} />
+        <Route path="/dashboard/categories" element={<DashboardCategories />} />
+        <Route path="/dashboard/orders" element={<DashboardOrders />} />
+        <Route path="/dashboard/products" element={<DashboardProducts />} />
+        <Route path="/checkout/:orderId" element={<Checkout />} />
+
+        {/* <Route path="/off-cart" element={<OffcanvasCart />} /> */}
+
         <Route element={<ProtectedRoute />}>
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -38,7 +46,7 @@ const MyRoutes = () => {
           <Route path="/dashboard/categories" element={<DashboardCategories />} />
           <Route path="/dashboard/orders" element={<DashboardOrders />} />
           <Route path="/dashboard/products" element={<DashboardProducts />} />
-
+          <Route path="/user-profile" element={<UserProfile />} />
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         </Route>
       </Routes>

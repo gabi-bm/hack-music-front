@@ -37,7 +37,7 @@ const Cart = () => {
     dispatch(resetCart());
   };
 
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     if (!user.accessToken) {
       navigate("/login");
     }
@@ -46,7 +46,8 @@ const Cart = () => {
       return { productId: item.product._id, quantity: item.quantity };
     });
 
-    axios.post(
+
+    const response = await axios.post(
       process.env.REACT_APP_SERVER_URL + "/orders",
       { cartItems },
       {
@@ -55,8 +56,10 @@ const Cart = () => {
         },
       },
     );
-    dispatch(resetCart());
-    navigate("/checkout");
+
+
+    navigate(`/checkout/${response.data._id}`);
+
   };
 
   return cart.items.length > 0 ? (

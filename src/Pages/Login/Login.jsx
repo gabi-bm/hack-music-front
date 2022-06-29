@@ -50,7 +50,7 @@ const Login = () => {
           </div>
 
           <Form.Group className="mb-3">
-            <Form.Label className="tx-size-sm tx-second-color form-label">Email</Form.Label>
+            <Form.Label className="tx-size-sm tx-second-color form-label-margin">Email</Form.Label>
             <div className="d-flex align-items-center">
               <Form.Text className="form-icon-container">
                 <FontAwesomeIcon icon={faEnvelope} className="form-icon" />
@@ -68,7 +68,9 @@ const Login = () => {
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label className="tx-size-sm tx-second-color form-label">Password</Form.Label>
+            <Form.Label className="tx-size-sm tx-second-color form-label-margin">
+              Password
+            </Form.Label>
             <div className="d-flex align-items-center">
               <Form.Text className="form-icon-container">
                 <FontAwesomeIcon icon={faKey} className="form-icon" />
