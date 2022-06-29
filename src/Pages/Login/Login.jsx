@@ -9,6 +9,7 @@ import { faEnvelope, faKey, faPlay } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
 import { loginUser } from "../../Redux/userSlice";
 import { Link, useNavigate } from "react-router-dom";
+import NavBar from "../../Components/Navbar/Navbar";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -26,8 +27,9 @@ const Login = () => {
   };
   return (
     <div>
-      {/* Nav */}
-      {/* Stringn en status order BACK */}
+      {/* TODO: 
+      Quizas armar una version de la NAV mas simplificada pero q almenos permita al usuario volver a la home */}
+      <NavBar />
       <Container className="mt-5 p-4" style={{ maxWidth: "472px" }}>
         <Form onSubmit={handleSubmit(onSubmit)} className="border-bottom">
           <div className="d-flex justify-content-center align-items-center">

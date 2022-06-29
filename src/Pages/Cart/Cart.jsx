@@ -39,14 +39,14 @@ const Cart = () => {
 
   const handleCheckout = () => {
     if (!user.accessToken) {
-      navigate("/checkout");
+      navigate("/login");
     }
 
     const cartItems = cart.items.map((item) => {
       return { productId: item.product._id, quantity: item.quantity };
     });
 
-    const response = axios.post(
+    axios.post(
       process.env.REACT_APP_SERVER_URL + "/orders",
       { cartItems },
       {
@@ -55,7 +55,7 @@ const Cart = () => {
         },
       },
     );
-    console.log(response);
+    navigate("/checkout");
   };
 
   return cart.items.length > 0 ? (
