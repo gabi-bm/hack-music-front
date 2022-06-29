@@ -4,7 +4,7 @@ import Footer from "../../Components/Footter/Footer";
 import { Link } from "react-router-dom";
 import { Button, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { addProduct } from "../../Redux/cartSlice";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -17,6 +17,7 @@ const Product = () => {
   const [carouselProducts, setCarouselProducts] = useState(null);
   const [product, setProduct] = useState(null);
   const dispatch = useDispatch();
+  const isInitialMount = useRef(false);
 
   const notify = () => toast("Product added to cart!");
 
@@ -28,22 +29,25 @@ const Product = () => {
   useEffect(() => {
     const getProduct = async () => {
       const response = await axios.get(process.env.REACT_APP_SERVER_URL + "/products/" + params.id);
-      console.log(response.data);
       setProduct(response.data);
     };
     getProduct();
+    isInitialMount.current = true;
+  }, [params.id]);
 
-    const getSimilarProducts = async () => {
-      // const response = await axios.get(
-      //   process.env.REACT_APP_SERVER_URL + "/categories/" + product.categoryId + "?products=true",
-      // );
-      // GB: Lo de arriba no funciona por la async de product. Ver como hacer ese fetch. Minetras queda el de productos premuim
-      const response = await axios.get(process.env.REACT_APP_SERVER_URL + "/products?premium=true");
-      console.log(response.data);
-      setCarouselProducts(response.data);
-    };
-    getSimilarProducts();
-  }, []);
+  useEffect(() => {
+    if (isInitialMount.current) {
+      const getSimilarProducts = async () => {
+        console.log(product);
+        const response = await axios.get(
+          process.env.REACT_APP_SERVER_URL + "/products?categoryName=" + product.categoryName,
+        );
+        console.log(response.data);
+        setCarouselProducts(response.data);
+      };
+      getSimilarProducts();
+    }
+  }, [product]);
 
   return (
     product && (
@@ -69,16 +73,20 @@ const Product = () => {
                     </span>
                   )}
                   <span className="tx-size-md view-product-span">Brand img</span>
-                  <Button
-                    type="button"
-                    onClick={(e) => {
-                      handleAddProduct();
-                      notify();
-                      e.target.blur();
-                    }}
-                  >
-                    Add to cart
-                  </Button>
+                  {product.stock > 0 ? (
+                    <Button
+                      type="button"
+                      onClick={(e) => {
+                        handleAddProduct();
+                        notify();
+                        e.target.blur();
+                      }}
+                    >
+                      Add to cart
+                    </Button>
+                  ) : (
+                    <p>Out of stock</p>
+                  )}
                 </div>
               </div>
             </div>
