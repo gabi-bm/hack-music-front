@@ -1,6 +1,6 @@
 import "./Login.css";
 import { useForm } from "react-hook-form";
-
+import { useState } from "react";
 import axios from "axios";
 import { Container, Form, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,16 +14,24 @@ import NavBar from "../../Components/Navbar/Navbar";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [credentialsMsg, setCredentialsMsg] = useState(null);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const onSubmit = async (data) => {
-    const response = await axios.post(process.env.REACT_APP_SERVER_URL + "/tokens", data);
-    console.log(response);
-    dispatch(loginUser(response.data));
-    if (response.status === 200) return navigate("/");
+    try {
+      const response = await axios.post(process.env.REACT_APP_SERVER_URL + "/tokens", data);
+      console.log(response);
+      dispatch(loginUser(response.data));
+      if (response.status === 200) return navigate("/");
+    } catch (err) {
+      setCredentialsMsg("Credenciales no validas.");
+    }
   };
   return (
     <div>
@@ -84,6 +92,11 @@ const Login = () => {
           {errors.password?.type === "required" && (
             <p className="custom-alert alert-danger fs-6" role="alert">
               Password field is required.
+            </p>
+          )}
+          {credentialsMsg && (
+            <p className="custom-alert alert-danger fs-6" role="alert">
+              {credentialsMsg}
             </p>
           )}
 

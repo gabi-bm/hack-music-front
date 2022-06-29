@@ -31,7 +31,7 @@ const Category = () => {
       setCategory(response.data);
     };
     getProducts();
-  }, []);
+  }, [params.slug]);
 
   return (
     category && (

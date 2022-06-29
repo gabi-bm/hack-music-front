@@ -55,6 +55,7 @@ const Cart = () => {
         },
       },
     );
+    dispatch(resetCart());
     navigate("/checkout");
   };
 

@@ -85,6 +85,10 @@ const NavBar = () => {
                 <span>Login</span>
               </NavDropdown.Item>
               <NavDropdown.Divider />
+              <NavDropdown.Item as={Link} to="/user-profile">
+                <span>Profile</span>
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/logout">
                 <span>Logout</span>
               </NavDropdown.Item>

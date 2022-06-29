@@ -17,14 +17,14 @@ const ProductCardSmall = ({ productId }) => {
         <div
           className="d-flex flex-column align-items-center"
           style={{
-            height: "17rem",
+            height: "20rem",
             maxHeight: "17rem",
           }}
         >
           <img
             className="flex-grow-1"
             src={product.picture[0]}
-            style={{ maxWidth: "12rem", height: "12rem" }}
+            style={{ width: "auto", maxHeight: "100%", maxWidth: "100%" }}
           ></img>
 
           <span
@@ -40,3 +40,5 @@ const ProductCardSmall = ({ productId }) => {
 };
 
 export default ProductCardSmall;
+
+// maxWidth: "12rem", height: "12rem"
