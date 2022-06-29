@@ -1,8 +1,8 @@
 import Footer from "../../Components/Footter/Footer";
 import NavBar from "../../Components/Navbar/Navbar";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addProduct, deleteProduct, deleteCartItem, resetCart } from "../../Redux/cartSlice";
 import "./Cart.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,10 +13,13 @@ import axios from "axios";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user);
   console.log(cart);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const notifyRemoveCart = () => toast("Product removed from cart!");
+  const notifyNotLoggedIn = () => toast("You need to be logged in to proceed.");
 
   const handleAddProduct = (product) => {
     dispatch(addProduct({ product }));
@@ -35,11 +38,23 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
+    if (!user.accessToken) {
+      navigate("/checkout");
+    }
+
     const cartItems = cart.items.map((item) => {
-      return { productId: item.product.id, quantity: item.quantity };
+      return { productId: item.product._id, quantity: item.quantity };
     });
 
-    const response = axios.post(process.env.REACT_APP_SERVER_URL + "/orders", cartItems);
+    const response = axios.post(
+      process.env.REACT_APP_SERVER_URL + "/orders",
+      { cartItems },
+      {
+        headers: {
+          Authorization: `Bearer ${user.accessToken}`,
+        },
+      },
+    );
     console.log(response);
   };
 
@@ -66,7 +81,7 @@ const Cart = () => {
                       <Col className="p-3 pt-5">
                         <div>
                           <h6>{cartItem.product.name}</h6>
-                          <div className="">
+                          <div>
                             <span className="me-2">(Quantity: {cartItem.quantity})</span>
                             <FontAwesomeIcon
                               icon={faPlus}
@@ -80,6 +95,9 @@ const Cart = () => {
                               }}
                             />
                           </div>
+                          <h6 className="mt-2">
+                            Subtotal: $ {cartItem.product.price * cartItem.quantity}
+                          </h6>
                         </div>
 
                         <div className="mt-2 p-0">
@@ -102,7 +120,7 @@ const Cart = () => {
             </ul>
           </Col>
           <Col className="border rounded shadow p-3">
-            <span>Total price: ${cart.totalPrice}</span>
+            <span>Total price: $ {cart.totalPrice}</span>
             <hr />
             <div className="mt-3">
               <Button onClick={() => handleCheckout()}>
