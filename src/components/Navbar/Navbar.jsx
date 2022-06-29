@@ -1,9 +1,9 @@
 import React from "react";
 import { Navbar, NavDropdown, Nav, Container } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import * as FaIcons from "react-icons/fa";
 
 const NavBar = () => {
   const user = useSelector((state) => state.user);
@@ -16,7 +16,8 @@ const NavBar = () => {
             className="tx-color-logo px-3 h-100 d-flex align-items-center justify-content-center"
             href="/"
           >
-            <span>HackMusic</span>
+            <span className="title-size">HackMusic </span>
+            <FaIcons.FaHeadphonesAlt className="icon-size-logo" />
           </Navbar.Brand>
         </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -67,18 +68,13 @@ const NavBar = () => {
               as={Link}
               to="/cart"
             >
-              <span>CART</span>
-            </Nav.Link>
-            <Nav.Link
-              className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
-              as={Link}
-              to="/dashboard"
-            >
-              <span>DASHBOARD</span>
+              <span>
+                <FaIcons.FaShoppingCart className="icon-size" />
+              </span>
             </Nav.Link>
             <NavDropdown
               className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
-              title="USER"
+              title={<FaIcons.FaUserAlt className="icon-size" />}
               id="basic-nav-dropdown"
             >
               <NavDropdown.Item as={Link} to="/register">
@@ -93,6 +89,13 @@ const NavBar = () => {
                 <span>Logout</span>
               </NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link
+              className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
+              as={Link}
+              to="/dashboard"
+            >
+              <span>DASHBOARD</span>
+            </Nav.Link>
 
             {user.firstName && (
               <Nav.Link className="tx-color-navbar d-flex align-items-center justify-content-center">
