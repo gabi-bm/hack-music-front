@@ -17,17 +17,20 @@ const ProductCardLarge = ({ product, handleAddProduct, notify }) => {
           </span>
           <span className="tx-size-md py-2">USD{" $" + product.price}</span>
           <span className="tx-size-md view-product-span">View product {">"}</span>
-          <Button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              handleAddProduct(product);
-              notify();
-              e.target.blur();
-            }}
-          >
-            Add to cart
-          </Button>
+          {product.stock > 0 ? (
+            <Button
+              type="button"
+              onClick={(e) => {
+                handleAddProduct();
+                notify();
+                e.target.blur();
+              }}
+            >
+              Add to cart
+            </Button>
+          ) : (
+            <p>Out of stock</p>
+          )}
         </div>
       </div>
     </div>

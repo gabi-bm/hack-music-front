@@ -14,6 +14,7 @@ import DashboardOrders from "./Pages/DashboardOrders/DashboardOrders";
 import DashboardProducts from "./Pages/DashboardProducts/DashboardProducts";
 import OffcanvasCart from "./Pages/OffcanvasCart/OffcanvasCart";
 import Checkout from "./Pages/Checkout/Checkout";
+import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 
 const MyRoutes = () => {
   return (
@@ -27,6 +28,7 @@ const MyRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/cart" element={<Cart />} />
+<<<<<<< HEAD
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboard/admin" element={<DashboardAdmin />} />
         <Route path="/dashboard/categories" element={<DashboardCategories />} />
@@ -34,6 +36,12 @@ const MyRoutes = () => {
         <Route path="/dashboard/products" element={<DashboardProducts />} />
         <Route path="/checkout" element={<Checkout />} />
         {/* <Route path="/off-cart" element={<OffcanvasCart />} /> */}
+=======
+        <Route element={<ProtectedRoute />}>
+          <Route path="/checkout" element={<Checkout />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+        </Route>
+>>>>>>> 1601cbf (Cart func, carousel links and useeffect fix)
       </Routes>
     </>
   );
