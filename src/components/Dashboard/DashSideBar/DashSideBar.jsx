@@ -36,6 +36,8 @@ const DashSideBar = () => {
             <FaIcons.FaProductHunt />
             <span className="text-responsive"> products</span>
           </li>
+        </Link>
+        <Link className="dash-link" to="/">
           <li className="dash-li">
             <FaIcons.FaHome />
             <span className="text-responsive"> hack music</span>
