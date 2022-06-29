@@ -39,6 +39,9 @@ li:hover{
     .footer-first{
         display: none;
     }
+    .resp-foot{
+        display:none;
+    }
 }
 .footer-text{
     font-size: var(--font-size-sm);
