@@ -9,19 +9,16 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 //Visual methods and frameworks
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Table } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus, faSearch } from "@fortawesome/free-solid-svg-icons";
-import { ToastContainer } from "react-toastify"; 
+import { ToastContainer } from "react-toastify";
 
-
-
-function ItemsTable({entity}) {
-
-  //Lista de items de lo que sea 
+function ItemsTable() {
+  //Lista de items de lo que sea
   const [items, setItems] = useState(null);
 
-  //Me tengo que traer al user de la store para mandar el JWT. 
+  //Me tengo que traer al user de la store para mandar el JWT.
   const user = useSelector((state) => state.user);
 
   //Pido params cada tanto en las llamadas a la API
@@ -30,19 +27,20 @@ function ItemsTable({entity}) {
   //Al primer render
   useEffect(() => {
     const handleGetItems = async () => {
-      const response = await axios.get(process.env.REACT_APP_SERVER_URL + `/${entity}`, {
+      const response = await axios.get(process.env.REACT_APP_SERVER_URL + `/categories`, {
         headers: {
           Authorization: `Bearer ${user.accessToken}`,
         },
       });
       setItems(response.data);
+      console.log(response.data);
     };
-    console.log(entity)
+
     handleGetItems();
-  }, [items]);
+  }, []);
 
   const handleDeleteItem = async () => {
-    await axios.delete(process.env.REACT_APP_SERVER_URL + `/${entity}/` + params.id, {
+    await axios.delete(process.env.REACT_APP_SERVER_URL + `/categories/` + params.id, {
       headers: {
         Authorization: `Bearer ${user.accessToken}`,
       },
@@ -62,7 +60,7 @@ function ItemsTable({entity}) {
   const handleUpdateItem = async (data) => {
     //Quizás un modal para no desarrollar un componente para esto?
     await axios.patch(
-      process.env.REACT_APP_SERVER_URL + `/${entity}`,
+      process.env.REACT_APP_SERVER_URL + `/categories`,
       { data },
       {
         headers: {
@@ -75,7 +73,7 @@ function ItemsTable({entity}) {
   const handleAddItem = async (data) => {
     //Quizás un modal para no desarrollar un componente para esto?
     await axios.post(
-      process.env.REACT_APP_SERVER_URL + `/${entity}`,
+      process.env.REACT_APP_SERVER_URL + `/categories`,
       { data },
       {
         headers: {
@@ -91,47 +89,36 @@ function ItemsTable({entity}) {
         <div>
           <Container>
             <h1>Items</h1>
+            <Table striped bordered hover variant="light">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Products</th>
+                  <th>Status</th>
+                  <th>Total price</th>
+                </tr>
+              </thead>
+              <tbody>
+                {items.map((item) => {
+                  return (
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </Table>
             <FontAwesomeIcon icon={faSearch} onClick={() => handleAddItem()} className="me-2" />
-            <Row className="p-3">
-              <Col xs={8} className="border rounded shadow p-3">
-                <ul>
-                  {items.items.map((i) => {
-                    return (
-                      <li key={i._id} className="border rounded ">
-                        <Row>
-                          <Col xs={3} className="p-3  me-3">
-                            <img src={i.img} alt={i.name} />
-                          </Col>
-                          <Col className="p-3 pt-5">
-                            <div>
-                              <h6>{i.name}</h6>
-                            </div>
-                            <Col>
-                              <div>
-                                <FontAwesomeIcon
-                                  icon={faPlus}
-                                  onClick={() => handleUpdateItem(i)}
-                                  className="me-2"
-                                />
-                                <FontAwesomeIcon
-                                  icon={faMinus}
-                                  onClick={() => {
-                                    handleDeleteItem(i);
-                                  }}
-                                />
-                              </div>
-                            </Col>
-                          </Col>
-                        </Row>
-                      </li>
-                    );
-                  })}
-                  {/* <Button size="sm" onClick={handleDeleteItems} className="mt-2">
-                    DANGER ZONE : Delete everything
-                  </Button> */}
-                </ul>
-              </Col>
-            </Row>
+            <FontAwesomeIcon icon={faPlus} onClick={() => handleUpdateItem()} className="me-2" />
+            <FontAwesomeIcon
+              icon={faMinus}
+              onClick={() => {
+                handleDeleteItem();
+              }}
+            />
           </Container>
         </div>
       ) : (
