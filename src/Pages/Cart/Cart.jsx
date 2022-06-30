@@ -1,12 +1,14 @@
 import Footer from "../../Components/Footter/Footer";
 import NavBar from "../../Components/Navbar/Navbar";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import ProductCardCart from "../../Components/ProductCardCart/ProductCardCart";
+import { Container, Row, Col, Button, Table } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addProduct, deleteProduct, deleteCartItem, resetCart } from "../../Redux/cartSlice";
 import "./Cart.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus, faTrashCan, faLock } from "@fortawesome/free-solid-svg-icons";
+import { faLock } from "@fortawesome/free-solid-svg-icons";
+import * as FaIcons from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
@@ -64,70 +66,80 @@ const Cart = () => {
       <NavBar />
       <ToastContainer />
       <Container className="py-5">
-        <h1>Cart</h1>
-        <Row className="border-top">
-          <Col xs={8} className="border-end pt-3">
-            <ul>
+        <div className="d-flex justify-content-center align-items-center pb-5">
+          <h1 className="pe-4" style={{ fontWeight: "200", textAlign: "center" }}>
+            My Cart
+          </h1>
+          <FaIcons.FaShoppingCart
+            className="icon-size"
+            style={{ transform: "scale(2)", color: "var(--third-color)" }}
+          />
+        </div>
+
+        <Row>
+          <Col xs={8} className="pt-3">
+            <ul style={{ paddingLeft: "0" }}>
               {cart.items.map((cartItem) => {
                 return (
-                  <li key={cartItem.product._id} className="border">
-                    <Row>
-                      <Col xs={3} className="p-3  me-3">
-                        <img
-                          src={cartItem.product.picture[0]}
-                          alt={cartItem.product.name}
-                          className="cart-img border-end"
-                        />
-                      </Col>
-                      <Col className="p-3 pt-5">
-                        <div>
-                          <h6>{cartItem.product.name}</h6>
-                          <div>
-                            <span className="me-2">(Quantity: {cartItem.quantity})</span>
-                            <FontAwesomeIcon
-                              icon={faPlus}
-                              onClick={() => handleAddProduct(cartItem.product)}
-                              className="me-2"
-                            />
-                            <FontAwesomeIcon
-                              icon={faMinus}
-                              onClick={() => {
-                                handleDeleteProduct(cartItem);
-                              }}
-                            />
-                          </div>
-                          <h6 className="mt-2">
-                            Subtotal: $ {cartItem.product.price * cartItem.quantity}
-                          </h6>
-                        </div>
-
-                        <div className="mt-2 p-0">
-                          <FontAwesomeIcon
-                            icon={faTrashCan}
-                            onClick={() => {
-                              handleDeleteCartItem(cartItem);
-                              notifyRemoveCart();
-                            }}
-                          />
-                        </div>
-                      </Col>
-                    </Row>
-                  </li>
+                  <ProductCardCart
+                    key={cartItem.product._id}
+                    cartItem={cartItem}
+                    handleAddProduct={handleAddProduct}
+                    handleDeleteProduct={handleDeleteProduct}
+                    handleDeleteCartItem={handleDeleteCartItem}
+                    notifyRemoveCart={notifyRemoveCart}
+                  />
                 );
               })}
-              <Button size="sm" onClick={handleResetCart} className="mt-2">
-                Reset cart
-              </Button>
             </ul>
           </Col>
-          <Col className="pt-3">
-            <span>Total price: $ {cart.totalPrice}</span>
-            <hr />
-            <div className="mt-3">
-              <Button onClick={() => handleCheckout()}>
-                <FontAwesomeIcon icon={faLock} /> Procced to Checkout
+          <Col className="pt-3" style={{ backgroundColor: "var(--fourth-color)" }}>
+            <div className="d-flex justify-content-between align-items-center pb-4">
+              <h5 className="mb-0">Cart summary</h5>
+              <Button
+                variant="custom"
+                size="sm"
+                onClick={handleResetCart}
+                style={{ backgroundColor: "none", color: "var(--third-color)" }}
+              >
+                Reset cart
               </Button>
             </div>
+            <Table style={{ textAlign: "right" }} responsive>
+              <thead>
+                <tr>
+                  <th style={{ textAlign: "left" }}>Product</th>
+                  <th>Quantity</th>
+                  <th>Subtotal</th>
+                </tr>
+              </thead>
+              <tbody>
+                {cart.items.map((cartItem) => {
+                  return (
+                    <tr key={cartItem.product._id}>
+                      <td style={{ textAlign: "left" }}>{cartItem.product.name}</td>
+                      <td>{cartItem.quantity}</td>
+                      <td>${cartItem.product.price * cartItem.quantity}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colSpan={3} className="px-2 py-2" style={{ fontWeight: "700" }}>
+                    Total: ${cart.totalPrice}
+                  </td>
+                </tr>
+              </tfoot>
+            </Table>
+            <Button
+              variant="custom"
+              className="custom-btn"
+              style={{ float: "right" }}
+              onClick={() => handleCheckout()}
+            >
+              <FontAwesomeIcon icon={faLock} /> Procced to Checkout
+            </Button>
           </Col>
         </Row>
       </Container>

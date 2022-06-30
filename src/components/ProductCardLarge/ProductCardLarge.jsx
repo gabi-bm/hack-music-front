@@ -4,10 +4,19 @@ const ProductCardLarge = ({ product, handleAddProduct, notify }) => {
   return (
     <div className="d-flex border" style={{ height: "270px", padding: "40px 45px" }}>
       <div
-        className="border-end"
-        style={{ minWidth: "250px", height: "100%", paddingRight: "45px" }}
+        className="border-end d-flex align-items-center justify-content-center"
+        style={{
+          width: "250px",
+          maxWidth: "250px",
+          minWidth: "250px",
+          height: "100%",
+          paddingRight: "45px",
+        }}
       >
-        <img src={product.picture} style={{ maxWidth: "auto", maxHeight: "100%" }}></img>
+        <img
+          src={product.picture}
+          style={{ maxWidth: "auto", maxHeight: "100%", maxWidth: "100%" }}
+        ></img>
       </div>
       <div className="flex-grow-1" style={{ paddingLeft: "45px" }}>
         <div className="d-flex flex-column align-items-start">
@@ -21,7 +30,8 @@ const ProductCardLarge = ({ product, handleAddProduct, notify }) => {
             <Button
               type="button"
               onClick={(e) => {
-                handleAddProduct();
+                e.preventDefault();
+                handleAddProduct(product);
                 notify();
                 e.target.blur();
               }}
