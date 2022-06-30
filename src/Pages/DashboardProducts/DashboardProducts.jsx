@@ -7,9 +7,10 @@ import { useParams } from "react-router-dom";
 //Visual methods and frameworks
 import { Container, Table } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus, faSearch, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faMinus, faSearch, faStar, faWrench } from "@fortawesome/free-solid-svg-icons";
 import DashNavBar from "../../Components/Dashboard/DashNavBar/DashNavbar";
 import DashSideBar from "../../Components/Dashboard/DashSideBar/DashSideBar";
+import DashboardUpdateModal from "../../Components/DashboardUpdateModal/DashboardUpdateModal";
 
 function DashboardProducts() {
   //Lista de items de lo que sea
@@ -33,15 +34,7 @@ function DashboardProducts() {
     };
 
     handleGetProducts();
-  }, [products]);
-
-  const handleDeleteProduct = async (id) => {
-    await axios.delete(process.env.REACT_APP_SERVER_URL + `/products/` + id, {
-      headers: {
-        Authorization: `Bearer ${user.accessToken}`,
-      },
-    });
-  };
+  }, []);
 
   /* const handleDeleteItems = async () => {
     //Faltaría esta llamada explosiva! Pongo en duda si es realmente necesaria
@@ -112,22 +105,19 @@ function DashboardProducts() {
                   <tbody>
                     {products.map((prod) => {
                       return (
-                        <tr>
+                        <tr key={prod._id}>
                           <td>{prod._id}</td>
                           <td>{prod.name}</td>
                           <td>{prod.categoryName}</td>
-                          <td>{prod.description.substring(0, 100)}</td>
+                          <td>{prod.description && prod.description.substring(0, 100)}</td>
                           <td>{prod.price}</td>
                           <td>{prod.stock}</td>
                           <td>
-                            {prod.premium ? (
-                              <FontAwesomeIcon icon={faStar} className="me-2" />
-                            ) : (
-                              ""
-                            )}
+                            {prod.premium ? <FontAwesomeIcon icon={faStar} className="me-2" /> : ""}
                           </td>
                           <td>
-                            <FontAwesomeIcon
+                            <DashboardUpdateModal prod={prod} />
+                            {/* <FontAwesomeIcon
                               icon={faSearch}
                               onClick={() => handleUpdateProducts()}
                               className="me-2"
@@ -137,7 +127,7 @@ function DashboardProducts() {
                               onClick={() => {
                                 handleDeleteProduct(prod._id);
                               }}
-                            />
+                            /> */}
                           </td>
                         </tr>
                       );

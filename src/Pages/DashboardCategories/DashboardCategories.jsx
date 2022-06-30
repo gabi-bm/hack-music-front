@@ -35,14 +35,14 @@ function DashboardCategories() {
     };
 
     handleGetCategories();
-  }, [categories]);
+  }, []);
 
   const handleDeleteCategory = async (id) => {
     await axios.delete(process.env.REACT_APP_SERVER_URL + `/categories/` + id, {
       headers: {
         Authorization: `Bearer ${user.accessToken}`,
       },
-    }); 
+    });
   };
 
   /* const handleDeleteItems = async () => {

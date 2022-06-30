@@ -89,7 +89,7 @@ function DashboardOrders() {
             <div>
               <Container>
                 <div>
-                  <h1>ordins</h1>
+                  <h1>Orders</h1>
                   <FontAwesomeIcon
                     icon={faPlus}
                     onClick={() => handleAddOrder()}
@@ -116,13 +116,23 @@ function DashboardOrders() {
                           <td>{ord._id}</td>
                           <td>{ord.buyer.firstName + " " + ord.buyer.lastName}</td>
                           <td>{ord.buyer.email}</td>
-                          <td>{ord.products.map((prod)=> {
-                            return (
-                              <ul>
-                                <li>{prod.slug + " | " + prod.quantity + " | " + prod.checkoutPrice }</li>
-                              </ul>
-                            );
-                          })}</td>
+                          <td>
+                            {ord.products.map((prod) => {
+                              return (
+                                <ul>
+                                  <li>
+                                    <p>
+                                      {prod.name + " - (" + prod.quantity + ")"}
+                                      {" Subtotal: " + prod.price}
+                                    </p>
+                                  </li>
+                                </ul>
+                              );
+                            })}
+                          </td>
+                          <td>{ord.paymentMethod}</td>
+                          <td>{ord.status}</td>
+                          <td>{ord.address && ord.address.streetAddress}</td>
                           <td>
                             <FontAwesomeIcon
                               icon={faSearch}

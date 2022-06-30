@@ -33,7 +33,7 @@ function DashboardAdmin() {
     };
 
     handleGetAdmins();
-  }, [admins]);
+  }, []);
 
   const handleDeleteAdmin = async (id) => {
     await axios.delete(process.env.REACT_APP_SERVER_URL + `/admins/` + id, {
