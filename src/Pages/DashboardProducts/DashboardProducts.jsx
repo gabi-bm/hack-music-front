@@ -7,10 +7,11 @@ import { useParams } from "react-router-dom";
 //Visual methods and frameworks
 import { Container, Table } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus, faSearch, faStar, faWrench } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faStar } from "@fortawesome/free-solid-svg-icons";
 import DashNavBar from "../../Components/Dashboard/DashNavBar/DashNavbar";
 import DashSideBar from "../../Components/Dashboard/DashSideBar/DashSideBar";
-import DashboardUpdateModal from "../../Components/DashboardUpdateModal/DashboardUpdateModal";
+import DashboardUpdateModal from "./DashboardUpdateModal";
+import DashboardCreateModal from "./DashboardCreateModal"
 
 function DashboardProducts() {
   //Lista de items de lo que sea
@@ -83,11 +84,7 @@ function DashboardProducts() {
               <Container>
                 <div>
                   <h1>Products</h1>
-                  <FontAwesomeIcon
-                    icon={faPlus}
-                    onClick={() => handleAddProduct()}
-                    className="me-2"
-                  />
+                   <DashboardCreateModal></DashboardCreateModal>
                 </div>
                 <Table striped bordered hover variant="light">
                   <thead>
