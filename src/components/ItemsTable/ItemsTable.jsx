@@ -1,6 +1,6 @@
 //Front interaction
-import Footer from "../../Components/Footter/Footer";
-import NavBar from "../../Components/Navbar/Navbar";
+import Footer from "../Footter/Footer";
+import NavBar from "../Navbar/Navbar";
 
 //Functional methods and frameworks
 import { React, useState, useEffect } from "react";
