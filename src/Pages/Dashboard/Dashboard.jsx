@@ -1,7 +1,9 @@
 import DashSideBar from "../../Components/Dashboard/DashSideBar/DashSideBar";
-import NavBar from "../../Components/Navbar/Navbar";
+
 import "./Dashboard.css";
 import DashNavBar from "../../Components/Dashboard/DashNavBar/DashNavbar";
+import DashChart from "../../Components/Dashboard/DashboardChart/DashboardChart";
+import DashChart2 from "../../Components/Dashboard/DashboardChart/DashboardChart2";
 
 const Dashboard = () => {
   return (
@@ -9,11 +11,13 @@ const Dashboard = () => {
       <DashNavBar />
       <div className="d-flex">
         <DashSideBar />
-        <div classname=" d-flex dash-content">
-          <img src="https://i.postimg.cc/Wpnc8NpN/blue.jpg" alt="" />
-          <img src="https://i.postimg.cc/MKp2rCXy/orange.jpg" alt="" />
-          <img src="https://i.postimg.cc/rwd6q51s/verde.jpg" alt="" />
-          <img src="https://i.postimg.cc/02XRgVJh/violeta.jpg" alt="" />
+        <div classname="chart-container">
+          <div className="chart1">
+            <DashChart2 />
+          </div>
+          <div className="chart2">
+            <DashChart />
+          </div>
         </div>
       </div>
     </>
