@@ -70,57 +70,57 @@ const AddressForm = ({ addresses, orderId }) => {
           </div>
         </Form.Group>
 
-        <div className="d-flex justify-content-between">
-          <Form.Group className="mb-3 d-inline-block" style={{ width: "30%" }}>
-            <Form.Label className="tx-size-sm tx-second-color">City</Form.Label>
-            <div className="d-flex align-items-center">
-              <Form.Control
-                {...register("city", {
-                  required: true,
-                  maxLength: 40,
-                })}
-                type="text"
-                placeholder=""
-                className="form-control ps-0"
-                disabled={existingAddress ? true : false}
-              />
-            </div>
-          </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label className="tx-size-sm tx-second-color">City</Form.Label>
+          <div className="d-flex align-items-center">
+            <Form.Control
+              {...register("city", {
+                required: true,
+                maxLength: 40,
+              })}
+              type="text"
+              placeholder=""
+              className="form-control ps-0"
+              disabled={existingAddress ? true : false}
+            />
+          </div>
+        </Form.Group>
 
-          <Form.Group className="mb-3 d-inline-block" style={{ width: "30%" }}>
-            <Form.Label className="tx-size-sm tx-second-color">Country</Form.Label>
-            <div className="d-flex align-items-center">
-              <Form.Control
-                {...register("country", {
-                  required: true,
-                  maxLength: 40,
-                })}
-                type="text"
-                placeholder=""
-                className="form-control ps-0"
-                disabled={existingAddress ? true : false}
-              />
-            </div>
-          </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label className="tx-size-sm tx-second-color">Country</Form.Label>
+          <div className="d-flex align-items-center">
+            <Form.Control
+              {...register("country", {
+                required: true,
+                maxLength: 40,
+              })}
+              type="text"
+              placeholder=""
+              className="form-control ps-0"
+              disabled={existingAddress ? true : false}
+            />
+          </div>
+        </Form.Group>
 
-          <Form.Group className="mb-3 d-inline-block" style={{ width: "30%" }}>
-            <Form.Label className="tx-size-sm tx-second-color">Postal Code</Form.Label>
-            <div className="d-flex align-items-center">
-              <Form.Control
-                {...register("postalCode", {
-                  required: true,
-                  maxLength: 40,
-                })}
-                type="text"
-                placeholder=""
-                className="form-control ps-0"
-                disabled={existingAddress ? true : false}
-              />
-            </div>
-          </Form.Group>
-        </div>
+        <Form.Group className="mb-3">
+          <Form.Label className="tx-size-sm tx-second-color">Postal Code</Form.Label>
+          <div className="d-flex align-items-center">
+            <Form.Control
+              {...register("postalCode", {
+                required: true,
+                maxLength: 40,
+              })}
+              type="text"
+              placeholder=""
+              className="form-control ps-0"
+              disabled={existingAddress ? true : false}
+            />
+          </div>
+        </Form.Group>
 
-        <Button type="submit">Confirm address</Button>
+        <Button variant="custom" type="submit" className="bg-third-color custom-btn my-3">
+          Confirm address
+        </Button>
       </Form>
     </div>
   );
