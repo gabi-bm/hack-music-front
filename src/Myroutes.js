@@ -18,6 +18,7 @@ import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 import PaymentConfirmation from "./Pages/PaymentConfirmation/PaymentConfirmation";
 
 const MyRoutes = () => {
+  const categories = "categories";
   return (
     <>
       <Routes>
@@ -44,9 +45,12 @@ const MyRoutes = () => {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/admin" element={<DashboardAdmin />} />
-          <Route path="/dashboard/categories" element={<DashboardCategories />} />
-          <Route path="/dashboard/orders" element={<DashboardOrders />} />
-          <Route path="/dashboard/products" element={<DashboardProducts />} />
+          <Route
+            path="/dashboard/categories"
+            element={<DashboardCategories entity={categories} />}
+          />
+          <Route path="/dashboard/orders" element={<DashboardOrders entity={"orders"} />} />
+          <Route path="/dashboard/products" element={<DashboardProducts entity={"products"} />} />
           <Route path="/user-profile" element={<UserProfile />} />
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         </Route>

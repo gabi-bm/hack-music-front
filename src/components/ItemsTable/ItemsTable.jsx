@@ -16,10 +16,10 @@ import { ToastContainer } from "react-toastify";
 
 
 
-function ItemsTable() {
+function ItemsTable({entity}) {
 
   //Lista de items de lo que sea 
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(null);
 
   //Me tengo que traer al user de la store para mandar el JWT. 
   const user = useSelector((state) => state.user);
@@ -30,26 +30,26 @@ function ItemsTable() {
   //Al primer render
   useEffect(() => {
     const handleGetItems = async () => {
-      const response = await axios.get(process.env.REACT_APP_SERVER_URL + "/categories", {
+      const response = await axios.get(process.env.REACT_APP_SERVER_URL + `/${entity}`, {
         headers: {
           Authorization: `Bearer ${user.accessToken}`,
         },
       });
       setItems(response.data);
     };
+    console.log(entity)
     handleGetItems();
-  }, []);
+  }, [items]);
 
   const handleDeleteItem = async () => {
-    await axios.delete(process.env.REACT_APP_SERVER_URL + "/categories/" + params.id, {
+    await axios.delete(process.env.REACT_APP_SERVER_URL + `/${entity}/` + params.id, {
       headers: {
         Authorization: `Bearer ${user.accessToken}`,
       },
     });
-    setItems(items.filter((i) => i === item));
   };
 
-  const handleDeleteItems = async () => {
+  /* const handleDeleteItems = async () => {
     //Faltaría esta llamada explosiva! Pongo en duda si es realmente necesaria
     await axios.delete(process.env.REACT_APP_SERVER_URL + "/categories/" + params.id, {
       headers: {
@@ -57,12 +57,12 @@ function ItemsTable() {
       },
     });
     setItems([]);
-  };
+  }; */
 
   const handleUpdateItem = async (data) => {
     //Quizás un modal para no desarrollar un componente para esto?
     await axios.patch(
-      process.env.REACT_APP_SERVER_URL + "/categories",
+      process.env.REACT_APP_SERVER_URL + `/${entity}`,
       { data },
       {
         headers: {
@@ -75,7 +75,7 @@ function ItemsTable() {
   const handleAddItem = async (data) => {
     //Quizás un modal para no desarrollar un componente para esto?
     await axios.post(
-      process.env.REACT_APP_SERVER_URL + "/categories",
+      process.env.REACT_APP_SERVER_URL + `/${entity}`,
       { data },
       {
         headers: {
@@ -89,8 +89,6 @@ function ItemsTable() {
     <div>
       {items ? (
         <div>
-          <NavBar />
-          <ToastContainer />
           <Container>
             <h1>Items</h1>
             <FontAwesomeIcon icon={faSearch} onClick={() => handleAddItem()} className="me-2" />
@@ -128,22 +126,19 @@ function ItemsTable() {
                       </li>
                     );
                   })}
-                  <Button size="sm" onClick={handleDeleteItems} className="mt-2">
+                  {/* <Button size="sm" onClick={handleDeleteItems} className="mt-2">
                     DANGER ZONE : Delete everything
-                  </Button>
+                  </Button> */}
                 </ul>
               </Col>
             </Row>
           </Container>
-          <Footer />
         </div>
       ) : (
         <div>
-          <NavBar />
           <Container>
             <h1>Sin elementos</h1>
           </Container>
-          <Footer />
         </div>
       )}
     </div>
