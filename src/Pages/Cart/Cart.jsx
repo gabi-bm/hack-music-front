@@ -46,7 +46,6 @@ const Cart = () => {
       return { productId: item.product._id, quantity: item.quantity };
     });
 
-
     const response = await axios.post(
       process.env.REACT_APP_SERVER_URL + "/orders",
       { cartItems },
@@ -57,23 +56,21 @@ const Cart = () => {
       },
     );
 
-
     navigate(`/checkout/${response.data._id}`);
-
   };
 
   return cart.items.length > 0 ? (
     <div>
       <NavBar />
       <ToastContainer />
-      <Container>
+      <Container className="py-5">
         <h1>Cart</h1>
-        <Row className="p-3">
-          <Col xs={8} className="border rounded shadow p-3">
+        <Row className="border-top">
+          <Col xs={8} className="border-end pt-3">
             <ul>
               {cart.items.map((cartItem) => {
                 return (
-                  <li key={cartItem.product._id} className="border rounded ">
+                  <li key={cartItem.product._id} className="border">
                     <Row>
                       <Col xs={3} className="p-3  me-3">
                         <img
@@ -123,7 +120,7 @@ const Cart = () => {
               </Button>
             </ul>
           </Col>
-          <Col className="border rounded shadow p-3">
+          <Col className="pt-3">
             <span>Total price: $ {cart.totalPrice}</span>
             <hr />
             <div className="mt-3">
