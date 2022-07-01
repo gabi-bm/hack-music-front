@@ -8,9 +8,6 @@ import PaymentForm from "../../Components/PaymentForm/PaymentForm";
 import NavBar from "../../Components/Navbar/Navbar";
 import ProcessingPaymentModal from "../../Components/ProcessingPaymentModal/ProcessingPaymentModal";
 
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import { Oval } from "react-loader-spinner";
-
 const Checkout = () => {
   const params = useParams();
   const [order, setOrder] = useState(null);

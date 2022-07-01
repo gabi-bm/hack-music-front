@@ -29,7 +29,7 @@ const PaymentForm = ({ orderId, setModalShow }) => {
     );
     console.log(response.data);
     setModalShow(true);
-    setTimeout(() => navigate("/checkout/paymentConfirmation"), 2000);
+    setTimeout(() => navigate("/checkout/paymentConfirmation"), 5000);
   };
 
   return (
@@ -102,7 +102,6 @@ const PaymentForm = ({ orderId, setModalShow }) => {
             </div>
           </div>
         </div>
-
         <Button variant="custom" type="submit" className="bg-third-color custom-btn my-3">
           Confirm payment
         </Button>
