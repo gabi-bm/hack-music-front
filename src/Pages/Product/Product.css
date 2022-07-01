@@ -1,8 +1,12 @@
 .product-description{
-    font-weight: 300;
+    font-weight: 400;
     padding: 25px;
     margin-top: 50px;
     margin-bottom: 50px;
+    text-align: center;
+   
+    width: 60%;
+    
 }
 .product-images{
     display: flex;
@@ -15,4 +19,27 @@
 }
 .similar-products{
     margin-top: 100px;
+}
+.cart-button{
+    background-color: var(--third-color);
+    border: none;
+    margin-top: 1rem;
+    padding: 6px;
+}
+.cart-button:hover{
+    background-color: rgb(238, 90, 4);
+}
+.carousel-img{
+    
+    display: flex;
+    max-width: 100%;
+    
+    
+}
+.description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
 }

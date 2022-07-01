@@ -1,7 +1,7 @@
 import "./Product.css";
 import NavBar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footter/Footer";
-import { Button, Container } from "react-bootstrap";
+import { Button, Container, Carousel } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { addProduct } from "../../Redux/cartSlice";
@@ -69,6 +69,7 @@ const Product = () => {
                   <span className="tx-size-md view-product-span">Brand img</span>
                   {product.stock > 0 ? (
                     <Button
+                      className="cart-button"
                       type="button"
                       onClick={(e) => {
                         handleAddProduct();
@@ -85,17 +86,20 @@ const Product = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="description">
             <p className=" product-description">{product.description}</p>
-            <div className="product-images">
+          </div>
+          <div className="d-flex" style={{ margin: "auto" }}>
+            <Carousel variant="dark" fade>
               {product.picture.map((productImage) => {
                 return (
-                  <div key={productImage}>
-                    <img className="pr-image" src={productImage} alt="" />
-                  </div>
+                  <Carousel.Item key={productImage} className="carousel-img">
+                    <img className="d-block w-50" src={productImage} alt="First slide" />
+                    <Carousel.Caption></Carousel.Caption>
+                  </Carousel.Item>
                 );
               })}
-            </div>
+            </Carousel>
           </div>
         </Container>
         <div className="similar-products">
