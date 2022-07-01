@@ -88,9 +88,24 @@ const NavBar = () => {
             </Nav.Link>
             <NavDropdown
               className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
-              title={<FaIcons.FaUserAlt className="icon-size" />}
+              title={
+                <span>
+                  <FaIcons.FaUserAlt className="icon-size" />
+                </span>
+              }
               id="basic-nav-dropdown"
             >
+              {user.firstName && (
+                <>
+                  <NavDropdown.Item>
+                    <span style={{ color: "var(--third-color)" }}>
+                      Logged in as {user.firstName}
+                    </span>
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                </>
+              )}
+
               <NavDropdown.Item as={Link} to="/register">
                 <span>Register</span>
               </NavDropdown.Item>

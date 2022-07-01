@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-const AddressForm = ({ addresses, orderId }) => {
+const AddressForm = ({ addresses, orderId, handleShowAddress }) => {
   const user = useSelector((state) => state.user);
   const {
     register,
@@ -24,8 +24,7 @@ const AddressForm = ({ addresses, orderId }) => {
         },
       },
     );
-    console.log(response.data);
-    console.log("hola");
+    handleShowAddress(response.data.address);
   };
 
   const [existingAddress, setExistingAddress] = useState(true);

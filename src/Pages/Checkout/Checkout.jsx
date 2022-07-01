@@ -13,6 +13,7 @@ const Checkout = () => {
   const user = useSelector((state) => state.user);
   const [order, setOrder] = useState(null);
   const [modalShow, setModalShow] = useState(false);
+  const [selectedAddress, setSelectedAddress] = useState(null);
 
   useEffect(() => {
     const getOrder = async () => {
@@ -31,6 +32,10 @@ const Checkout = () => {
 
   // UseEffect para traer las imagenes una vez que se cargue order
 
+  const handleShowAddress = (address) => {
+    setSelectedAddress(address);
+  };
+
   return (
     order && (
       <>
@@ -46,7 +51,11 @@ const Checkout = () => {
             <Col sm={12} md={6} xl={6} className="pt-3">
               <div>
                 <h4>Address</h4>
-                <AddressForm addresses={order.buyer.addresses} orderId={order._id} />
+                <AddressForm
+                  addresses={order.buyer.addresses}
+                  orderId={order._id}
+                  handleShowAddress={handleShowAddress}
+                />
               </div>
               <div className="my-5">
                 <h4>Payment</h4>
@@ -63,6 +72,19 @@ const Checkout = () => {
                 <span className="d-block">Email: {order.buyer.email}</span>
                 <span className="d-block">Phone number: {order.buyer.phone}</span>
               </div>
+
+              <h5 style={{ fontWeight: "200", color: "var(--third-color)" }}>Address</h5>
+
+              {!selectedAddress ? (
+                <span>Please confirm an address</span>
+              ) : (
+                <div>
+                  <span className="d-block">Street address: {selectedAddress.streetAddress}</span>
+                  <span className="d-block">City: {selectedAddress.city}</span>
+                  <span className="d-block">Country: {selectedAddress.country}</span>
+                  <span className="d-block">Postal Code: {selectedAddress.postalCode}</span>
+                </div>
+              )}
 
               <div className="py-4">
                 <h5 style={{ fontWeight: "200", color: "var(--third-color)" }}>Order summary</h5>

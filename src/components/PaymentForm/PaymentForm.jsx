@@ -1,14 +1,17 @@
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import creditCards from "../../Images/paymentMethods/creditCards.png";
 import payPal from "../../Images/paymentMethods/payPal.png";
 import mercadoPago from "../../Images/paymentMethods/mercadoPago.png";
 import { useNavigate } from "react-router-dom";
+import { resetCart } from "../../Redux/cartSlice";
 
 const PaymentForm = ({ orderId, setModalShow }) => {
   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
   const {
     register,
@@ -28,6 +31,7 @@ const PaymentForm = ({ orderId, setModalShow }) => {
       },
     );
     console.log(response.data);
+    dispatch(resetCart());
     setModalShow(true);
     setTimeout(() => navigate("/checkout/paymentConfirmation"), 5000);
   };

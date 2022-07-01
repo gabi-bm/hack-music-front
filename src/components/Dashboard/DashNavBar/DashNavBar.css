@@ -17,8 +17,11 @@
 .nav-logo{
     margin-left: 6px;
 }
-@media (max-width: 1090px){
-   .nav-title{
-    display: none;
-   }
-}
+@media (max-width: 991px){
+    .custom-navbar div{
+        justify-content: space-between;
+    }
+    .navbar-toggler {
+        margin-right: 1rem;
+    }
+ }

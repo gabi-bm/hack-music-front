@@ -47,7 +47,11 @@ const MultiCarousel = ({ carouselProducts }) => {
         >
           {carouselProducts.map((product) => {
             return (
-              <Link to={"/product/" + product._id} key={product._id}>
+              <Link
+                to={"/product/" + product._id}
+                key={product._id}
+                style={{ color: "var(--first-color)" }}
+              >
                 <ProductCardSmall productId={product._id} />
               </Link>
             );

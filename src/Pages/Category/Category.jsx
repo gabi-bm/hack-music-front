@@ -16,7 +16,7 @@ const Category = () => {
   const params = useParams();
   const [category, setCategory] = useState(null);
 
-  const notify = () => toast("Product added to cart!");
+  const notify = (productName) => toast(`${productName} added to cart!`);
 
   const handleAddProduct = (product) => {
     dispatch(addProduct({ product }));
@@ -47,7 +47,7 @@ const Category = () => {
           ></img>
         </div>
         <Container style={{ textAlign: "center" }}>
-          <h1 className="category-title mt-5">{category.alias}</h1>
+          <h1 className="category-title my-5">{category.alias}</h1>
           <ul className="m-0 p-0" style={{ width: "100%" }}>
             {category.products.map((product) => {
               return (
@@ -56,7 +56,7 @@ const Category = () => {
                     <ProductCardLarge
                       product={product}
                       handleAddProduct={handleAddProduct}
-                      notify={notify}
+                      notify={(productName) => notify(product.name)}
                     />
                   </Link>
                 </li>
