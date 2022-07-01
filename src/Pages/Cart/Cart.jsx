@@ -21,7 +21,8 @@ const Cart = () => {
   const navigate = useNavigate();
 
   const notifyRemoveCart = () => toast("Product removed from cart!");
-  const notifyNotLoggedIn = () => toast("You need to be logged in to proceed.");
+  const notifyNotLoggedIn = () =>
+    toast.warn("You need to be logged in to proceed. Redirecting you to login page.");
 
   const handleAddProduct = (product) => {
     dispatch(addProduct({ product }));
@@ -41,7 +42,8 @@ const Cart = () => {
 
   const handleCheckout = async () => {
     if (!user.accessToken) {
-      navigate("/login");
+      notifyNotLoggedIn();
+      setTimeout(() => navigate("/login"), 3000);
     }
 
     const cartItems = cart.items.map((item) => {
