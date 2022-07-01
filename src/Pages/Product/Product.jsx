@@ -1,7 +1,7 @@
 import "./Product.css";
 import NavBar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footter/Footer";
-import { Button, Container, Carousel } from "react-bootstrap";
+import { Button, Container, Carousel, Breadcrumb } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { addProduct } from "../../Redux/cartSlice";
@@ -49,6 +49,19 @@ const Product = () => {
         <NavBar />
         <ToastContainer />
         <Container style={{ textAlign: "center", marginTop: "15px" }}>
+          <Breadcrumb>
+            <Breadcrumb.Item href="/">
+              <span style={{ color: "var(--second-color)" }} className="text-muted">
+                Home
+              </span>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item href={"/" + product.categoryName}>
+              <span style={{ color: "var(--second-color)" }} className="text-muted">
+                {product.categoryName}
+              </span>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item active>{product.name}</Breadcrumb.Item>
+          </Breadcrumb>
           <div>
             <div className="d-flex border" style={{ height: "350px", padding: "40px 45px" }}>
               <div
@@ -66,7 +79,7 @@ const Product = () => {
                       {product.description.slice(0, 200)}
                     </span>
                   )}
-                  <span className="tx-size-md view-product-span">Brand img</span>
+                  {/* <span className="tx-size-md view-product-span">Brand img</span> */}
                   {product.stock > 0 ? (
                     <Button
                       className="cart-button"
@@ -87,20 +100,26 @@ const Product = () => {
             </div>
           </div>
           <div className="description">
-            <p className=" product-description">{product.description}</p>
+            <h2 className="home-titles mt-3">DESCRIPTION</h2>
+            <p className="product-description">{product.description}</p>
           </div>
-          <div className="d-flex" style={{ margin: "auto" }}>
-            <Carousel variant="dark" fade>
-              {product.picture.map((productImage) => {
-                return (
-                  <Carousel.Item key={productImage} className="carousel-img">
-                    <img className="d-block w-50" src={productImage} alt="First slide" />
-                    <Carousel.Caption></Carousel.Caption>
-                  </Carousel.Item>
-                );
-              })}
-            </Carousel>
-          </div>
+
+          <Carousel variant="dark" fade>
+            {product.picture.map((productImage) => {
+              return (
+                <Carousel.Item key={productImage} className="carousel-img">
+                  <div style={{ width: "20rem", height: "auto", margin: "0 auto" }}>
+                    <img
+                      className="d-block w-50"
+                      src={productImage}
+                      alt="First slide"
+                      style={{ margin: "0 auto" }}
+                    />
+                  </div>
+                </Carousel.Item>
+              );
+            })}
+          </Carousel>
         </Container>
         <div className="similar-products">
           <h2 className="home-titles ">SIMILAR PRODUCTS</h2>
