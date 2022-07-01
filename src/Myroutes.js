@@ -44,10 +44,10 @@ const MyRoutes = () => {
         <Route element={<ProtectedRoute />}>
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          //<Route path="/dashboard/admin" element={<DashboardAdmin />} />
+          <Route path="/dashboard/admin" element={<DashboardAdmin />} />
           <Route path="/dashboard/:entity" element={<DashboardEntities />} />
-          //<Route path="/dashboard/orders" element={<DashboardOrders />} />
-          //<Route path="/dashboard/products" element={<DashboardProducts />} />
+          <Route path="/dashboard/orders" element={<DashboardOrders />} />
+          <Route path="/dashboard/products" element={<DashboardProducts />} />
           <Route path="/user-profile" element={<UserProfile />} />
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         </Route>
