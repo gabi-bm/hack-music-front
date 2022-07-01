@@ -11,6 +11,8 @@ import { faPlus, faMinus, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer } from "react-toastify";
 import DashNavBar from "../../Components/Dashboard/DashNavBar/DashNavbar";
 import DashSideBar from "../../Components/Dashboard/DashSideBar/DashSideBar";
+import DashboardUpdateModal from "./DashboardUpdateModal";
+import DashboardCreateModal from "./DashboardCreateModal";
 
 function DashboardCategories() {
   //Lista de items de lo que sea
@@ -67,19 +69,7 @@ function DashboardCategories() {
       },
     );
   };
-
-  const handleAddCategory = async (data) => {
-    //Quizás un modal para no desarrollar un componente para esto?
-    await axios.post(
-      process.env.REACT_APP_SERVER_URL + `/categories`,
-      { data },
-      {
-        headers: {
-          Authorization: `Bearer ${user.accessToken}`,
-        },
-      },
-    );
-  };
+ 
 
   return (
     <>
@@ -92,11 +82,7 @@ function DashboardCategories() {
               <Container>
                 <div>
                   <h1>Categories</h1>
-                  <FontAwesomeIcon
-                    icon={faPlus}
-                    onClick={() => handleAddCategory()}
-                    className="me-2"
-                  />
+                  <DashboardCreateModal></DashboardCreateModal>
                 </div>
                 <Table striped bordered hover variant="light">
                   <thead>
@@ -114,9 +100,7 @@ function DashboardCategories() {
                         <tr>
                           <td>{cat._id}</td>
                           <td>{cat.alias}</td>
-                          <td>
-                            <img src={cat.img} alt={cat.name} />
-                          </td>
+                          <td>{cat.img}</td>
                           <td>
                             {cat.products.map((prod) => {
                               return (
@@ -127,17 +111,7 @@ function DashboardCategories() {
                             })}
                           </td>
                           <td>
-                            <FontAwesomeIcon
-                              icon={faSearch}
-                              onClick={() => handleUpdateCategory()}
-                              className="me-2"
-                            />
-                            <FontAwesomeIcon
-                              icon={faMinus}
-                              onClick={() => {
-                                handleDeleteCategory(cat._id);
-                              }}
-                            />
+                          <DashboardUpdateModal cat={cat} />
                           </td>
                         </tr>
                       );

@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus, faSearch, faStar } from "@fortawesome/free-solid-svg-icons";
 import DashNavBar from "../../Components/Dashboard/DashNavBar/DashNavbar";
 import DashSideBar from "../../Components/Dashboard/DashSideBar/DashSideBar";
+import DashboardUpdateModal from "./DashboardUpdateModal";
+import DashboardCreateModal from "./DashboardCreateModal";
 
 function DashboardAdmin() {
   //Lista de items de lo que sea
@@ -90,11 +92,7 @@ function DashboardAdmin() {
               <Container>
                 <div>
                   <h1>Admins</h1>
-                  <FontAwesomeIcon
-                    icon={faPlus}
-                    onClick={() => handleAddAdmin()}
-                    className="me-2"
-                  />
+                  <DashboardCreateModal></DashboardCreateModal>
                 </div>
                 <Table striped bordered hover variant="light">
                   <thead>
@@ -115,17 +113,7 @@ function DashboardAdmin() {
                           <td>{adm.email}</td>
                           <td>{adm.phone}</td>
                           <td>
-                            <FontAwesomeIcon
-                              icon={faSearch}
-                              onClick={() => handleUpdateAdmins()}
-                              className="me-2"
-                            />
-                            <FontAwesomeIcon
-                              icon={faMinus}
-                              onClick={(err) => {
-                                handleDeleteAdmin(adm._id);
-                              }}
-                            />
+                          <DashboardUpdateModal admin={adm} />
                           </td>
                         </tr>
                       );

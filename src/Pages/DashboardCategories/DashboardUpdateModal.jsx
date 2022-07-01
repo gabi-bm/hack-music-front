@@ -8,14 +8,12 @@ import { faPlus, faMinus, faSearch, faStar } from "@fortawesome/free-solid-svg-i
 import { useNavigate } from "react-router-dom";
 import { faWrench } from "@fortawesome/free-solid-svg-icons";
 
-export default function DashboardUpdateModal({ prod }) {
+export default function DashboardUpdateModal({ cat }) {
   const user = useSelector((state) => state.user);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  const navigate = useNavigate();
 
   const {
     register,
@@ -24,7 +22,7 @@ export default function DashboardUpdateModal({ prod }) {
   } = useForm();
   const onSubmit = async (data) => {
     const response = await axios.patch(
-      process.env.REACT_APP_SERVER_URL + "/products/" + prod._id,
+      process.env.REACT_APP_SERVER_URL + "/categories/" + cat._id,
       data,
       {
         headers: {
@@ -32,11 +30,11 @@ export default function DashboardUpdateModal({ prod }) {
         },
       },
     );
-    console.log(errors);
+    handleClose();
   };
 
   const handleDeleteProduct = async () => {
-    await axios.delete(process.env.REACT_APP_SERVER_URL + `/products/` + prod._id, {
+    await axios.delete(process.env.REACT_APP_SERVER_URL + `/categories/` + cat._id, {
       headers: {
         Authorization: `Bearer ${user.accessToken}`,
       },
@@ -51,13 +49,9 @@ export default function DashboardUpdateModal({ prod }) {
         onClick={handleShow}
         className="btn btn-secondary"
       />
-      {/* <Button variant="primary" onClick={handleShow}>
-        Edit
-      </Button> */}
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{prod.name}</Modal.Title>
+          <Modal.Title>{cat.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit(onSubmit)} className="px-5">
@@ -68,49 +62,32 @@ export default function DashboardUpdateModal({ prod }) {
                   maxLength: 30,
                 })}
                 type="text"
-                placeholder={prod.name}
+                placeholder={cat.name}
               />
-              <Form.Text className="text-muted">
-                Aca puede ir por ej: El nombre no puede tener mas de X chars.
-              </Form.Text>
+              <Form.Text className="text-muted">Max Chars.: 30</Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Category</Form.Label>
+              <Form.Label>Image</Form.Label>
               <Form.Control
                 {...register("category", {
                   maxLength: 30,
                 })}
                 type="text"
-                placeholder={prod.categoryName}
+                placeholder={cat.img}
               />
-              <Form.Text className="text-muted">
-                Aca puede ir por ej: El nombre no puede tener mas de X chars.
-              </Form.Text>
+              <Form.Text className="text-muted">Enter a valid image url</Form.Text>
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Description</Form.Label>
+              <Form.Label>Slug</Form.Label>
               <Form.Control
-                {...register("description", {
+                {...register("slug", {
                   maxLength: 30,
                 })}
-                type="text-area"
-                placeholder="Enter a description"
+                type="text"
+                placeholder={cat.slug}
               />
-              <Form.Text className="text-muted">
-                Aca puede ir por ej: La descripcion debe ser X, X, etc.
-              </Form.Text>
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Price</Form.Label>
-              <Form.Control
-                {...register("price", {
-                  maxLength: 30,
-                })}
-                type="text-area"
-                placeholder={prod.price}
-              />
-              <Form.Text className="text-muted"></Form.Text>
+              <Form.Text className="text-muted">Enter a coherent slug</Form.Text>
             </Form.Group>
             <Modal.Footer>
               <Button variant="danger" onClick={handleDeleteProduct}>

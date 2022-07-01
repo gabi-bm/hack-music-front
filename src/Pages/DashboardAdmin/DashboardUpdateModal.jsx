@@ -8,7 +8,7 @@ import { faPlus, faMinus, faSearch, faStar } from "@fortawesome/free-solid-svg-i
 import { useNavigate } from "react-router-dom";
 import { faWrench } from "@fortawesome/free-solid-svg-icons";
 
-export default function DashboardUpdateModal({ prod }) {
+export default function DashboardUpdateModal({ admin }) {
   const user = useSelector((state) => state.user);
   const [show, setShow] = useState(false);
 
@@ -22,7 +22,7 @@ export default function DashboardUpdateModal({ prod }) {
   } = useForm();
   const onSubmit = async (data) => {
     const response = await axios.patch(
-      process.env.REACT_APP_SERVER_URL + "/products/" + prod._id,
+      process.env.REACT_APP_SERVER_URL + "/admins/" + admin._id,
       data,
       {
         headers: {
@@ -30,11 +30,13 @@ export default function DashboardUpdateModal({ prod }) {
         },
       },
     );
+    console.log(data);
+    console.log(response.data);
     handleClose();
   };
 
   const handleDeleteProduct = async () => {
-    await axios.delete(process.env.REACT_APP_SERVER_URL + `/products/` + prod._id, {
+    await axios.delete(process.env.REACT_APP_SERVER_URL + `/admins/` + admin._id, {
       headers: {
         Authorization: `Bearer ${user.accessToken}`,
       },
@@ -49,67 +51,72 @@ export default function DashboardUpdateModal({ prod }) {
         onClick={handleShow}
         className="btn btn-secondary"
       />
-      {/* <Button variant="primary" onClick={handleShow}>
-        Edit
-      </Button> */}
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{prod.name}</Modal.Title>
+          <Modal.Title>{admin.firstName + " " + admin.lastName}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit(onSubmit)} className="px-5">
             <Form.Group className="mb-3">
-              <Form.Label>Name</Form.Label>
+              <Form.Label>First Name</Form.Label>
               <Form.Control
-                {...register("name", {
+                {...register("firstName", {
                   maxLength: 30,
                 })}
                 type="text"
-                placeholder={prod.name}
+                placeholder={admin.firstName}
               />
-              <Form.Text className="text-muted">
-              Max. Chars. 30
-              </Form.Text>
+              <Form.Text className="text-muted">Max Chars.: 30</Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Category</Form.Label>
+              <Form.Label>Last Name</Form.Label>
               <Form.Control
-                {...register("category", {
+                {...register("lastName", {
                   maxLength: 30,
                 })}
                 type="text"
-                placeholder={prod.categoryName}
+                placeholder={admin.lastName}
               />
-              <Form.Text className="text-muted">
-              Max. Chars. 30
-              </Form.Text>
+              <Form.Text className="text-muted">Max Chars.: 30</Form.Text>
             </Form.Group>
+
             <Form.Group className="mb-3">
-              <Form.Label>Description</Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control
-                {...register("description", {
+                {...register("email", {
                   maxLength: 30,
                 })}
-                type="text-area"
-                placeholder="Enter a description"
+                type="text"
+                placeholder={admin.email}
               />
-              <Form.Text className="text-muted">
-                Max. Chars. 500
-              </Form.Text>
+              <Form.Text className="text-muted">Max chars. 30</Form.Text>
             </Form.Group>
+
             <Form.Group className="mb-3">
-              <Form.Label>Price</Form.Label>
+              <Form.Label>Password</Form.Label>
               <Form.Control
-                {...register("price", {
+                {...register("password", {
                   maxLength: 30,
                 })}
-                type="text-area"
-                placeholder={prod.price}
+                type="text"
+                placeholder={admin.password}
               />
-              <Form.Text className="text-muted"></Form.Text>
+              <Form.Text className="text-muted">Max chars. 30</Form.Text>
             </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Phone</Form.Label>
+              <Form.Control
+                {...register("phone", {
+                  maxLength: 30,
+                })}
+                type="text"
+                placeholder={admin.phone}
+              />
+              <Form.Text className="text-muted">Max chars. 30</Form.Text>
+            </Form.Group>
+
             <Modal.Footer>
               <Button variant="danger" onClick={handleDeleteProduct}>
                 Delete

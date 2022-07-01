@@ -11,7 +11,7 @@ import { faPlus, faStar } from "@fortawesome/free-solid-svg-icons";
 import DashNavBar from "../../Components/Dashboard/DashNavBar/DashNavbar";
 import DashSideBar from "../../Components/Dashboard/DashSideBar/DashSideBar";
 import DashboardUpdateModal from "./DashboardUpdateModal";
-import DashboardCreateModal from "./DashboardCreateModal"
+import DashboardCreateModal from "./DashboardCreateModal";
 
 function DashboardProducts() {
   //Lista de items de lo que sea
@@ -36,17 +36,7 @@ function DashboardProducts() {
 
     handleGetProducts();
   }, []);
-
-  /* const handleDeleteItems = async () => {
-    //Faltaría esta llamada explosiva! Pongo en duda si es realmente necesaria
-    await axios.delete(process.env.REACT_APP_SERVER_URL + "/categories/" + params.id, {
-      headers: {
-        Authorization: `Bearer ${user.accessToken}`,
-      },
-    });
-    setItems([]);
-  }; */
-
+ 
   const handleUpdateProducts = async (data) => {
     //Quizás un modal para no desarrollar un componente para esto?
     await axios.patch(
@@ -84,7 +74,7 @@ function DashboardProducts() {
               <Container>
                 <div>
                   <h1>Products</h1>
-                   <DashboardCreateModal></DashboardCreateModal>
+                  <DashboardCreateModal></DashboardCreateModal>
                 </div>
                 <Table striped bordered hover variant="light">
                   <thead>
@@ -114,17 +104,6 @@ function DashboardProducts() {
                           </td>
                           <td>
                             <DashboardUpdateModal prod={prod} />
-                            {/* <FontAwesomeIcon
-                              icon={faSearch}
-                              onClick={() => handleUpdateProducts()}
-                              className="me-2"
-                            />
-                            <FontAwesomeIcon
-                              icon={faMinus}
-                              onClick={() => {
-                                handleDeleteProduct(prod._id);
-                              }}
-                            /> */}
                           </td>
                         </tr>
                       );
