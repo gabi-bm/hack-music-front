@@ -10,8 +10,8 @@ import ProcessingPaymentModal from "../../Components/ProcessingPaymentModal/Proc
 
 const Checkout = () => {
   const params = useParams();
-  const [order, setOrder] = useState(null);
   const user = useSelector((state) => state.user);
+  const [order, setOrder] = useState(null);
   const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {

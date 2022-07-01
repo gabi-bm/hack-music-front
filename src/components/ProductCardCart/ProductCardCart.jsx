@@ -47,7 +47,7 @@ const ProductCardCart = ({
           </div>
         </div>
       </div>
-      <div style={{ color: "var(--third-color)" }}>
+      <div style={{ minWidth: "3.5rem", color: "var(--third-color)" }}>
         <FontAwesomeIcon
           icon={faMinus}
           onClick={() => {

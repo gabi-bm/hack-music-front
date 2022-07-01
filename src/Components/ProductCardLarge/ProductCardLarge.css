@@ -1,0 +1,5 @@
+/* div:hover, div:hover .gray {color:red;} */
+
+.product-card-large:hover div div .view-product {
+  color: var(--third-color)
+}

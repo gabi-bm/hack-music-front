@@ -77,7 +77,7 @@ const Cart = () => {
         </div>
 
         <Row>
-          <Col xs={8} className="pt-3">
+          <Col xs={12} md={12} lg={8} className="pt-3">
             <ul style={{ paddingLeft: "0" }}>
               {cart.items.map((cartItem) => {
                 return (
