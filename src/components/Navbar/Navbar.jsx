@@ -1,12 +1,12 @@
 import React from "react";
-import { Navbar, NavDropdown, Nav, Container } from "react-bootstrap";
+import { Navbar, NavDropdown, Nav, Container, Badge } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 
 const NavBar = () => {
-  const user = useSelector((state) => state.user);
+  const { user, cart } = useSelector((state) => state);
 
   return (
     <Navbar className="custom-navbar py-0 " expand="lg" variant="dark">
@@ -66,11 +66,25 @@ const NavBar = () => {
             <Nav.Link
               className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
               as={Link}
+              to="/dashboard"
+            >
+              <span>DASHBOARD</span>
+            </Nav.Link>
+            <Nav.Link
+              className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
+              as={Link}
               to="/cart"
             >
-              <span>
-                <FaIcons.FaShoppingCart className="icon-size" />
-              </span>
+              <div style={{ position: "relative" }}>
+                <span>
+                  <FaIcons.FaShoppingCart className="icon-size" />
+                </span>
+                <div style={{ position: "absolute", top: "-1rem", right: "-1.2rem" }}>
+                  <Badge pill bg="danger">
+                    {cart.totalQuantity}
+                  </Badge>
+                </div>
+              </div>
             </Nav.Link>
             <NavDropdown
               className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
@@ -93,19 +107,12 @@ const NavBar = () => {
                 <span>Logout</span>
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link
-              className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
-              as={Link}
-              to="/dashboard"
-            >
-              <span>DASHBOARD</span>
-            </Nav.Link>
 
-            {user.firstName && (
+            {/* {user.firstName && (
               <Nav.Link className="tx-color-navbar d-flex align-items-center justify-content-center">
                 <span className="tx-size-sm">{"Hello, " + user.firstName + "!"}</span>
               </Nav.Link>
-            )}
+            )} */}
           </Nav>
         </Navbar.Collapse>
       </div>
