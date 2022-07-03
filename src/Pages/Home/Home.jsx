@@ -35,8 +35,6 @@ const Home = () => {
       <NavBar />
       <HeaderHome />
       <h2 className="home-titles">POPULAR PRODUCTS</h2>
-      {/* <ProductsCarousel /> */}
-      {/* GB: Traje este nuevo carousel para evtiar lo de poner varios productos por item (bootstrap). Con un poco de estilo en los botones queda cheto y ya es bien responsive */}
       <MultiCarousel carouselProducts={carouselProducts} />
       <section>
         <Container className="mt-5">

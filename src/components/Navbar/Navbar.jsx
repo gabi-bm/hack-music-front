@@ -9,128 +9,84 @@ const NavBar = () => {
   const { user, cart } = useSelector((state) => state);
 
   return (
-    <Navbar className="custom-navbar py-0 " expand="lg" variant="dark">
-      <div className="div-flex h-100 w-100 ">
-        <div className="div-logo bg-third-color h-100">
-          <Navbar.Brand
-            className="tx-color-logo px-3 h-100 d-flex align-items-center justify-content-center"
-            href="/"
-          >
-            <span className="title-size">HackMusic </span>
-            <FaIcons.FaHeadphonesAlt className="icon-size-logo" />
-          </Navbar.Brand>
-        </div>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse className="h-100 flex-grow-1" id="basic-navbar-nav">
-          <Nav className="me-auto h-100">
-            <Nav.Link
-              as={Link}
-              to="/"
-              className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
-            >
-              <span>HOME</span>
+    <Navbar collapseOnSelect expand="lg" variant="dark" className="p-0">
+      <Container fluid>
+        <Navbar.Brand>
+          <span className="pe-2">HackMusic</span>
+          <FaIcons.FaHeadphonesAlt className="icon-size-logo" />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav>
+            <Nav.Link as={Link} to="/">
+              HOME
             </Nav.Link>
-            <NavDropdown
-              className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
-              title="CATEGORIES"
-              id="basic-nav-dropdown"
-            >
-              <NavDropdown.Item as={Link} to="/category/drums-and-percussion">
-                <span>Drums & Percussion</span>
-              </NavDropdown.Item>
 
+            <NavDropdown title="CATEGORIES" id="categories-dropdown">
+              <NavDropdown.Item as={Link} to="/category/drums-and-percussion">
+                Drums & Percussion
+              </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/category/guitar-and-bass">
-                <span>Guitar & Bass</span>
+                Guitar & Bass
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/category/wind-instruments">
-                <span>Wind instruments</span>
+                Wind Instruments
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/category/keyboards-and-pianos">
-                <span>Keyboard & Pianos</span>
+                Keyboard & Pianos
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/category/accessories">
-                <span>Accessories</span>
+                Accessories
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link
-              className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
-              as={Link}
-              to="/about-us"
-            >
-              <span>ABOUT US</span>
+
+            <Nav.Link as={Link} to="/about-us">
+              ABOUT US
             </Nav.Link>
-            <Nav.Link
-              className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
-              as={Link}
-              to="/dashboard"
-            >
-              <span>DASHBOARD</span>
+
+            <Nav.Link as={Link} to="/dashboard">
+              DASHBOARD
             </Nav.Link>
-            <Nav.Link
-              className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
-              as={Link}
-              to="/cart"
-            >
+
+            <Nav.Link as={Link} to="/cart">
               <div style={{ position: "relative" }}>
-                <span>
-                  <FaIcons.FaShoppingCart className="icon-size" />
-                </span>
-                <div style={{ position: "absolute", top: "-1rem", right: "-1.2rem" }}>
-                  <Badge pill bg="danger">
-                    {cart.totalQuantity}
-                  </Badge>
-                </div>
+                <FaIcons.FaShoppingCart className="icon-size" />
+                <Badge pill bg="danger">
+                  {cart.totalQuantity < 10 ? cart.totalQuantity : "+9"}
+                </Badge>
               </div>
             </Nav.Link>
-            <NavDropdown
-              className="tx-color-navbar d-flex align-items-center justify-content-center width-b"
-              title={
-                <span>
-                  <FaIcons.FaUserAlt className="icon-size" />
-                </span>
-              }
-              id="basic-nav-dropdown"
-            >
+
+            <NavDropdown title={<FaIcons.FaUserAlt className="icon-size" />} id="user-dropdown">
               {user.firstName && (
                 <>
-                  <NavDropdown.Item>
-                    <span style={{ color: "var(--third-color)" }}>
-                      Logged in as {user.firstName}
-                    </span>
-                  </NavDropdown.Item>
+                  <NavDropdown.Item>Drums & Percussion</NavDropdown.Item>
                   <NavDropdown.Divider />
                 </>
               )}
-
               <NavDropdown.Item as={Link} to="/register">
-                <span>Register</span>
+                Register
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/login">
-                <span>Login</span>
+                Login
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/user-profile">
-                <span>Profile</span>
+                Profile
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/logout">
-                <span>Logout</span>
+                Logout
               </NavDropdown.Item>
             </NavDropdown>
-
-            {/* {user.firstName && (
-              <Nav.Link className="tx-color-navbar d-flex align-items-center justify-content-center">
-                <span className="tx-size-sm">{"Hello, " + user.firstName + "!"}</span>
-              </Nav.Link>
-            )} */}
           </Nav>
         </Navbar.Collapse>
-      </div>
+      </Container>
     </Navbar>
   );
 };
