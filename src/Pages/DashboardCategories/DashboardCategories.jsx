@@ -69,7 +69,6 @@ function DashboardCategories() {
       },
     );
   };
- 
 
   return (
     <>
@@ -97,21 +96,21 @@ function DashboardCategories() {
                   <tbody>
                     {categories.map((cat) => {
                       return (
-                        <tr>
+                        <tr key={cat._id}>
                           <td>{cat._id}</td>
                           <td>{cat.alias}</td>
                           <td>{cat.img}</td>
                           <td>
                             {cat.products.map((prod) => {
                               return (
-                                <ul>
+                                <ul key={prod._id}>
                                   <li>{prod.name}</li>
                                 </ul>
                               );
                             })}
                           </td>
                           <td>
-                          <DashboardUpdateModal cat={cat} />
+                            <DashboardUpdateModal cat={cat} />
                           </td>
                         </tr>
                       );

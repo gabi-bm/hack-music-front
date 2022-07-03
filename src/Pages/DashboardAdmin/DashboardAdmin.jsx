@@ -107,13 +107,13 @@ function DashboardAdmin() {
                   <tbody>
                     {admins.map((adm) => {
                       return (
-                        <tr>
+                        <tr key={adm._id}>
                           <td>{adm._id}</td>
                           <td>{adm.firstName + " " + adm.lastName}</td>
                           <td>{adm.email}</td>
                           <td>{adm.phone}</td>
                           <td>
-                          <DashboardUpdateModal admin={adm} />
+                            <DashboardUpdateModal admin={adm} />
                           </td>
                         </tr>
                       );

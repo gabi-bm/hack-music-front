@@ -112,7 +112,7 @@ function DashboardOrders() {
                   <tbody>
                     {orders.map((ord) => {
                       return (
-                        <tr>
+                        <tr key={ord._id}>
                           <td>{ord._id}</td>
                           <td>{ord.buyer.firstName + " " + ord.buyer.lastName}</td>
                           <td>{ord.buyer.email}</td>
