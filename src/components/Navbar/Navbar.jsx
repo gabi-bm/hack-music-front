@@ -9,7 +9,7 @@ const NavBar = () => {
   const { user, cart } = useSelector((state) => state);
 
   return (
-    <Navbar collapseOnSelect expand="lg" variant="dark" className="p-0">
+    <Navbar collapseOnSelect expand="lg" variant="dark" className="p-0" id="navbar">
       <Container fluid>
         <Navbar.Brand>
           <span className="pe-2">HackMusic</span>
@@ -64,7 +64,7 @@ const NavBar = () => {
             <NavDropdown title={<FaIcons.FaUserAlt className="icon-size" />} id="user-dropdown">
               {user.firstName && (
                 <>
-                  <NavDropdown.Item>Drums & Percussion</NavDropdown.Item>
+                  <NavDropdown.Item>Logged in as: {user.firstName}</NavDropdown.Item>
                   <NavDropdown.Divider />
                 </>
               )}

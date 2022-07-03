@@ -18,7 +18,7 @@
     max-height: 500px;
 }
 .similar-products{
-    margin-top: 100px;
+    margin-top: 50px;
 }
 .cart-button{
     background-color: var(--third-color);
@@ -43,3 +43,24 @@
     align-items: center;
     
 }
+
+.product-page-col-pic {
+    padding-right: 45px;
+    padding-left: 0
+}
+.product-page-col-text {
+    padding-right: 0;
+    padding-left: 45px;
+    border-left: 1px solid rgba(150, 148, 148, 0.4);
+}
+
+@media (max-width: 767px){
+    .product-page-col-pic {
+        padding-right: 0;
+        
+    }
+    .product-page-col-text {
+        padding-left: 0;
+        border: none
+    }
+ } 
