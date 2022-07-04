@@ -6,8 +6,13 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Table from "react-bootstrap/Table";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import { ToastContainer } from "react-toastify";
 import axios from "axios";
+import { useForm } from "react-hook-form";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faPencil, faKey, faHeadphonesSimple } from "@fortawesome/free-solid-svg-icons";
 
 const UserProfile = () => {
   const storeUser = useSelector((state) => state.user);
@@ -21,12 +26,25 @@ const UserProfile = () => {
     getUserInfo();
   }, []);
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = async (data) => {
+    const response = await axios.patch(
+      process.env.REACT_APP_SERVER_URL + "/users/" + user._id,
+      data,
+    );
+    console.log(errors);
+  };
+
   return (
     user && (
       <>
         <NavBar />
         <div className="container rounded bg-white mt-5 mb-5 shadow">
-          <Row className="row">
+          <Row>
             <div className="col-md-3 border-end">
               <div className="d-flex flex-column align-items-center text-center p-3 py-5">
                 <img
@@ -36,89 +54,173 @@ const UserProfile = () => {
                 ></img>
                 <span className="font-weight-bold">{user.firstName}</span>
                 <span className="text-black-50">{user.email}</span>
-                <span> </span>
               </div>
             </div>
             <div className="col-md-9 border-end">
-              <div className="p-3 py-5">
-                <div className="d-flex justify-content-between align-items-center mb-3">
-                  <h4 className="text-end">Profile Settings</h4>
-                </div>
-                <div className="row mt-2">
-                  <div className="col-md-6">
-                    <label className="labels">Name</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      defaultValue={user.firstName}
-                    ></input>
+              <Form onSubmit={handleSubmit(onSubmit)} className="px-5">
+                <Form.Group className="mb-3">
+                  <Form.Label className="tx-size-sm tx-second-color form-label-margin">
+                    Email
+                  </Form.Label>
+                  <div className="d-flex align-items-center">
+                    <Form.Text className="form-icon-container">
+                      <FontAwesomeIcon icon={faEnvelope} className="form-icon" />
+                    </Form.Text>
+                    <Form.Control
+                      {...register("email", {
+                        required: true,
+                        maxLength: 30,
+                      })}
+                      type="email"
+                      placeholder={user.email}
+                      className="form-control ps-0"
+                    />
                   </div>
-                  <div className="col-md-6">
-                    <label className="labels">Lastname</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      defaultValue={user.lastName}
-                    ></input>
-                  </div>
-                </div>
-                <div className="row mt-3">
-                  <div className="col-md-12 mt-1">
-                    <label className="labels">Email ID</label>
-                    <input type="email" className="form-control" defaultValue={user.email}></input>
-                  </div>
-                  <div className="col-md-12 mt-1">
-                    <label className="labels">Phone Number</label>
-                    <input type="number" className="form-control" defaultValue={user.phone}></input>
-                  </div>
-                  <div className="col-md-12 mt-1">
-                    <label className="labels">Address Line 1</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      defaultValue={user.addresses[0].streetAddress}
-                    ></input>
-                  </div>
+                </Form.Group>
 
-                  <div className="col-md-12 mt-1">
-                    <label className="labels">Postal code</label>
-                    <input
+                <Form.Group className="mb-3 form-group-half">
+                  <Form.Label className="tx-size-sm tx-second-color form-label-margin">
+                    First Name
+                  </Form.Label>
+                  <div className="d-flex align-items-center">
+                    <Form.Text className="form-icon-container">
+                      <FontAwesomeIcon icon={faPencil} className="form-icon" />
+                    </Form.Text>
+                    <Form.Control
+                      {...register("firstName", { required: true, maxLength: 30 })}
                       type="text"
-                      className="form-control"
-                      defaultValue={user.addresses[0].postalCode}
-                    ></input>
+                      placeholder={user.firstName}
+                      className="form-control ps-0"
+                    />
                   </div>
-                  <div className="col-md-12 mt-1">
-                    <label className="labels">City</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      defaultValue={user.addresses[0].city}
-                    ></input>
-                  </div>
-                  <div className="col-md-12 mt-1">
-                    <label className="labels">Country</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      defaultValue={user.addresses[0].country}
-                    ></input>
-                  </div>
-                </div>
+                </Form.Group>
 
-                <div className="mt-5 text-center">
-                  <button className="btn bg-third-color custom-btn" type="button">
-                    Save Profile
-                  </button>
-                </div>
-              </div>
+                <Form.Group className="mb-3 form-group-half" style={{ float: "right" }}>
+                  <Form.Label className="tx-size-sm tx-second-color form-label-margin">
+                    Last Name
+                  </Form.Label>
+                  <div className="d-flex align-items-center">
+                    <Form.Text className="form-icon-container">
+                      <FontAwesomeIcon icon={faPencil} className="form-icon" />
+                    </Form.Text>
+                    <Form.Control
+                      {...register("lastName", { required: true, maxLength: 30 })}
+                      type="text"
+                      placeholder={user.lastName}
+                      className="form-control ps-0"
+                    />
+                  </div>
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                  <Form.Label className="tx-size-sm tx-second-color form-label-margin">
+                    Password
+                  </Form.Label>
+                  <div className="d-flex align-items-center">
+                    <Form.Text className="form-icon-container">
+                      <FontAwesomeIcon icon={faKey} className="form-icon" />
+                    </Form.Text>
+                    <Form.Control
+                      {...register("password", { required: true, maxLength: 30 })}
+                      type="password"
+                      placeholder="Enter your password"
+                      className="form-control ps-0"
+                    />
+                  </div>
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                  <Form.Label className="tx-size-sm tx-second-color form-label-margin">
+                    Password Confirmation
+                  </Form.Label>
+                  <div className="d-flex align-items-center">
+                    <Form.Text className="form-icon-container">
+                      <FontAwesomeIcon icon={faKey} className="form-icon" />
+                    </Form.Text>
+                    <Form.Control
+                      {...register("passwordConfirmation", { required: true, maxLength: 30 })}
+                      type="password"
+                      placeholder="Enter your password (Confirm)"
+                      className="form-control ps-0"
+                    />
+                  </div>
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                  <Form.Label className="tx-size-sm tx-second-color form-label-margin">
+                    Phone
+                  </Form.Label>
+                  <div className="d-flex align-items-center">
+                    <Form.Text className="form-icon-container">
+                      <FontAwesomeIcon icon={faPencil} className="form-icon" />
+                    </Form.Text>
+                    <Form.Control
+                      {...register("phone", { required: true, maxLength: 30 })}
+                      type="number"
+                      placeholder={user.phone}
+                      className="form-control ps-0"
+                    />
+                  </div>
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                  <Form.Label className="tx-size-sm tx-second-color form-label-margin">
+                    Address
+                  </Form.Label>
+                  <div className="d-flex align-items-center">
+                    <Form.Text className="form-icon-container">
+                      <FontAwesomeIcon icon={faPencil} className="form-icon" />
+                    </Form.Text>
+                    <Form.Control
+                      {...register("address", { required: true, maxLength: 30 })}
+                      type="text"
+                      placeholder={user.addresses[0].streetAddress}
+                      className="form-control ps-0"
+                    />
+                  </div>
+                </Form.Group>
+
+                {/* //ALERT MSGS */}
+                {/* {errors.email?.type === "required" && (
+            <p className="custom-alert alert-danger fs-6" role="alert">
+              Email field is required.
+            </p>
+          )}
+          {errors.firstName?.type === "required" && (
+            <p className="custom-alert alert-danger fs-6" role="alert">
+              First name field is required.
+            </p>
+          )}
+          {errors.lastName?.type === "required" && (
+            <p className="custom-alert alert-danger fs-6 " role="alert">
+              Last name field is required.
+            </p>
+          )}
+          {errors.password?.type === "required" && (
+            <p className="custom-alert alert-danger fs-6" role="alert">
+              Password field is required.
+            </p>
+          )}
+          {errors.passwordConfirmation !== errors.password && (
+            <p className="custom-alert alert-danger fs-6 " role="alert">
+              Passwords don't match.
+            </p>
+          )} */}
+
+                <Button
+                  variant="custom"
+                  type="submit"
+                  className="bg-third-color custom-btn mt-3 ms-4 mb-3"
+                >
+                  Save changes
+                </Button>
+              </Form>
             </div>
-            <div className="col-md-4"></div>
           </Row>
 
           <Row className="mt-2 border-top">
             <h4 className="text-center">Orders</h4>
-            <Table striped bordered hover variant="light">
+            <Table hover variant="light">
               <thead>
                 <tr>
                   <th>Id</th>
@@ -184,4 +286,71 @@ export default UserProfile;
         </Container>
         <Footer />
       </> */
+}
+{
+  /* <div className="p-3 py-5">
+                <div className="d-flex justify-content-between align-items-center mb-3">
+                  <h4 className="text-end">Profile Settings</h4>
+                </div>
+                <div className="row mt-2">
+                  <div className="col-md-6">
+                    <label className="labels">Name</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      defaultValue={user.firstName}
+                    ></input>
+                  </div>
+                  <div className="col-md-6">
+                    <label className="labels">Lastname</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      defaultValue={user.lastName}
+                    ></input>
+                  </div>
+                </div>
+                <div className="row mt-3">
+                  <div className="col-md-12 mt-1">
+                    <label className="labels">Email ID</label>
+                    <input type="email" className="form-control" defaultValue={user.email}></input>
+                  </div>
+                  <div className="col-md-12 mt-1">
+                    <label className="labels">Phone Number</label>
+                    <input type="number" className="form-control" defaultValue={user.phone}></input>
+                  </div>
+                  <div className="col-md-12 mt-1">
+                    <label className="labels">Address Line 1</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      defaultValue={user.addresses[0].streetAddress}
+                    ></input>
+                  </div>
+
+                  <div className="col-md-12 mt-1">
+                    <label className="labels">Postal code</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      defaultValue={user.addresses[0].postalCode}
+                    ></input>
+                  </div>
+                  <div className="col-md-12 mt-1">
+                    <label className="labels">City</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      defaultValue={user.addresses[0].city}
+                    ></input>
+                  </div>
+                  <div className="col-md-12 mt-1">
+                    <label className="labels">Country</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      defaultValue={user.addresses[0].country}
+                    ></input>
+                  </div>
+                </div> */
 }
