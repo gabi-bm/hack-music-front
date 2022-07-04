@@ -57,6 +57,7 @@ const UserProfile = () => {
               </div>
             </div>
             <div className="col-md-9 border-end">
+              <h3 className="text-center">Edit User Info</h3>
               <Form onSubmit={handleSubmit(onSubmit)} className="px-5">
                 <Form.Group className="mb-3">
                   <Form.Label className="tx-size-sm tx-second-color form-label-margin">
