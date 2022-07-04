@@ -38,3 +38,32 @@ cursor: pointer;
     margin-top: 3rem;
     width: 60%;
 }
+.mer-card{
+    justify-content: space-between;
+}
+
+.mer-img{
+    width: 80%;
+    
+}
+.mer-text{
+    width: 80%;
+    margin-left: 2rem;
+    margin-top: auto;
+}
+.tec-icon{
+    transform: scale(3);
+    width: 30%;
+    
+}
+.icon-container{
+    width: 50%;
+}
+.list-tecs{
+    font-weight: 500;
+    font-size: large;
+    margin-left: 10%;
+}
+.list-tecs:hover{
+    text-decoration: none;
+}
