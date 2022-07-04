@@ -1,6 +1,6 @@
-import Footer from "../../Components/Footter/Footer";
-import NavBar from "../../Components/Navbar/Navbar";
-import ProductCardCart from "../../Components/ProductCardCart/ProductCardCart";
+import Footer from "../../components/Footter/Footer";
+import NavBar from "../../components/Navbar/Navbar";
+import ProductCardCart from "../../components/ProductCardCart/ProductCardCart";
 import { Container, Row, Col, Button, Table } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";

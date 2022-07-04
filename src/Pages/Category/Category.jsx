@@ -1,7 +1,7 @@
 import "./Category.css";
-import NavBar from "../../Components/Navbar/Navbar";
-import Footer from "../../Components/Footter/Footer";
-import ProductCardLarge from "../../Components/ProductCardLarge/ProductCardLarge";
+import NavBar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footter/Footer";
+import ProductCardLarge from "../../components/ProductCardLarge/ProductCardLarge";
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";

@@ -1,16 +1,16 @@
 import "./Home.css";
-import NavBar from "../../Components/Navbar/Navbar";
-import HeaderHome from "../../Components/HeaderHome/HeaderHome";
-import CategoryCard from "../../Components/CategoryCard/CategoryCard";
-import ProductsCarousel from "../../Components/ProductsCarousel/ProductsCarousel";
-import Footer from "../../Components/Footter/Footer";
+import NavBar from "../../components/Navbar/Navbar";
+import HeaderHome from "../../components/HeaderHome/HeaderHome";
+import CategoryCard from "../../components/CategoryCard/CategoryCard";
+import ProductsCarousel from "../../components/ProductsCarousel/ProductsCarousel";
+import Footer from "../../components/Footter/Footer";
 import React from "react";
 import axios from "axios";
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import MultiCarousel from "../../Components/MultiCarousel/MultiCarousel";
+import MultiCarousel from "../../components/MultiCarousel/MultiCarousel";
 
 const Home = () => {
   const [carouselProducts, setCarouselProducts] = useState(null);

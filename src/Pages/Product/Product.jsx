@@ -1,13 +1,13 @@
 import "./Product.css";
-import NavBar from "../../Components/Navbar/Navbar";
-import Footer from "../../Components/Footter/Footer";
+import NavBar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footter/Footer";
 import { Button, Container, Carousel, Breadcrumb, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { addProduct } from "../../Redux/cartSlice";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import MultiCarousel from "../../Components/MultiCarousel/MultiCarousel";
+import MultiCarousel from "../../components/MultiCarousel/MultiCarousel";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

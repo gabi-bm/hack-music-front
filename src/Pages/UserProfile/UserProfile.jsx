@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import NavBar from "../../Components/Navbar/Navbar";
-import Footer from "../../Components/Footter/Footer";
+import NavBar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footter/Footer";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";

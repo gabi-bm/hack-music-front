@@ -1,6 +1,6 @@
 import "./AboutUs.css";
-import NavBar from "../../Components/Navbar/Navbar";
-import Footer from "../../Components/Footter/Footer";
+import NavBar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footter/Footer";
 const AboutUs = () => {
   return (
     <div>

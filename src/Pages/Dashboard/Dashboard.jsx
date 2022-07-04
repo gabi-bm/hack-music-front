@@ -1,9 +1,9 @@
-import DashSideBar from "../../Components/Dashboard/DashSideBar/DashSideBar";
+import DashSideBar from "../../components/Dashboard/DashSideBar/DashSideBar";
 
 import "./Dashboard.css";
-import DashNavBar from "../../Components/Dashboard/DashNavBar/DashNavbar";
-import DashChart from "../../Components/Dashboard/DashboardChart/DashboardChart";
-import DashChart2 from "../../Components/Dashboard/DashboardChart/DashboardChart2";
+import DashNavBar from "../../components/Dashboard/DashNavBar/DashNavbar";
+import DashChart from "../../components/Dashboard/DashboardChart/DashboardChart";
+import DashChart2 from "../../components/Dashboard/DashboardChart/DashboardChart2";
 
 const Dashboard = () => {
   return (
