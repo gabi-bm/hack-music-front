@@ -59,7 +59,7 @@ const AboutUs = () => {
         </div>
       </div>
       <div className="desc-about">
-        <h1 style={{ textAlign: "center", marginTop: "4rem" }}>¿Qué es Hack Music?</h1>
+        <h1 style={{ textAlign: "center", marginTop: "8rem" }}>¿Qué es Hack Music?</h1>
         <p style={{ textAlign: "center", marginTop: "4rem" }}>
           Hack Music es una aplicación web creada por estudiantes de Hack Academy con el fin de
           poner en práctica los conocimientos adquiridos para poder desarrollar un e-commerce en un
@@ -68,7 +68,7 @@ const AboutUs = () => {
           duración de 3 meses, el cual tuvo apróximadamente 600 horas de dedicación.
         </p>
       </div>
-      <h1 style={{ textAlign: "center", marginTop: "4rem", marginBottom: "4rem" }}>Process:</h1>
+      <h1 style={{ textAlign: "center", marginTop: "8rem", marginBottom: "4rem" }}>Process:</h1>
       <div className="d-flex mer-card container">
         <div className="col-6">
           <img className="mer-img" src="https://i.postimg.cc/g0nHkFBs/mer-byn.jpg" alt="" />
@@ -108,7 +108,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <h1 style={{ textAlign: "center", marginTop: "4rem", marginBottom: "4rem" }}>Used tecs:</h1>
+      <h1 style={{ textAlign: "center", marginTop: "8rem", marginBottom: "4rem" }}>Used tecs:</h1>
       <div className="d-flex mer-card container">
         <div className="col-6 icon-container">
           <div className="d-flex">
