@@ -9,8 +9,8 @@ import { Container, Row, Col, Button, Table } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer } from "react-toastify";
-import DashNavBar from "../../Components/Dashboard/DashNavBar/DashNavbar";
-import DashSideBar from "../../Components/Dashboard/DashSideBar/DashSideBar";
+import DashNavBar from "../../components/Dashboard/DashNavBar/DashNavbar";
+import DashSideBar from "../../components/Dashboard/DashSideBar/DashSideBar";
 import DashboardUpdateModal from "./DashboardUpdateModal";
 import DashboardCreateModal from "./DashboardCreateModal";
 

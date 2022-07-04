@@ -9,7 +9,7 @@ import { faEnvelope, faKey, faPlay } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
 import { loginUser } from "../../Redux/userSlice";
 import { Link, useNavigate } from "react-router-dom";
-import NavBar from "../../Components/Navbar/Navbar";
+import NavBar from "../../components/Navbar/Navbar";
 
 const Login = () => {
   const dispatch = useDispatch();

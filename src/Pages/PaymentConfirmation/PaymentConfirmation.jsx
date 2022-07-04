@@ -1,5 +1,5 @@
 import { Button, Container } from "react-bootstrap";
-import NavBar from "../../Components/Navbar/Navbar";
+import NavBar from "../../components/Navbar/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";

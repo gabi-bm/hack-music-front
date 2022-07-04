@@ -3,10 +3,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Container, Row, Col, Table } from "react-bootstrap";
-import AddressForm from "../../Components/AddressForm/AddressForm";
-import PaymentForm from "../../Components/PaymentForm/PaymentForm";
-import NavBar from "../../Components/Navbar/Navbar";
-import ProcessingPaymentModal from "../../Components/ProcessingPaymentModal/ProcessingPaymentModal";
+import AddressForm from "../../components/AddressForm/AddressForm";
+import PaymentForm from "../../components/PaymentForm/PaymentForm";
+import NavBar from "../../components/Navbar/Navbar";
+import ProcessingPaymentModal from "../../components/ProcessingPaymentModal/ProcessingPaymentModal";
 
 const Checkout = () => {
   const params = useParams();

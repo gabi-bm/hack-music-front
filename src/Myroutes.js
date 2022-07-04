@@ -14,7 +14,7 @@ import DashboardOrders from "./Pages/DashboardOrders/DashboardOrders";
 import DashboardProducts from "./Pages/DashboardProducts/DashboardProducts";
 import Checkout from "./Pages/Checkout/Checkout";
 import UserProfile from "./Pages/UserProfile/UserProfile";
-import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import PaymentConfirmation from "./Pages/PaymentConfirmation/PaymentConfirmation";
 import DashboardEntities from "./Pages/DashboardEntities/DashboardEntities";
 

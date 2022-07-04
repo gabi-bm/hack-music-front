@@ -1,16 +1,16 @@
 import "./Home.css";
-import NavBar from "../../Components/Navbar/Navbar";
-import HeaderHome from "../../Components/HeaderHome/HeaderHome";
-import CategoryCard from "../../Components/CategoryCard/CategoryCard";
-import ProductsCarousel from "../../Components/ProductsCarousel/ProductsCarousel";
-import Footer from "../../Components/Footter/Footer";
+import NavBar from "../../components/Navbar/Navbar";
+import HeaderHome from "../../components/HeaderHome/HeaderHome";
+import CategoryCard from "../../components/CategoryCard/CategoryCard";
+import ProductsCarousel from "../../components/ProductsCarousel/ProductsCarousel";
+import Footer from "../../components/Footter/Footer";
 import React from "react";
 import axios from "axios";
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import MultiCarousel from "../../Components/MultiCarousel/MultiCarousel";
+import MultiCarousel from "../../components/MultiCarousel/MultiCarousel";
 
 const Home = () => {
   const [carouselProducts, setCarouselProducts] = useState(null);
@@ -31,27 +31,29 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <NavBar />
-      <HeaderHome />
-      <h2 className="home-titles" style={{ paddingTop: "10rem" }}>
-        POPULAR PRODUCTS
-      </h2>
-      <MultiCarousel carouselProducts={carouselProducts} />
-      <section>
-        <Container className="mt-5">
-          <h2 className="home-titles">CATEGORIES</h2>
-        </Container>
-        {categories.map((category) => {
-          return (
-            <Link to={"/category/" + category.slug} key={"category-" + category.name}>
-              <CategoryCard category={category} />
-            </Link>
-          );
-        })}
-      </section>
-      <Footer />
-    </div>
+    categories.length > 0 && (
+      <div>
+        <NavBar />
+        <HeaderHome />
+        <h2 className="home-titles" style={{ paddingTop: "10rem" }}>
+          POPULAR PRODUCTS
+        </h2>
+        <MultiCarousel carouselProducts={carouselProducts} />
+        <section>
+          <Container className="mt-5">
+            <h2 className="home-titles">CATEGORIES</h2>
+          </Container>
+          {categories.map((category) => {
+            return (
+              <Link to={"/category/" + category.slug} key={"category-" + category.name}>
+                <CategoryCard category={category} />
+              </Link>
+            );
+          })}
+        </section>
+        <Footer />
+      </div>
+    )
   );
 };
 export default Home;
