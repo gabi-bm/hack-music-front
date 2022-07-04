@@ -26,8 +26,8 @@ const ProductCardLarge = ({ product, handleAddProduct, notify }) => {
             type="button"
             onClick={(e) => {
               e.preventDefault();
-              handleAddProduct();
-              notify();
+              handleAddProduct(product);
+              notify(product.name);
               e.target.blur();
             }}
           >
