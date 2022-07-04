@@ -31,27 +31,29 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <NavBar />
-      <HeaderHome />
-      <h2 className="home-titles" style={{ paddingTop: "10rem" }}>
-        POPULAR PRODUCTS
-      </h2>
-      <MultiCarousel carouselProducts={carouselProducts} />
-      <section>
-        <Container className="mt-5">
-          <h2 className="home-titles">CATEGORIES</h2>
-        </Container>
-        {categories.map((category) => {
-          return (
-            <Link to={"/category/" + category.slug} key={"category-" + category.name}>
-              <CategoryCard category={category} />
-            </Link>
-          );
-        })}
-      </section>
-      <Footer />
-    </div>
+    categories.length > 0 && (
+      <div>
+        <NavBar />
+        <HeaderHome />
+        <h2 className="home-titles" style={{ paddingTop: "10rem" }}>
+          POPULAR PRODUCTS
+        </h2>
+        <MultiCarousel carouselProducts={carouselProducts} />
+        <section>
+          <Container className="mt-5">
+            <h2 className="home-titles">CATEGORIES</h2>
+          </Container>
+          {categories.map((category) => {
+            return (
+              <Link to={"/category/" + category.slug} key={"category-" + category.name}>
+                <CategoryCard category={category} />
+              </Link>
+            );
+          })}
+        </section>
+        <Footer />
+      </div>
+    )
   );
 };
 export default Home;
