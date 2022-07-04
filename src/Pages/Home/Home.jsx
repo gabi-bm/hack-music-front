@@ -34,7 +34,9 @@ const Home = () => {
     <div>
       <NavBar />
       <HeaderHome />
-      <h2 className="home-titles">POPULAR PRODUCTS</h2>
+      <h2 className="home-titles" style={{ paddingTop: "10rem" }}>
+        POPULAR PRODUCTS
+      </h2>
       <MultiCarousel carouselProducts={carouselProducts} />
       <section>
         <Container className="mt-5">

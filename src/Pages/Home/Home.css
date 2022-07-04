@@ -76,3 +76,16 @@
         font-size: 3rem;
        }
 }
+
+.home-carousel-img {
+    max-height: calc(100vh - 10rem);
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background-color: rgba(1, 1, 1, 0.5);
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding-bottom: 2rem;
+}

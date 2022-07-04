@@ -27,8 +27,8 @@ const ProductCardSmall = ({ productId }) => {
             style={{
               width: "auto",
               height: "auto",
-              maxWidth: "100%",
-              maxHeight: "calc(100% - 4rem)",
+              maxWidth: "70%",
+              maxHeight: "calc(85% - 4rem)",
             }}
           ></img>
 
