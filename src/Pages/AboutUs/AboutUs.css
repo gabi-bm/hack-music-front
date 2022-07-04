@@ -1,0 +1,40 @@
+.card-group{
+    margin-top: 4rem;
+    justify-content: space-between
+    
+}
+.card-1{
+   flex-direction: column;
+   text-align: center;
+   transition: all 1s ease;
+   border: 0px solid white;
+
+}
+
+.img-card-1{
+    width: 80%;
+    height: 90%;
+    border-radius: 50%;
+    margin: auto;
+    
+}
+.card-text{
+    margin-top: 1.5rem;
+}
+.card-name{
+    margin-bottom: 0.2rem;
+}
+
+.card-1:hover{
+/* background-color: rgb(240, 240, 240);
+border: 1px solid rgb(187, 187, 187); */
+transform: scale(1.2);
+cursor: pointer;
+
+}
+.desc-about{
+    text-align: center;
+    margin: auto;
+    margin-top: 3rem;
+    width: 60%;
+}
