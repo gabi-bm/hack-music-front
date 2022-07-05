@@ -11,8 +11,32 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import MultiCarousel from "../../components/MultiCarousel/MultiCarousel";
+import {
+  fender,
+  bach,
+  gibson,
+  gretsch,
+  korg,
+  latinPercussion,
+  nord,
+  roland,
+  taylor,
+  yamaha,
+} from "../../Images/Logos/index.js";
 
 const Home = () => {
+  const logos = [
+    fender,
+    taylor,
+    gibson,
+    gretsch,
+    roland,
+    latinPercussion,
+    korg,
+    nord,
+    bach,
+    yamaha,
+  ];
   const [carouselProducts, setCarouselProducts] = useState(null);
   const [categories, setCategories] = useState([]);
 
@@ -35,12 +59,10 @@ const Home = () => {
       <div>
         <NavBar />
         <HeaderHome />
-        <h2 className="home-titles" style={{ paddingTop: "10rem" }}>
-          POPULAR PRODUCTS
-        </h2>
+        <h2 className="home-titles pt-5">PREMIUM PRODUCTS</h2>
         <MultiCarousel carouselProducts={carouselProducts} />
         <section>
-          <Container className="mt-5">
+          <Container style={{ paddingTop: "7rem" }}>
             <h2 className="home-titles">CATEGORIES</h2>
           </Container>
           {categories.map((category) => {
@@ -51,6 +73,16 @@ const Home = () => {
             );
           })}
         </section>
+        <Container>
+          <h2 className="home-titles" style={{ paddingTop: "7rem" }}>
+            OUR BRANDS
+          </h2>
+          <div className="d-flex align-items-center justify-content-between w-100 my-4">
+            {logos.map((logo, index) => (
+              <img key={index} style={{ maxWidth: "4rem", height: "auto" }} src={logo}></img>
+            ))}
+          </div>
+        </Container>
         <Footer />
       </div>
     )
