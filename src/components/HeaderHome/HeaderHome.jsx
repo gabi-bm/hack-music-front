@@ -70,9 +70,3 @@ const HeaderHome = () => {
 };
 
 export default HeaderHome;
-
-{
-  /* <div className="header">
-      <h1 className="titulo-header">Hack Music</h1>
-    </div> */
-}

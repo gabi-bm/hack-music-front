@@ -30,6 +30,7 @@ const ProductCardSmall = ({ productId }) => {
               maxWidth: "70%",
               maxHeight: "calc(85% - 4rem)",
             }}
+            alt={product.name}
           ></img>
 
           <span
@@ -45,26 +46,3 @@ const ProductCardSmall = ({ productId }) => {
 };
 
 export default ProductCardSmall;
-
-// maxWidth: "12rem", height: "12rem"
-
-{
-  /* <div
-className="d-flex flex-column align-items-center bg-primary border px-2"
-style={{
-  height: "20rem",
-  minHeight: "20rem",
-  maxHeight: "20rem",
-  width: "100%",
-}}
->
-<div className="flex-grow-1 bg-danger">s</div>
-
-<span
-  className="tx-size-md pt-2 tx-fourth-color"
-  style={{ maxWidth: "100%", height: "4rem", textAlign: "center" }}
->
-  nameasdaSDasdasdjnasjodnasdnoasndoasnfonasodfnaspondpasnfkasnflknsdalkfnldskanfojasnfdlknokndosjkanfljansojfnweokflkdsnojkfnadskfnaslknfaojsn
-</span>
-</div> */
-}

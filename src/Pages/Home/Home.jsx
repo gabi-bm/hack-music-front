@@ -2,7 +2,6 @@ import "./Home.css";
 import NavBar from "../../components/Navbar/Navbar";
 import HeaderHome from "../../components/HeaderHome/HeaderHome";
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
-import ProductsCarousel from "../../components/ProductsCarousel/ProductsCarousel";
 import Footer from "../../components/Footter/Footer";
 import React from "react";
 import axios from "axios";
@@ -87,6 +86,7 @@ const Home = () => {
               style={{ maxWidth: "4rem", height: "auto" }}
               className="mx-3 mb-3"
               src={logo}
+              alt={logo}
             ></img>
           ))}
         </div>

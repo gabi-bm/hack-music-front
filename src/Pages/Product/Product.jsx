@@ -2,8 +2,8 @@ import "./Product.css";
 import NavBar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footter/Footer";
 import { Button, Container, Carousel, Breadcrumb, Row, Col } from "react-bootstrap";
-import { useParams } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useParams, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { addProduct } from "../../Redux/cartSlice";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -55,10 +55,10 @@ const Product = () => {
         </div>
         <Container style={{ textAlign: "center" }}>
           <Breadcrumb>
-            <Breadcrumb.Item href="/">
+            <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>
               <span className="text-muted tx-size-md">Home</span>
             </Breadcrumb.Item>
-            <Breadcrumb.Item href={"/" + product.categoryName}>
+            <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" + product.categoryName }}>
               <span className="text-muted tx-size-md">{product.categoryName}</span>
             </Breadcrumb.Item>
             <Breadcrumb.Item active>

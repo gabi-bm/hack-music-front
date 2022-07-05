@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, NavDropdown, Nav, Container, Badge } from "react-bootstrap";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
