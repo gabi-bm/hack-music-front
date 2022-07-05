@@ -1,5 +1,6 @@
 .react-multi-carousel-list {
-  padding: 4rem 0;
+  padding: 0;
+  padding-bottom: 3rem;
 }
 
 /* .react-multi-carousel-item {
