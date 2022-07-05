@@ -17,7 +17,10 @@ const Product = () => {
   const [product, setProduct] = useState(null);
   const dispatch = useDispatch();
 
-  const notify = () => toast(product.name + " added to cart!");
+  const notify = () =>
+    toast(product.name + " added to cart!", {
+      autoClose: 2000,
+    });
 
   const handleAddProduct = () => {
     dispatch(addProduct({ product }));
@@ -47,8 +50,10 @@ const Product = () => {
     product && (
       <>
         <NavBar />
-        <ToastContainer />
-        <Container style={{ textAlign: "center", marginTop: "50px" }}>
+        <div style={{ marginTop: "5rem" }}>
+          <ToastContainer />
+        </div>
+        <Container style={{ textAlign: "center" }}>
           <Breadcrumb>
             <Breadcrumb.Item href="/">
               <span className="text-muted tx-size-md">Home</span>

@@ -51,6 +51,7 @@ const MyRoutes = () => {
           <Route path="/user-profile" element={<UserProfile />} />
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         </Route>
+        <Route path="*" element={<Home />} />
       </Routes>
     </>
   );

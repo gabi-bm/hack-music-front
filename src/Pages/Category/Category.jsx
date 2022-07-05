@@ -16,7 +16,10 @@ const Category = () => {
   const params = useParams();
   const [category, setCategory] = useState(null);
 
-  const notify = (productName) => toast(`${productName} added to cart!`);
+  const notify = (productName) =>
+    toast(`${productName} added to cart!`, {
+      autoClose: 2000,
+    });
 
   const handleAddProduct = (product) => {
     dispatch(addProduct({ product }));

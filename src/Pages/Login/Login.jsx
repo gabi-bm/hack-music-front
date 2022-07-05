@@ -27,7 +27,7 @@ const Login = () => {
     try {
       const response = await axios.post(process.env.REACT_APP_SERVER_URL + "/tokens", data);
       dispatch(loginUser(response.data));
-      if (response.status === 200) return navigate("/");
+      if (response.status === 200) return navigate(-1);
     } catch (err) {
       setCredentialsMsg("Invalid credentials.");
     }

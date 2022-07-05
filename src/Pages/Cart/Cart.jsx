@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { addProduct, deleteProduct, deleteCartItem, resetCart } from "../../Redux/cartSlice";
 import "./Cart.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { faLock, faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import * as FaIcons from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,7 +16,7 @@ import axios from "axios";
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user);
-  console.log(cart);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -60,6 +60,7 @@ const Cart = () => {
       },
     );
 
+    dispatch(resetCart());
     navigate(`/checkout/${response.data._id}`);
   };
 
@@ -68,8 +69,8 @@ const Cart = () => {
       <NavBar />
       <ToastContainer />
       <Container className="py-5">
-        <div className="d-flex justify-content-center align-items-center pb-5">
-          <h1 className="pe-4" style={{ fontWeight: "200", textAlign: "center" }}>
+        <div className="d-flex justify-content-center align-items-center pb-5 mt-3">
+          <h1 className="pe-4 " style={{ fontWeight: "300", textAlign: "center" }}>
             My Cart
           </h1>
           <FaIcons.FaShoppingCart
@@ -95,7 +96,7 @@ const Cart = () => {
               })}
             </ul>
           </Col>
-          <Col className="pt-3" style={{ backgroundColor: "var(--fourth-color)" }}>
+          <Col className="p-3" style={{ backgroundColor: "var(--fourth-color)" }}>
             <div className="d-flex justify-content-between align-items-center pb-4">
               <h5 className="mb-0">Cart summary</h5>
               <Button
@@ -151,9 +152,30 @@ const Cart = () => {
     <div>
       <NavBar />
       <Container>
-        <h1>Cart</h1>
-
-        <p>Your cart is empty.</p>
+        <div className="d-flex justify-content-center align-items-center pb-5 mt-3">
+          <h1 className="pe-4 " style={{ fontWeight: "400", textAlign: "center" }}>
+            My Cart
+          </h1>
+          <FaIcons.FaShoppingCart
+            className="icon-size"
+            style={{ transform: "scale(2)", color: "var(--third-color)" }}
+          />
+        </div>
+        <div className="d-flex flex-column justify-content-center align-items-center pb-5">
+          <h3 className="text-center mb-5" style={{ fontWeight: "300", textAlign: "center" }}>
+            Oh no! <br /> It seems like your cart is empty.
+          </h3>
+          <div>
+            <Button
+              variant="custom"
+              className="custom-btn"
+              style={{ float: "right" }}
+              onClick={() => navigate("/")}
+            >
+              <FontAwesomeIcon icon={faCartPlus} /> Continue shopping!
+            </Button>
+          </div>
+        </div>
       </Container>
       <Footer />
     </div>

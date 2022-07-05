@@ -8,7 +8,8 @@ import Col from "react-bootstrap/Col";
 import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,6 +18,8 @@ import { faEnvelope, faPencil, faKey, faHeadphonesSimple } from "@fortawesome/fr
 const UserProfile = () => {
   const storeUser = useSelector((state) => state.user);
   const [user, setUser] = useState(null);
+
+  const notify = () => toast("User info succesfully updated!");
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -32,17 +35,25 @@ const UserProfile = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    const response = await axios.patch(
-      process.env.REACT_APP_SERVER_URL + "/users/" + user._id,
-      data,
-    );
-    console.log(errors);
+    try {
+      const response = await axios.patch(
+        process.env.REACT_APP_SERVER_URL + "/users/" + user._id,
+        data,
+      );
+      if (response.status === 200) {
+        notify();
+      }
+    } catch (err) {
+      console.log(errors);
+      console.log(err);
+    }
   };
 
   return (
     user && (
       <>
         <NavBar />
+        <ToastContainer />
         <div className="container rounded bg-white mt-5 mb-5 shadow">
           <Row>
             <div className="col-md-3 border-end">
@@ -73,7 +84,7 @@ const UserProfile = () => {
                         maxLength: 30,
                       })}
                       type="email"
-                      placeholder={user.email}
+                      defaultValue={user.email}
                       className="form-control ps-0"
                     />
                   </div>
@@ -88,9 +99,9 @@ const UserProfile = () => {
                       <FontAwesomeIcon icon={faPencil} className="form-icon" />
                     </Form.Text>
                     <Form.Control
-                      {...register("firstName", { required: true, maxLength: 30 })}
+                      {...register("firstName", { maxLength: 30 })}
                       type="text"
-                      placeholder={user.firstName}
+                      defaultValue={user.firstName}
                       className="form-control ps-0"
                     />
                   </div>
@@ -105,9 +116,9 @@ const UserProfile = () => {
                       <FontAwesomeIcon icon={faPencil} className="form-icon" />
                     </Form.Text>
                     <Form.Control
-                      {...register("lastName", { required: true, maxLength: 30 })}
+                      {...register("lastName", { maxLength: 30 })}
                       type="text"
-                      placeholder={user.lastName}
+                      defaultValue={user.lastName}
                       className="form-control ps-0"
                     />
                   </div>
@@ -115,16 +126,16 @@ const UserProfile = () => {
 
                 <Form.Group className="mb-3">
                   <Form.Label className="tx-size-sm tx-second-color form-label-margin">
-                    Password
+                    Change Password
                   </Form.Label>
                   <div className="d-flex align-items-center">
                     <Form.Text className="form-icon-container">
                       <FontAwesomeIcon icon={faKey} className="form-icon" />
                     </Form.Text>
                     <Form.Control
-                      {...register("password", { required: true, maxLength: 30 })}
+                      {...register("password", { maxLength: 30 })}
                       type="password"
-                      placeholder="Enter your password"
+                      placeholder="Enter your new password"
                       className="form-control ps-0"
                     />
                   </div>
@@ -139,9 +150,9 @@ const UserProfile = () => {
                       <FontAwesomeIcon icon={faKey} className="form-icon" />
                     </Form.Text>
                     <Form.Control
-                      {...register("passwordConfirmation", { required: true, maxLength: 30 })}
+                      {...register("passwordConfirmation", { maxLength: 30 })}
                       type="password"
-                      placeholder="Enter your password (Confirm)"
+                      placeholder="Enter your new password"
                       className="form-control ps-0"
                     />
                   </div>
@@ -156,9 +167,9 @@ const UserProfile = () => {
                       <FontAwesomeIcon icon={faPencil} className="form-icon" />
                     </Form.Text>
                     <Form.Control
-                      {...register("phone", { required: true, maxLength: 30 })}
+                      {...register("phone", { maxLength: 30 })}
                       type="number"
-                      placeholder={user.phone}
+                      defaultValue={user.phone}
                       className="form-control ps-0"
                     />
                   </div>
@@ -173,40 +184,13 @@ const UserProfile = () => {
                       <FontAwesomeIcon icon={faPencil} className="form-icon" />
                     </Form.Text>
                     <Form.Control
-                      {...register("address", { required: true, maxLength: 30 })}
+                      {...register("address", { maxLength: 30 })}
                       type="text"
-                      placeholder={user.addresses[0].streetAddress}
+                      defaultValue={user.addresses[0].streetAddress}
                       className="form-control ps-0"
                     />
                   </div>
                 </Form.Group>
-
-                {/* //ALERT MSGS */}
-                {/* {errors.email?.type === "required" && (
-            <p className="custom-alert alert-danger fs-6" role="alert">
-              Email field is required.
-            </p>
-          )}
-          {errors.firstName?.type === "required" && (
-            <p className="custom-alert alert-danger fs-6" role="alert">
-              First name field is required.
-            </p>
-          )}
-          {errors.lastName?.type === "required" && (
-            <p className="custom-alert alert-danger fs-6 " role="alert">
-              Last name field is required.
-            </p>
-          )}
-          {errors.password?.type === "required" && (
-            <p className="custom-alert alert-danger fs-6" role="alert">
-              Password field is required.
-            </p>
-          )}
-          {errors.passwordConfirmation !== errors.password && (
-            <p className="custom-alert alert-danger fs-6 " role="alert">
-              Passwords don't match.
-            </p>
-          )} */}
 
                 <Button
                   variant="custom"
