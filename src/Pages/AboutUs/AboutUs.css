@@ -1,0 +1,73 @@
+.card-group{
+    margin-top: 4rem;
+    justify-content: space-between
+    
+}
+.card-1{
+   flex-direction: column;
+   text-align: center;
+   transition: all 1s ease;
+   border: 0px solid white;
+
+}
+
+.img-card-1{
+    width: 80%;
+    height: 90%;
+    border-radius: 50%;
+    margin: auto;
+    
+}
+.card-text{
+    margin-top: 1.5rem;
+}
+.card-name{
+    margin-bottom: 0.2rem;
+}
+
+.card-1:hover{
+/* background-color: rgb(240, 240, 240);
+border: 1px solid rgb(187, 187, 187); */
+transform: scale(1.2);
+cursor: pointer;
+
+}
+.desc-about{
+    text-align: center;
+    margin: auto;
+    margin-top: 3rem;
+    width: 60%;
+}
+.mer-card{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mer-img{
+    width: 80%;
+    
+}
+.mer-text{
+    width: 80%;
+    margin-left: 2rem;
+    margin-top: auto;
+}
+.tec-icon{
+    transform: scale(3);
+    margin-right: 2rem;
+    
+    
+}
+.icon-container{
+    width: 50%;
+}
+.list-tecs{
+    font-weight: 500;
+    font-size: x-large;
+    padding: 20px;
+    
+    
+}
+.list-tecs:hover{
+    text-decoration: none;
+}
