@@ -5,7 +5,7 @@ import ProductCardLarge from "../../components/ProductCardLarge/ProductCardLarge
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Container, Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
@@ -46,6 +46,7 @@ const Category = () => {
           <img
             style={{ width: "100%", height: "auto" }}
             src="https://i.postimg.cc/V61svYzZ/pexels-caleb-oquendo-3018083.jpg"
+            alt={"category-img"}
           ></img>
         </div>
         <Container style={{ textAlign: "center" }}>

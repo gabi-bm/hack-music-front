@@ -1,6 +1,5 @@
-import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus, faTrashCan, faLock } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faMinus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 const ProductCardCart = ({
   cartItem,
@@ -23,10 +22,12 @@ const ProductCardCart = ({
           height: "100%",
           paddingRight: "45px",
         }}
+        alt={cartItem.product.name}
       >
         <img
           src={cartItem.product.picture}
-          style={{ maxWidth: "auto", maxHeight: "100%", maxWidth: "100%" }}
+          style={{ maxHeight: "100%", maxWidth: "100%" }}
+          alt={cartItem.product.name}
         ></img>
       </div>
       <div className="flex-grow-1" style={{ paddingLeft: "45px" }}>

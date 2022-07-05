@@ -3,7 +3,7 @@ import NavBar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footter/Footer";
 import { Button, Container, Carousel, Breadcrumb, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { addProduct } from "../../Redux/cartSlice";
 import axios from "axios";
 import { useDispatch } from "react-redux";
