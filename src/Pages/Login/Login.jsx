@@ -6,7 +6,7 @@ import { Container, Form, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faKey, faPlay } from "@fortawesome/free-solid-svg-icons";
 
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { loginUser } from "../../Redux/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import NavBar from "../../components/Navbar/Navbar";
@@ -26,11 +26,10 @@ const Login = () => {
   const onSubmit = async (data) => {
     try {
       const response = await axios.post(process.env.REACT_APP_SERVER_URL + "/tokens", data);
-      console.log(response);
       dispatch(loginUser(response.data));
       if (response.status === 200) return navigate("/");
     } catch (err) {
-      setCredentialsMsg("Credenciales no validas.");
+      setCredentialsMsg("Invalid credentials.");
     }
   };
   return (
