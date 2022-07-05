@@ -39,7 +39,6 @@ const Category = () => {
   return (
     category && (
       <div>
-        {console.log(category)}
         <NavBar />
         <ToastContainer />
         <div style={{ width: "100%", height: "500px", overflow: "hidden" }}>
