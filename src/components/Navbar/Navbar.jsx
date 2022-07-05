@@ -12,9 +12,12 @@ const NavBar = () => {
     <Navbar collapseOnSelect expand="lg" variant="dark" className="p-0" id="navbar">
       <Container fluid>
         <Navbar.Brand>
-          <span className="pe-2">HackMusic</span>
-          <FaIcons.FaHeadphonesAlt className="icon-size-logo" />
+          <Link to="/" style={{ color: "var(--fourth-color)" }}>
+            <span className="pe-2">HackMusic</span>
+            <FaIcons.FaHeadphonesAlt className="icon-size-logo" />
+          </Link>
         </Navbar.Brand>
+
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav>
@@ -54,35 +57,44 @@ const NavBar = () => {
 
             <Nav.Link as={Link} to="/cart">
               <div style={{ position: "relative" }}>
-                <FaIcons.FaShoppingCart className="icon-size" />
+                <FaIcons.FaShoppingCart className="icon-size" style={{ transform: "scale(1.5)" }} />
                 <Badge pill bg="danger">
                   {cart.totalQuantity < 10 ? cart.totalQuantity : "+9"}
                 </Badge>
               </div>
             </Nav.Link>
 
-            <NavDropdown title={<FaIcons.FaUserAlt className="icon-size" />} id="user-dropdown">
-              {user.firstName && (
+            <NavDropdown
+              title={
+                <span>
+                  {user.firstName && <span className="pe-3">Hello, {user.firstName}!</span>}
+                  <span>
+                    <FaIcons.FaUserAlt style={{ transform: "scale(1.5)", paddingBottom: "2px" }} />
+                  </span>
+                </span>
+              }
+            >
+              {user.firstName ? (
                 <>
-                  <NavDropdown.Item>Logged in as: {user.firstName}</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/user-profile">
+                    Profile
+                  </NavDropdown.Item>
                   <NavDropdown.Divider />
+                  <NavDropdown.Item as={Link} to="/logout">
+                    Logout
+                  </NavDropdown.Item>
+                </>
+              ) : (
+                <>
+                  <NavDropdown.Item as={Link} to="/register">
+                    Register
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item as={Link} to="/login">
+                    Login
+                  </NavDropdown.Item>
                 </>
               )}
-              <NavDropdown.Item as={Link} to="/register">
-                Register
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to="/login">
-                Login
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to="/user-profile">
-                Profile
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to="/logout">
-                Logout
-              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

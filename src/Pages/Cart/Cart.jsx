@@ -149,7 +149,7 @@ const Cart = () => {
       <Footer />
     </div>
   ) : (
-    <div>
+    <div style={{ minHeight: "100vh" }} className="d-flex flex-column">
       <NavBar />
       <Container>
         <div className="d-flex justify-content-center align-items-center pb-5 mt-3">
