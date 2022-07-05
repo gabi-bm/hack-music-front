@@ -116,16 +116,16 @@
     align-items: center;
     background-color: black;
     color: var(--fourth-color);
-    height: calc(100vh - 69px - 91px - 382px);
+    height: calc(120px);
   }
 
   .caption-small-size h3 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 200;
   }
 
   .caption-small-size p {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 200;
   }
 
