@@ -10,7 +10,7 @@ const HeaderHome = () => {
         <Carousel.Item>
           <img
             className="d-block w-100 home-carousel-img"
-            src="https://static.roland.com/assets/promos/jpg/billboard_aira_compact.jpg"
+            src="https://static.roland.com/assets/promos/jpg/billboard_td-07_series.jpg"
             alt="First slide"
           />
           <Carousel.Caption>
@@ -33,7 +33,7 @@ const HeaderHome = () => {
         <Carousel.Item>
           <img
             className="d-block w-100 home-carousel-img"
-            src="https://static.roland.com/assets/promos/jpg/billboard_td-07_series.jpg"
+            src="https://static.roland.com/assets/promos/jpg/billboard_aira_compact.jpg"
             alt="Third slide"
           />
 
@@ -43,12 +43,15 @@ const HeaderHome = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      <div className="caption-small-size">
+        <h3>Welcome to HackMusic</h3>
+        <p>Bring music to life with our selected products.</p>
+      </div>
       <div style={{ height: "91px" }} className="d-flex flex-column justify-content-center">
         <span
-          className="tx-third-color tracking-in-expand"
+          className="tx-third-color tracking-in-expand find-your-instrument"
           style={{
             fontWeight: "300",
-            fontSize: "1.5rem",
             display: "block",
             paddingBottom: "0",
             letterSpacing: "0.2rem",
@@ -57,7 +60,7 @@ const HeaderHome = () => {
           Find your instrument{" "}
         </span>
         <FontAwesomeIcon
-          className="tx-third-color text-flicker-in-glow"
+          className="tx-third-color rotate-center"
           icon={faAngleDown}
           style={{ fontWeight: "100", fontSize: "2rem", margin: "0 auto" }}
         />

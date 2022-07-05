@@ -59,10 +59,12 @@ const Home = () => {
       <div>
         <NavBar />
         <HeaderHome />
-        <h2 className="home-titles pt-5">PREMIUM PRODUCTS</h2>
+        <h2 className="home-titles" style={{ paddingBottom: "0" }}>
+          PREMIUM PRODUCTS
+        </h2>
         <MultiCarousel carouselProducts={carouselProducts} />
         <section>
-          <Container style={{ paddingTop: "7rem" }}>
+          <Container>
             <h2 className="home-titles">CATEGORIES</h2>
           </Container>
           {categories.map((category) => {
@@ -73,16 +75,22 @@ const Home = () => {
             );
           })}
         </section>
-        <Container>
-          <h2 className="home-titles" style={{ paddingTop: "7rem" }}>
-            OUR BRANDS
-          </h2>
-          <div className="d-flex align-items-center justify-content-between w-100 my-4">
-            {logos.map((logo, index) => (
-              <img key={index} style={{ maxWidth: "4rem", height: "auto" }} src={logo}></img>
-            ))}
-          </div>
-        </Container>
+
+        <h2 className="home-titles">OUR BRANDS</h2>
+        <div
+          className="d-flex align-items-center justify-content-between my-4 flex-wrap"
+          style={{ width: "80%", margin: "0 auto" }}
+        >
+          {logos.map((logo, index) => (
+            <img
+              key={index}
+              style={{ maxWidth: "4rem", height: "auto" }}
+              className="mx-3 mb-3"
+              src={logo}
+            ></img>
+          ))}
+        </div>
+
         <Footer />
       </div>
     )
