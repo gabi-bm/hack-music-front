@@ -40,6 +40,7 @@ cursor: pointer;
 }
 .mer-card{
     justify-content: space-between;
+    align-items: center;
 }
 
 .mer-img{
@@ -53,7 +54,8 @@ cursor: pointer;
 }
 .tec-icon{
     transform: scale(3);
-    width: 30%;
+    margin-right: 2rem;
+    
     
 }
 .icon-container{
@@ -61,8 +63,10 @@ cursor: pointer;
 }
 .list-tecs{
     font-weight: 500;
-    font-size: large;
-    margin-left: 10%;
+    font-size: x-large;
+    padding: 20px;
+    
+    
 }
 .list-tecs:hover{
     text-decoration: none;

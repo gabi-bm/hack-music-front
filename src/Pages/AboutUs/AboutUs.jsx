@@ -110,36 +110,40 @@ const AboutUs = () => {
 
       <h1 style={{ textAlign: "center", marginTop: "8rem", marginBottom: "4rem" }}>Used tecs:</h1>
       <div className="d-flex mer-card container">
-        <div className="col-6 icon-container">
-          <div className="d-flex">
-            <FaIcons.FaReact className="tec-icon" />
-            <SiMongodb className="tec-icon" />
-            <SiRedux className="tec-icon" />
-          </div>
-          <div className="d-flex mt-5">
-            <FaIcons.FaNode className="tec-icon" />
-            <FaIcons.FaBootstrap className="tec-icon" />
-            <FaIcons.FaTrello className="tec-icon" />
-          </div>
-          <div className="d-flex mt-5">
-            <SiJavascript className="tec-icon" />
+        <ul className="list-tecs">
+          <li className="mb-5">
+            <FaIcons.FaReact className="tec-icon" /> React
+          </li>
+          <li className="mb-5">
+            <SiRedux className="tec-icon" /> Redux
+          </li>
+          <li className="mb-5">
+            <SiJavascript className="tec-icon" /> JavaScript
+          </li>
+        </ul>
+        <ul className="list-tecs">
+          <li className="mb-5">
+            <FaIcons.FaTrello className="tec-icon" /> Trello
+          </li>
+          <li className="mb-5">
+            <FaIcons.FaNode className="tec-icon" /> Node.js
+          </li>
+          <li className="mb-5">
             <FaIcons.FaGithubSquare className="tec-icon" />
-            <FaIcons.FaCss3Alt className="tec-icon" />
-          </div>
-        </div>
-        <div className="col-6 list-tecs">
-          <ul className="list-tecs">
-            <li>·React</li>
-            <li>·Redux</li>
-            <li>·JavaScript</li>
-            <li>·JWT</li>
-            <li>·Node.js</li>
-            <li>·Git</li>
-            <li>·MongoDb</li>
-            <li>·CSS</li>
-            <li>·Bootstrap</li>
-          </ul>
-        </div>
+            GitHub
+          </li>
+        </ul>
+        <ul className="list-tecs">
+          <li className="mb-5">
+            <SiMongodb className="tec-icon" /> MongoDb
+          </li>
+          <li className="mb-5">
+            <FaIcons.FaCss3Alt className="tec-icon" /> CSS
+          </li>
+          <li className="mb-5">
+            <FaIcons.FaBootstrap className="tec-icon" /> Bootstrap
+          </li>
+        </ul>
       </div>
 
       <Footer />
