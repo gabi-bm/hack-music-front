@@ -5,9 +5,11 @@ import axios from "axios";
 import { useDispatch } from "react-redux/es/exports";
 import { logoutUser } from "../../Redux/userSlice";
 import { resetCart } from "../../Redux/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const OffcanvasInfo = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   //Offcanvas state
   const [show, setShow] = useState(false);
@@ -30,6 +32,7 @@ const OffcanvasInfo = () => {
       if (response.status === 200) {
         setResetMsg(response.data.msg);
       }
+      navigate("/");
     } catch (err) {
       console.log(err);
     }

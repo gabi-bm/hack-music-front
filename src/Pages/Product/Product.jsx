@@ -19,6 +19,9 @@ const Product = () => {
 
   const notify = () =>
     toast(product.name + " added to cart!", {
+      className: "toast-black-background",
+      bodyClassName: "toast-font-color",
+      progressClassName: "toast-progress-bar",
       autoClose: 2000,
     });
 
@@ -51,7 +54,7 @@ const Product = () => {
       <>
         <NavBar />
         <div style={{ marginTop: "5rem" }}>
-          <ToastContainer />
+          <ToastContainer position="bottom-right" />
         </div>
         <Container style={{ textAlign: "center" }}>
           <Breadcrumb>

@@ -70,7 +70,9 @@ const AboutUs = () => {
           </p>
         </div>
 
-        <h1 style={{ textAlign: "center", marginTop: "8rem", marginBottom: "4rem" }}>Process:</h1>
+        <h1 style={{ textAlign: "center", marginTop: "8rem", marginBottom: "4rem" }}>
+          Planificación:
+        </h1>
 
         <div className="d-flex mer-card row">
           <div className="col-12 col-lg-6">
