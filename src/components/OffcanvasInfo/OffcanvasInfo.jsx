@@ -5,9 +5,11 @@ import axios from "axios";
 import { useDispatch } from "react-redux/es/exports";
 import { logoutUser } from "../../Redux/userSlice";
 import { resetCart } from "../../Redux/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const OffcanvasInfo = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   //Offcanvas state
   const [show, setShow] = useState(false);
@@ -30,6 +32,7 @@ const OffcanvasInfo = () => {
       if (response.status === 200) {
         setResetMsg(response.data.msg);
       }
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -49,7 +52,7 @@ const OffcanvasInfo = () => {
         <Offcanvas.Body>
           HackMusic is an e-commerce site created as the final project of Hack Academy's Coding
           Bootcamp. It was developed in 3 weeks by 4 students.
-          <Offcanvas.Title className="mt-4">User Login credentials:</Offcanvas.Title>
+          <Offcanvas.Title className="mt-4">User login credentials:</Offcanvas.Title>
           <ul className="mt-2">
             <li>
               <strong>Email:</strong> user@user.com

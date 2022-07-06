@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import MultiCarousel from "../../components/MultiCarousel/MultiCarousel";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import * as FaIcons from "react-icons/fa";
 
 const Product = () => {
   const params = useParams();
@@ -19,6 +20,9 @@ const Product = () => {
 
   const notify = () =>
     toast(product.name + " added to cart!", {
+      className: "toast-black-background",
+      bodyClassName: "toast-font-color",
+      progressClassName: "toast-progress-bar",
       autoClose: 2000,
     });
 
@@ -51,7 +55,7 @@ const Product = () => {
       <>
         <NavBar />
         <div style={{ marginTop: "5rem" }}>
-          <ToastContainer />
+          <ToastContainer position="bottom-right" />
         </div>
         <Container style={{ textAlign: "center" }}>
           <Breadcrumb>
@@ -129,6 +133,10 @@ const Product = () => {
                   }}
                 >
                   Add to cart
+                  <FaIcons.FaShoppingCart
+                    className="icon-size"
+                    style={{ transform: "scale(1)", marginLeft: "0.5rem" }}
+                  />
                 </Button>
               ) : (
                 <p>Out of stock</p>

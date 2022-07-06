@@ -1,3 +1,15 @@
+.toast-black-background {
+    background-color: var(--first-color);
+}
+
+.toast-font-color {
+    color: white
+}
+
+.toast-progress-bar {
+    background: var(--third-color)
+}
+
 .product-description{
     font-weight: 400;
     padding: 25px;
@@ -21,13 +33,16 @@
     margin-top: 50px;
 }
 .cart-button{
-    background-color: var(--third-color);
+    background-color: white ;
+    color: var(--third-color);
     border: none;
     margin-top: 1rem;
     padding: 6px;
 }
 .cart-button:hover{
-    background-color: rgb(238, 90, 4);
+    background-color: white;
+    color: var(--third-color);
+    
 }
 .carousel-img{
     

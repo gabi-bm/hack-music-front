@@ -18,6 +18,9 @@ const Category = () => {
 
   const notify = (productName) =>
     toast(`${productName} added to cart!`, {
+      className: "toast-black-background",
+      bodyClassName: "toast-font-color",
+      progressClassName: "toast-progress-bar",
       autoClose: 2000,
     });
 
@@ -40,9 +43,13 @@ const Category = () => {
     category && (
       <div>
         <NavBar />
-        <ToastContainer />
+        <ToastContainer position="bottom-right" />
         <div style={{ width: "100%", height: "500px", overflow: "hidden" }}>
-          <img style={{ width: "100%", height: "auto" }} src={category.headerImg}></img>
+          <img
+            style={{ width: "100%", height: "auto" }}
+            src={category.headerImg}
+            alt={category.name}
+          ></img>
         </div>
         <Container style={{ textAlign: "center" }}>
           <h1 className="category-title my-5">{category.alias}</h1>
