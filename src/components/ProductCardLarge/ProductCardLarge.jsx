@@ -1,5 +1,6 @@
 import { Row, Col, Button } from "react-bootstrap";
 import "./ProductCardLarge.css";
+import * as FaIcons from "react-icons/fa";
 
 const ProductCardLarge = ({ product, handleAddProduct, notify }) => {
   return (
@@ -32,6 +33,10 @@ const ProductCardLarge = ({ product, handleAddProduct, notify }) => {
             }}
           >
             Add to cart
+            <FaIcons.FaShoppingCart
+              className="icon-size"
+              style={{ transform: "scale(1)", marginLeft: "0.5rem" }}
+            />
           </Button>
         ) : (
           <p>Out of stock</p>

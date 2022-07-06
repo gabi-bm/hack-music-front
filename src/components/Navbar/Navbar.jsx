@@ -51,7 +51,7 @@ const NavBar = () => {
               ABOUT US
             </Nav.Link>
 
-            <Nav.Link as={Link} to="/dashboard">
+            <Nav.Link href="https://hackmusic-admin.vercel.app/" target="_blank">
               DASHBOARD
             </Nav.Link>
 
