@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import MultiCarousel from "../../components/MultiCarousel/MultiCarousel";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import * as FaIcons from "react-icons/fa";
 
 const Product = () => {
   const params = useParams();
@@ -129,6 +130,10 @@ const Product = () => {
                   }}
                 >
                   Add to cart
+                  <FaIcons.FaShoppingCart
+                    className="icon-size"
+                    style={{ transform: "scale(1)", marginLeft: "0.5rem" }}
+                  />
                 </Button>
               ) : (
                 <p>Out of stock</p>
