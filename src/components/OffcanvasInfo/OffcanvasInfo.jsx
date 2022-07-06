@@ -49,7 +49,7 @@ const OffcanvasInfo = () => {
         <Offcanvas.Body>
           HackMusic is an e-commerce site created as the final project of Hack Academy's Coding
           Bootcamp. It was developed in 3 weeks by 4 students.
-          <Offcanvas.Title className="mt-4">User Login credentials:</Offcanvas.Title>
+          <Offcanvas.Title className="mt-4">User login credentials:</Offcanvas.Title>
           <ul className="mt-2">
             <li>
               <strong>Email:</strong> user@user.com

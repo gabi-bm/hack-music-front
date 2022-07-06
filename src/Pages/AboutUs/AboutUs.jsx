@@ -65,7 +65,7 @@ const AboutUs = () => {
             Hack Music es una aplicación web creada por estudiantes de Hack Academy con el fin de
             poner en práctica los conocimientos adquiridos para poder desarrollar un e-commerce en
             un plazo de 3 semanas de curso. Este proyecto es la entrega final de un bootcamp de
-            desarrollo web full-stack , un curso de fuerte carga teórico-práctica intensivo con una
+            desarrollo web full-stack, un curso de fuerte carga teórico-práctica intensivo con una
             duración de 3 meses, el cual tuvo apróximadamente 600 horas de dedicación.
           </p>
         </div>
@@ -78,10 +78,12 @@ const AboutUs = () => {
           </div>
 
           <div className="col-12 col-lg-6">
-            <h3>1 - Creación de MER</h3>
+            <h3>1 - Creación del MER</h3>
             <p className="mer-text">
-              Comenzamos pensando los modelos que deberíamos crear oara poder relacionar y llevar a
-              cabo del proyecto, proponiendo: User, Admin, Category, Order y Product
+              Comenzamos pensando los modelos que deberíamos crear para poder relacionar y llevar a
+              cabo el proyecto. Finalmente propusimos las siguientes entidades: User, Admin,
+              Category, Order, Product y Addresses. Diagramando las respectivas relaciones entre
+              estas.
             </p>
             <h3>2 - Temática e inspiración </h3>
             <p className="mer-text">
@@ -95,15 +97,15 @@ const AboutUs = () => {
           <div className="col-12 col-lg-6">
             <h3>3 - Metodología de trabajo </h3>
             <p className="mer-text">
-              Utilizamos GitHub Issues para la organización y distribución de tareas. La
+              Utilizamos GitHub Projects para la organización y distribución de tareas. La
               organización y creación del sitio fue hecha de forma 100% remota, utilizando Discord
               para comunicarnos entre nosotros en conjunto con la metodología Scrum.
             </p>
             <h3> 4 - Elección de tecnologías a utilizar </h3>
             <p className="mer-text">
               Analizamos el proyecto y concluímos que lo mejor era tener una base de datos no
-              relacional: MongoDb utilizamosMongoDb. Para el almacenamiento de imágenes utilizamos
-              un servidor externo (Postimage.cc)
+              relacional, por lo tanto decidimos utilizar MongoDb. Para el almacenamiento de
+              imágenes utilizamos un servidor en la nube llamado Supabase.
             </p>
           </div>
           <div className="col-12 col-lg-6">
@@ -111,7 +113,9 @@ const AboutUs = () => {
           </div>
         </div>
 
-        <h1 style={{ textAlign: "center", marginTop: "8rem", marginBottom: "4rem" }}>Used tecs:</h1>
+        <h1 style={{ textAlign: "center", marginTop: "8rem", marginBottom: "4rem" }}>
+          Tecnologías utilizadas:
+        </h1>
         <div className="d-flex mer-card row">
           <ul className="list-tecs col-12 col-sm-6 col-lg-4">
             <li className="mb-5">
