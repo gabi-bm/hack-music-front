@@ -42,12 +42,7 @@ const Category = () => {
         <NavBar />
         <ToastContainer />
         <div style={{ width: "100%", height: "500px", overflow: "hidden" }}>
-          {/* Ver altura img en vh.. relacionar con altura nav y h1 para que cubran pantalla. Y ver caso pantallas con poco ancho */}
-          <img
-            style={{ width: "100%", height: "auto" }}
-            src="https://i.postimg.cc/V61svYzZ/pexels-caleb-oquendo-3018083.jpg"
-            alt={"category-img"}
-          ></img>
+          <img style={{ width: "100%", height: "auto" }} src={category.headerImg}></img>
         </div>
         <Container style={{ textAlign: "center" }}>
           <h1 className="category-title my-5">{category.alias}</h1>

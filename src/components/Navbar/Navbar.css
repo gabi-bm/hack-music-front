@@ -34,11 +34,34 @@ a.nav-link:hover {
 
 a.nav-link .badge {
     position: absolute;
-    top: -10px;
+    top: -15px;
 }
 
 .dropdown {
     flex-grow: 1;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+    width: 100%;
+    margin-top: 0 !important;
+    border: none;
+    background-color: rgba(255,255,255,0.88);
+}
+
+.dropdown-item:hover {
+    color: var(--third-color);
+    background-color: rgba(255,255,255,0);
+}
+
+.dropdown-item:active {
+    color: var(--fourth-color);
+    background-color: var(--third-color);
+}
+
+a.dropdown-toggle.nav-link::after {
+    transform: scale(1.5);
+    margin-left: 10px;
 }
 
 @media (max-width: 991px){
