@@ -129,7 +129,11 @@ const Cart = () => {
               </tbody>
               <tfoot>
                 <tr>
-                  <td colSpan={3} className="px-2 py-2" style={{ fontWeight: "700" }}>
+                  <td
+                    colSpan={3}
+                    className="px-2 py-2"
+                    style={{ fontWeight: "700", borderBottom: "none" }}
+                  >
                     Total: ${cart.totalPrice}
                   </td>
                 </tr>

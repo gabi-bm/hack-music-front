@@ -10,8 +10,8 @@ const ProductCardCart = ({
 }) => {
   return (
     <div
-      className="d-flex border-bottom"
-      style={{ height: "230px", padding: "40px 45px", paddingLeft: "0" }}
+      className="d-flex align-items-start"
+      style={{ height: "150px", padding: "15px 45px", paddingLeft: "0" }}
     >
       <div
         className="border-end d-flex align-items-center justify-content-center"
@@ -48,7 +48,10 @@ const ProductCardCart = ({
           </div>
         </div>
       </div>
-      <div style={{ minWidth: "3.5rem", color: "var(--third-color)" }}>
+      <div
+        className="d-flex justify-content-end mt-2"
+        style={{ minWidth: "4.5rem", color: "var(--third-color)" }}
+      >
         <FontAwesomeIcon
           icon={faMinus}
           onClick={() => {
