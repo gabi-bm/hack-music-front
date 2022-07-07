@@ -10,20 +10,19 @@ const AboutUs = () => {
       <div className="container w-75">
         <div className="desc-about">
           <h1 style={{ textAlign: "center", marginTop: "7rem", marginBottom: "3rem" }}>
-            ¿Qué es Hack Music?
+            ¿What is Hack Music?
           </h1>
           <p style={{ textAlign: "left" }}>
-            Hack Music es una aplicación web creada por estudiantes de Hack Academy con el fin de
-            poner en práctica los conocimientos adquiridos para poder desarrollar un e-commerce en
-            un plazo de 3 semanas de curso. Este proyecto es la entrega final de un bootcamp de
-            desarrollo web full-stack, un curso de fuerte carga teórico-práctica intensivo con una
-            duración de 3 meses, el cual tuvo apróximadamente 600 horas de dedicación.
+            Hack Music is a web application done under the MERN stack as a final project of a Coding
+            Bootcamp in Hack Academy, an educational institution founded in 2016 in Montevideo,
+            Uruguay, specialized in programming courses. The bootcamp is a full-time course that
+            prepares young professionals as Full Stack Jr Devs. The purpose of the final project
+            being to put in practice adquired knowledge using diverse technologies. The project was
+            developed in three weeks by four people, accounting a total of 480 hours.
           </p>
         </div>
 
-        <h1 style={{ textAlign: "center", marginTop: "7rem", marginBottom: "3rem" }}>
-          Planificación:
-        </h1>
+        <h1 style={{ textAlign: "center", marginTop: "7rem", marginBottom: "3rem" }}>Planning:</h1>
 
         <div className="d-flex mer-card row">
           <div className="col-12 col-lg-6 col-left">
@@ -31,34 +30,37 @@ const AboutUs = () => {
           </div>
 
           <div className="col-12 col-lg-6 col-right">
-            <h4>1 - Creación del MER</h4>
+            <h4>1 - Project conception and ERD</h4>
             <p className="mer-text">
-              Comenzamos pensando los modelos que deberíamos crear para poder relacionar y llevar a
-              cabo el proyecto. Finalmente propusimos las siguientes entidades: User, Admin,
-              Category, Order, Product y Addresses. Diagramando las respectivas relaciones entre
-              estas.
+              One of our first milestones of our project was the development of a carefully thinked
+              Entity-Relations Diagram. Here we defined the main relations between the following
+              entities: User, Admin, Category, Order, Product and Address.
             </p>
-            <h4 className="pt-4">2 - Temática e inspiración </h4>
+            <h4 className="pt-4">2 - Design & Inspiration </h4>
             <p className="mer-text">
-              Nos inspiramos en Altomusic para obtener las imágenes y los productos. Para el diseño
-              de la página nos inspiramos en Roland Y Orange para recrear una maquetación similar.
+              We inspire our website template with that of Roland, a carefully designed music retail
+              website. We nurtue our database using pictures, descriptions, names and prices of
+              Altomusic, another prestigious retailer.
             </p>
           </div>
         </div>
 
         <div className="d-flex mer-card row">
           <div className="col-12 col-lg-6 col-left">
-            <h4>3 - Metodología de trabajo </h4>
+            <h4>4 - Work methodology </h4>
             <p className="mer-text">
-              Utilizamos GitHub Projects para la organización y distribución de tareas. La
-              organización y creación del sitio fue hecha de forma 100% remota, utilizando Discord
-              para comunicarnos entre nosotros en conjunto con la metodología Scrum.
+              We organized our work using an Agile Methodology with three sprints. Every sprint had
+              tasks that were organized and developed individually, or in groups, using Github
+              Projects to determine tasks completion. Every interaction within its developers, and
+              by extension, the whole project, was done online online using Discord.
             </p>
-            <h4 className="pt-4"> 4 - Elección de tecnologías a utilizar </h4>
+            <h4 className="pt-4"> 4 - Frameworks & Technologies </h4>
             <p className="mer-text">
-              Analizamos el proyecto y concluímos que lo mejor era tener una base de datos no
-              relacional, por lo tanto decidimos utilizar MongoDb. Para el almacenamiento de
-              imágenes utilizamos un servidor en la nube llamado Supabase.
+              We used the MERN stack. Meaning that our project used a non-relational database, and
+              that we worked with Mongo, MongoDB, Mongo Atlas, Mongo Compass, and Mongoose, plus
+              Supabase for image imports. Express, React, and Node as our application frameworks. In
+              the development, we used known technologies that sorround this stack, such as React
+              Bootstrap, Hooks, Formidable, etc.
             </p>
           </div>
           <div className="col-12 col-lg-6 col-right">
@@ -67,7 +69,7 @@ const AboutUs = () => {
         </div>
 
         <h1 style={{ textAlign: "center", marginTop: "6rem", marginBottom: "4rem" }}>
-          Tecnologías utilizadas:
+          Used Technologies:
         </h1>
         <div className="d-flex mer-card row list-tecs mx-auto w-75">
           <div className="col-xl-4 col-md-4 col-sm-6 col-12 mb-5 d-flex flex-column justify-content-center align-items-center">
