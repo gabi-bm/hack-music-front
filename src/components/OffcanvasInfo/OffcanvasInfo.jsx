@@ -26,7 +26,6 @@ const OffcanvasInfo = () => {
   const handleResetDB = async () => {
     try {
       const response = await axios.get(process.env.REACT_APP_SERVER_URL + "/reset");
-      console.log(response);
       dispatch(logoutUser());
       dispatch(resetCart());
       if (response.status === 200) {
