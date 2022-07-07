@@ -9,19 +9,9 @@ const ProductCardCart = ({
   notifyRemoveCart,
 }) => {
   return (
-    <div
-      className="d-flex align-items-start"
-      style={{ height: "150px", padding: "15px 45px", paddingLeft: "0" }}
-    >
+    <div className="py-3 product-cart-card">
       <div
-        className="border-end d-flex align-items-center justify-content-center"
-        style={{
-          width: "180px",
-          maxWidth: "180px",
-          minWidth: "180px",
-          height: "100%",
-          paddingRight: "45px",
-        }}
+        className="d-flex align-items-start justify-content-center cart-card-img-container"
         alt={cartItem.product.name}
       >
         <img
@@ -30,39 +20,39 @@ const ProductCardCart = ({
           alt={cartItem.product.name}
         ></img>
       </div>
-      <div className="flex-grow-1" style={{ paddingLeft: "45px" }}>
-        <div className="d-flex flex-column align-items-start">
-          <span className="tx-size-xl">{cartItem.product.name}</span>
-          <span className="me-2 my-2">Quantity: {cartItem.quantity}</span>
-          <span>Subtotal: $ {cartItem.product.price * cartItem.quantity}</span>
+      <div className="flex-grow-1 cart-card-text-container" style={{ position: "relative" }}>
+        <span className="tx-size-lg cart-item-name d-block">{cartItem.product.name}</span>
+        <span className="tx-size-md d-block">Quantity: {cartItem.quantity}</span>
+        <span className="tx-size-md d-block">
+          Subtotal: $ {cartItem.product.price * cartItem.quantity}
+        </span>
 
-          <div className="mt-2 p-0">
-            <FontAwesomeIcon
-              icon={faTrashCan}
-              onClick={() => {
-                handleDeleteCartItem(cartItem);
-                notifyRemoveCart();
-              }}
-              className="custom-icon"
-            />
-          </div>
+        <div className="mt-2 p-0 cart-icon-delete-product">
+          <FontAwesomeIcon
+            icon={faTrashCan}
+            onClick={() => {
+              handleDeleteCartItem(cartItem);
+              notifyRemoveCart();
+            }}
+            className="custom-icon"
+          />
         </div>
       </div>
       <div
-        className="d-flex justify-content-end mt-2"
-        style={{ minWidth: "4.5rem", color: "var(--third-color)" }}
+        className="d-flex justify-content-end mt-2 cart-card-icons-container"
+        style={{ color: "var(third-color)" }}
       >
         <FontAwesomeIcon
           icon={faMinus}
           onClick={() => {
             handleDeleteProduct(cartItem);
           }}
-          className="me-3 custom-icon"
+          className="cart-icon-minus custom-icon tx-third-color"
         />
         <FontAwesomeIcon
           icon={faPlus}
           onClick={() => handleAddProduct(cartItem.product)}
-          className="custom-icon"
+          className="custom-icon tx-third-color"
         />
       </div>
     </div>

@@ -69,10 +69,8 @@ const Cart = () => {
       <NavBar />
       <ToastContainer />
       <Container className="py-5">
-        <div className="d-flex justify-content-center align-items-center pb-5 mt-3">
-          <h1 className="pe-4 " style={{ fontWeight: "300", textAlign: "center" }}>
-            My Cart
-          </h1>
+        <div className="d-flex align-items-center pb-2 mt-3">
+          <h1 className="pe-4">Cart</h1>
           <FaIcons.FaShoppingCart
             className="icon-size"
             style={{ transform: "scale(2)", color: "var(--third-color)" }}
@@ -80,7 +78,7 @@ const Cart = () => {
         </div>
 
         <Row>
-          <Col xs={12} md={12} lg={8} className="pt-3">
+          <Col xs={12} md={12} lg={8} className="pt-3 border-top">
             <ul style={{ paddingLeft: "0" }}>
               {cart.items.map((cartItem) => {
                 return (
@@ -96,7 +94,7 @@ const Cart = () => {
               })}
             </ul>
           </Col>
-          <Col className="p-3" style={{ backgroundColor: "var(--fourth-color)" }}>
+          <Col className="pt-3 border-top order-summary">
             <div className="d-flex justify-content-between align-items-center pb-4">
               <h5 className="mb-0">Cart summary</h5>
               <Button
@@ -116,7 +114,7 @@ const Cart = () => {
                   <th>Subtotal</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="tx-size-md">
                 {cart.items.map((cartItem) => {
                   return (
                     <tr key={cartItem.product._id}>
@@ -141,7 +139,7 @@ const Cart = () => {
             </Table>
             <Button
               variant="custom"
-              className="custom-btn"
+              className="custom-btn my-3"
               style={{ float: "right" }}
               onClick={() => handleCheckout()}
             >

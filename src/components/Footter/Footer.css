@@ -47,3 +47,9 @@ li:hover{
     font-size: var(--font-size-sm);
     font-weight: 200;
 }
+
+@media (max-width: 576px) {
+    .footer-second {
+      font-size: var(--font-size-sm);
+    }
+  }
