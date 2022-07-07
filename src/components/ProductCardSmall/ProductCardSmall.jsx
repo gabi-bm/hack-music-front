@@ -1,16 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const ProductCardSmall = ({ productId }) => {
-  const [product, setProduct] = useState(null);
-  useEffect(() => {
-    const getProduct = async () => {
-      const response = await axios.get(process.env.REACT_APP_SERVER_URL + `/products/${productId}`);
-      setProduct(response.data);
-    };
-    getProduct();
-  }, []);
-
+const ProductCardSmall = ({ product }) => {
   return (
     <>
       {product && (

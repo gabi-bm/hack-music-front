@@ -44,7 +44,7 @@ const Category = () => {
       <div>
         <NavBar />
         <ToastContainer position="bottom-right" />
-        <div style={{ width: "100%", height: "500px", overflow: "hidden" }}>
+        <div style={{ width: "100%", maxHeight: "500px", overflow: "hidden" }}>
           <img
             style={{ width: "100%", height: "auto" }}
             src={category.headerImg}

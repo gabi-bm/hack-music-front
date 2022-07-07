@@ -144,7 +144,7 @@ const Product = () => {
             </Col>
           </Row>
         </Container>
-        <div className="similar-products">
+        <div className="similar-products mb-5">
           <h2 className="home-titles ">SIMILAR PRODUCTS</h2>
 
           <MultiCarousel carouselProducts={carouselProducts} />

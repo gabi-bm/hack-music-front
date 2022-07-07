@@ -1,3 +1,4 @@
+import "./PaymentConfirmation.css";
 import { Button, Container } from "react-bootstrap";
 import NavBar from "../../components/Navbar/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,10 +19,8 @@ const PaymentConfirmation = () => {
             icon={faCheck}
             style={{ color: "var(--third-color)", transform: "scale(6)" }}
           />
-          <h1 className="mt-5" style={{ fontWeight: "200", fontSize: "5rem" }}>
-            Thank you!
-          </h1>
-          <p className="mb-4">
+          <h1 className="mt-5 payment-confirmation-title">Thank you!</h1>
+          <p className="mb-4 payment-confirmation-text">
             Your payment was successfully received. Please check your email for further details
             about the order.
           </p>

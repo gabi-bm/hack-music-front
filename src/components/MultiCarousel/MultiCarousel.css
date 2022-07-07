@@ -3,6 +3,15 @@
   padding-bottom: 3rem;
 }
 
+li.react-multi-carousel-dot--active button {
+  background-color: var(--third-color);
+  opacity: 0.8;
+}
+
+.custom-dot-list-style li button {
+  border: none;
+}
+
 /* .react-multi-carousel-item {
   justify-content: center;
 } */

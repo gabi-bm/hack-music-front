@@ -9,7 +9,7 @@ function ProcessingPaymentModal(props) {
       {...props}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
-      className="d-flex align-items-center border-none"
+      className="d-flex align-items-center justify-content-center border-none"
     >
       <div
         style={{ width: "20rem", backgroundColor: "#f2f2f2" }}

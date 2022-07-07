@@ -52,7 +52,7 @@ const MultiCarousel = ({ carouselProducts }) => {
                 key={product._id}
                 style={{ color: "var(--first-color)" }}
               >
-                <ProductCardSmall productId={product._id} />
+                <ProductCardSmall product={product} />
               </Link>
             );
           })}

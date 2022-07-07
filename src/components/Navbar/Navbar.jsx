@@ -48,12 +48,12 @@ const NavBar = () => {
             </NavDropdown>
 
             <Nav.Link as={Link} to="/about-us">
-              ABOUT US
+              ABOUT THIS PROJECT
             </Nav.Link>
 
-            <Nav.Link href="https://hackmusic-admin.vercel.app/" target="_blank">
+            {/* <Nav.Link href="https://hackmusic-admin.vercel.app/" target="_blank">
               DASHBOARD
-            </Nav.Link>
+            </Nav.Link> */}
 
             <Nav.Link as={Link} to="/cart">
               <div style={{ position: "relative" }}>

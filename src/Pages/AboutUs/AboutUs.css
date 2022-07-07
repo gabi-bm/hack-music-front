@@ -8,12 +8,15 @@
    text-align: center;
    transition: all 1s ease;
    border: 0px solid white;
+}
 
+.card-1 img {
+    transition: all 1s ease;
 }
 
 .img-card-1{
-    width: 80%;
-    height: 90%;
+    width: 12rem;
+    height: 12rem;
     border-radius: 50%;
     margin: auto;
     
@@ -23,6 +26,13 @@
 }
 .card-name{
     margin-bottom: 0.2rem;
+    color: var(--first-color);
+    transition: all 1s ease;
+}
+
+.card-1 .card-text svg {
+    fill: var(--first-color);
+    transition: all 1s ease;
 }
 
 .card-1:hover{
@@ -32,6 +42,19 @@ transform: scale(1.2);
 cursor: pointer;
 
 }
+
+.card-1:hover .card-name {
+    color: var(--third-color);
+}
+
+.card-1:hover .card-text > svg {
+    fill: var(--third-color)
+}
+
+.card-1:hover img{
+    box-shadow: 0px 0px 8px 6px rgba(149, 149, 149, 1);
+    }
+
 .desc-about{
     text-align: center;
     margin: auto;
@@ -41,22 +64,19 @@ cursor: pointer;
 .mer-card{
     justify-content: space-between;
     align-items: center;
-    margin-left: 2rem;
+    margin-top: 4rem;
 }
 
 .mer-img{
-    width: 80%;
+    width: 100%;
     
 }
 .mer-text{
-    width: 80%;
-    margin-left: 2rem;
     margin-top: auto;
-    margin:auto;
 }
 .tec-icon{
     transform: scale(2);
-    margin-right: 2rem;
+
     
     
 }
@@ -73,18 +93,34 @@ cursor: pointer;
 .list-tecs:hover{
     text-decoration: none;
 }
+
+.col-left {
+    padding-right: 3rem;
+}
+
+.col-right {
+    padding-left: 3rem;
+}
+
 @media (max-width: 990px) {
     .mer-img{
-        margin-bottom: 4rem;
-        margin-top: 4rem;
+        margin-bottom: 3rem;
+        margin-top: 1rem;
     }
     .card-1{
         margin-bottom: 2rem;
+    }
+    .col-left, .col-right {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+    .mer-card {
+        margin-top: 1.8rem;
     }
 }
 @media (max-width: 575px) {
     
     .card-1{
-        margin-bottom: 4rem;
+        margin-bottom: 1rem;
     }
 }

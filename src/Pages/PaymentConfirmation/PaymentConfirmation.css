@@ -1,0 +1,17 @@
+.payment-confirmation-title {
+  text-align: center;
+  font-weight: 200;
+  font-size: 5rem;
+}
+
+@media (max-width: 767px) {
+  .payment-confirmation-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .payment-confirmation-title {
+    font-size: 3rem;
+  }
+}

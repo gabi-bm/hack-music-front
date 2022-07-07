@@ -7,6 +7,7 @@ import payPal from "../../Images/paymentMethods/payPal.png";
 import mercadoPago from "../../Images/paymentMethods/mercadoPago.png";
 import { useNavigate } from "react-router-dom";
 import { resetCart } from "../../Redux/cartSlice";
+import CreditCardForm from "../CreditCardForm/CreditCardForm";
 
 const PaymentForm = ({ orderId, setModalShow }) => {
   const user = useSelector((state) => state.user);
@@ -61,6 +62,7 @@ const PaymentForm = ({ orderId, setModalShow }) => {
               ></img>
             </div>
           </div>
+          <CreditCardForm />
         </div>
 
         <div className="d-flex flex-column align-items-start">

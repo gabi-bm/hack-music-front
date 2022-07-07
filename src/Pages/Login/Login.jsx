@@ -21,7 +21,12 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      email: "user@user.com",
+      password: "user",
+    },
+  });
 
   const onSubmit = async (data) => {
     try {
