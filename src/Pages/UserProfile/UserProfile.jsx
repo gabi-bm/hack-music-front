@@ -7,7 +7,7 @@ import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { ToastContainer, toast } from "react-toastify";
-
+import "./UserProfile.css";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,7 +17,13 @@ const UserProfile = () => {
   const storeUser = useSelector((state) => state.user);
   const [user, setUser] = useState(null);
 
-  const notify = () => toast("User info succesfully updated!");
+  const notify = () =>
+    toast("User info succesfully updated!", {
+      className: "toast-black-background",
+      bodyClassName: "toast-font-color",
+      progressClassName: "toast-progress-bar",
+      autoClose: 2000,
+    });
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -37,6 +43,11 @@ const UserProfile = () => {
       const response = await axios.patch(
         process.env.REACT_APP_SERVER_URL + "/users/" + user._id,
         data,
+        {
+          headers: {
+            Authorization: `Bearer ${user.accessToken}`,
+          },
+        },
       );
       if (response.status === 200) {
         notify();
@@ -51,7 +62,7 @@ const UserProfile = () => {
     user && (
       <>
         <NavBar />
-        <ToastContainer />
+        <ToastContainer position="bottom-right" />
         <div className="container rounded bg-white mt-5 mb-5 shadow">
           <Row>
             <div className="col-md-3 border-end">
@@ -173,7 +184,7 @@ const UserProfile = () => {
                   </div>
                 </Form.Group>
 
-                <Form.Group className="mb-3">
+                {/* <Form.Group className="mb-3">
                   <Form.Label className="tx-size-sm tx-second-color form-label-margin">
                     Address
                   </Form.Label>
@@ -184,11 +195,13 @@ const UserProfile = () => {
                     <Form.Control
                       {...register("address", { maxLength: 30 })}
                       type="text"
-                      defaultValue={user.addresses[0].streetAddress}
+                      defaultValue={
+                        user.addresses ? user.addresses[0].streetAddress : "No address provided."
+                      }
                       className="form-control ps-0"
                     />
                   </div>
-                </Form.Group>
+                </Form.Group> */}
 
                 <Button
                   variant="custom"
@@ -201,35 +214,37 @@ const UserProfile = () => {
             </div>
           </Row>
 
-          <Row className="mt-2 border-top">
-            <h4 className="text-center">Orders</h4>
-            <Table hover variant="light">
-              <thead>
-                <tr>
-                  <th>Id</th>
-                  <th>Products</th>
-                  <th>Status</th>
-                  <th>Total price</th>
-                </tr>
-              </thead>
-              <tbody>
-                {user.orders.map((order) => {
-                  return (
-                    <tr key={order._id}>
-                      <td>{order._id}</td>
-                      <td>
-                        {order.products.map((product) => (
-                          <p>{product.name}</p>
-                        ))}
-                      </td>
-                      <td>{order.status}</td>
-                      <td>$ {order.totalPrice}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </Table>
-          </Row>
+          {user.orders && (
+            <Row className="mt-2 border-top">
+              <h4 className="text-center">Orders</h4>
+              <Table hover variant="light">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Products</th>
+                    <th>Status</th>
+                    <th>Total price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {user.orders.map((order) => {
+                    return (
+                      <tr key={order._id}>
+                        <td>{order._id}</td>
+                        <td>
+                          {order.products.map((product) => (
+                            <p>{product.name}</p>
+                          ))}
+                        </td>
+                        <td>{order.status}</td>
+                        <td>$ {order.totalPrice}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </Table>
+            </Row>
+          )}
         </div>
         <Footer />
       </>

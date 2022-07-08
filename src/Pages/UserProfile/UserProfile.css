@@ -1,0 +1,11 @@
+.toast-black-background {
+  background-color: var(--first-color);
+}
+
+.toast-font-color {
+  color: white
+}
+
+.toast-progress-bar {
+  background: var(--third-color)
+}
