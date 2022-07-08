@@ -166,7 +166,7 @@ const OffcanvasInfo = () => {
               style={{ backgroundColor: "rgb(240,240,240)", color: "var(--third-color)" }}
               onClick={handleClose}
             >
-              <a href="https://hackmusic-admin.vercel.app">
+              <a href="https://hackmusic-admin.vercel.app/login">
                 <span className="tx-third-color" onClick={handleClose}>
                   Go to Dashboard
                 </span>

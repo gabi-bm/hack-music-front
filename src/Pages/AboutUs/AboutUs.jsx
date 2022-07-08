@@ -3,16 +3,20 @@ import NavBar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footter/Footer";
 import * as FaIcons from "react-icons/fa";
 import { SiMongodb, SiRedux, SiJavascript } from "react-icons/si";
+import { Parallax} from "react-parallax"
 const AboutUs = () => {
   return (
     <div>
       <NavBar />
-      <div className="container w-75">
+      <div className="container w-100">
         <div className="desc-about">
-          <h1 style={{ textAlign: "center", marginTop: "7rem", marginBottom: "3rem" }}>
+          <h1
+            className="p-3"
+            style={{ textAlign: "center", marginTop: "7rem", marginBottom: "3rem" }}
+          >
             ¿What is Hack Music?
           </h1>
-          <p style={{ textAlign: "left" }}>
+          <p className="p-3" style={{ textAlign: "justify" }}>
             Hack Music is a web application done under the MERN stack as a final project of a Coding
             Bootcamp in Hack Academy, an educational institution founded in 2016 in Montevideo,
             Uruguay, specialized in programming courses. The bootcamp is a full-time course that
@@ -21,7 +25,9 @@ const AboutUs = () => {
             developed in three weeks by four people, accounting a total of 480 hours.
           </p>
         </div>
-
+      </div>
+      {/* <div className="parallax bg"></div> */}
+      <div className="container w-100">
         <h1 style={{ textAlign: "center", marginTop: "7rem", marginBottom: "3rem" }}>Planning:</h1>
 
         <div className="d-flex mer-card row">
