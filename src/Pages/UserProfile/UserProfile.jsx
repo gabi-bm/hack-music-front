@@ -62,7 +62,7 @@ const UserProfile = () => {
     user && (
       <>
         <NavBar />
-        <ToastContainer />
+        <ToastContainer position="bottom-right" />
         <div className="container rounded bg-white mt-5 mb-5 shadow">
           <Row>
             <div className="col-md-3 border-end">
