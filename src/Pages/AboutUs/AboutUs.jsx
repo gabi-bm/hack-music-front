@@ -111,10 +111,10 @@ const AboutUs = () => {
           <h1 style={{ textAlign: "center", marginTop: "3rem", marginBottom: "4rem" }}>Team:</h1>
 
           <div className="col-12 col-sm-6 col-xl-3 card-1 d-flex mb-5">
-            <a href="https://www.linkedin.com/in/mauricio-lopez-freccero">
+            <a href="https://www.linkedin.com/in/mauricio-lopez-freccero" target={"_blank"}>
               <img
                 className="img-card-1"
-                src="https://i.postimg.cc/gkxnWsJP/Whats-App-Image-2022-05-31-at-11-48-30-PM.jpg"
+                src="https://i.postimg.cc/0jHLnfRn/Perfil-Mauricio-Lopez.jpg"
                 alt=""
               />
               <div className="card-text">
@@ -126,7 +126,7 @@ const AboutUs = () => {
           </div>
 
           <div className="col-12 col-sm-6 col-xl-3 card-1 d-flex mb-5">
-            <a href="https://www.linkedin.com/in/gabriel-bartesaghi-monza">
+            <a href="https://www.linkedin.com/in/gabriel-bartesaghi-monza" target={"_blank"}>
               <img
                 className="img-card-1"
                 src="https://i.postimg.cc/NfZLhwvk/Whats-App-Image-2022-06-04-at-11-46-43-AM-14-18-36.jpg"
@@ -141,7 +141,7 @@ const AboutUs = () => {
           </div>
 
           <div className="col-12 col-sm-6 col-xl-3 card-1 d-flex mb-5">
-            <a href="https://www.linkedin.com/in/rodrigo-moraes-554536225">
+            <a href="https://www.linkedin.com/in/rodrigo-moraes-554536225" target={"_blank"}>
               <img
                 className="img-card-1"
                 src="https://i.postimg.cc/7ZnX1CZ5/rodricaripelabyn2.jpg"
@@ -156,7 +156,7 @@ const AboutUs = () => {
           </div>
 
           <div className="col-12 col-sm-6 col-xl-3 card-1 d-flex mb-5">
-            <a href="https://www.linkedin.com/in/juanrgaudin">
+            <a href="https://www.linkedin.com/in/juanrgaudin" target={"_blank"}>
               <img
                 className="img-card-1"
                 src="https://i.postimg.cc/mg5QPn9d/Juan-Rodri-guez-Foto.jpg"

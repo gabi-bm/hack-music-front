@@ -69,8 +69,8 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-second">
-        <div> © Hack Music | Products can change withot notice </div>
-        <div className="resp-foot">Contacta | Forum | Cookies & Terms</div>
+        <div> © Hack Music | Registered trademark. </div>
+        <div className="resp-foot">Contact | Forum | Cookies & Terms</div>
       </div>
     </div>
   );
