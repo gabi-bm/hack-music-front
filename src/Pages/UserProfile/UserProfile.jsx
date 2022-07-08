@@ -184,7 +184,9 @@ const UserProfile = () => {
                     <Form.Control
                       {...register("address", { maxLength: 30 })}
                       type="text"
-                      defaultValue={user.addresses[0].streetAddress}
+                      defaultValue={
+                        user.addresses ? user.addresses[0].streetAddress : "No address provided."
+                      }
                       className="form-control ps-0"
                     />
                   </div>
