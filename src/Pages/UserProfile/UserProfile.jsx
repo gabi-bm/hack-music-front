@@ -173,7 +173,7 @@ const UserProfile = () => {
                   </div>
                 </Form.Group>
 
-                <Form.Group className="mb-3">
+                {/* <Form.Group className="mb-3">
                   <Form.Label className="tx-size-sm tx-second-color form-label-margin">
                     Address
                   </Form.Label>
@@ -190,7 +190,7 @@ const UserProfile = () => {
                       className="form-control ps-0"
                     />
                   </div>
-                </Form.Group>
+                </Form.Group> */}
 
                 <Button
                   variant="custom"
