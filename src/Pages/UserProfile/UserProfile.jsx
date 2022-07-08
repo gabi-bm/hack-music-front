@@ -203,35 +203,37 @@ const UserProfile = () => {
             </div>
           </Row>
 
-          <Row className="mt-2 border-top">
-            <h4 className="text-center">Orders</h4>
-            <Table hover variant="light">
-              <thead>
-                <tr>
-                  <th>Id</th>
-                  <th>Products</th>
-                  <th>Status</th>
-                  <th>Total price</th>
-                </tr>
-              </thead>
-              <tbody>
-                {user.orders.map((order) => {
-                  return (
-                    <tr key={order._id}>
-                      <td>{order._id}</td>
-                      <td>
-                        {order.products.map((product) => (
-                          <p>{product.name}</p>
-                        ))}
-                      </td>
-                      <td>{order.status}</td>
-                      <td>$ {order.totalPrice}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </Table>
-          </Row>
+          {user.orders && (
+            <Row className="mt-2 border-top">
+              <h4 className="text-center">Orders</h4>
+              <Table hover variant="light">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Products</th>
+                    <th>Status</th>
+                    <th>Total price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {user.orders.map((order) => {
+                    return (
+                      <tr key={order._id}>
+                        <td>{order._id}</td>
+                        <td>
+                          {order.products.map((product) => (
+                            <p>{product.name}</p>
+                          ))}
+                        </td>
+                        <td>{order.status}</td>
+                        <td>$ {order.totalPrice}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </Table>
+            </Row>
+          )}
         </div>
         <Footer />
       </>
