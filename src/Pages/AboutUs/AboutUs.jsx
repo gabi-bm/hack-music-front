@@ -4,7 +4,7 @@ import Footer from "../../components/Footter/Footer";
 import * as FaIcons from "react-icons/fa";
 import { SiMongodb, SiRedux, SiJavascript } from "react-icons/si";
 import { Parallax } from "react-parallax";
-import sheet from "../../Images/Headers/partitura.png";
+import sheet from "../../Images/Headers/queen.jpeg";
 const AboutUs = () => {
   return (
     <div>
@@ -13,18 +13,18 @@ const AboutUs = () => {
       <Parallax className="image pb-5" bgImage={sheet} strength={500}>
         <div className="container w-75-lg">
           <div className="desc-about">
-            <h1 style={{ textAlign: "center", margin: "2rem", marginBottom: "3rem" }}>
+            <h1 style={{ textAlign: "center", margin: "2rem", marginBottom: "1rem" }}>
               What is HackMusic?
             </h1>
-            <p className="p-5-lg" style={{ textAlign: "justify" }}>
+            <p className="p-5" style={{ maxWidth: "70ch", textAlign: "left", fontSize:"1.3rem", lineHeight:"1.7", margin: "0 auto"}}>
               
-                HackMusic is a web application done under the MERN stack as a final project of a
+                HackMusic is a web application done under the <strong style={{color:"var(--third-color)"}}>MERN stack</strong> as a final project of a
                 Coding Bootcamp in Hack Academy, an educational institution founded in 2016 in
                 Montevideo, Uruguay, specialized in programming courses. The bootcamp is a full-time
-                course that prepares young professionals as Full Stack Jr Devs. The purpose of the
+                course that prepares young professionals as <strong style={{color:"var(--third-color)"}}>Full Stack Jr. Devs.</strong> The purpose of the
                 final project being to put in practice adquired knowledge using diverse
                 technologies. The project was developed in three weeks by four people, accounting a
-                total of 480 hours.
+                total of <strong style={{color:"var(--third-color)"}}>480 hours</strong>.
               
             </p>
           </div>
