@@ -35,15 +35,16 @@
 .cart-button{
     background-color: white ;
     color: var(--third-color);
-    border: none;
+    border: 1px solid var(--third-color);
     margin-top: 1rem;
     padding: 6px;
 }
 .cart-button:hover{
-    background-color: white;
-    color: var(--third-color);
-    
+    background-color: var(--third-color);
+    color: white;
+    border: 1px solid white;
 }
+
 .carousel-img{
     
     display: flex;
