@@ -8,10 +8,14 @@ import mercadoPago from "../../Images/paymentMethods/mercadoPago.png";
 import { useNavigate } from "react-router-dom";
 import { resetCart } from "../../Redux/cartSlice";
 import CreditCardForm from "../CreditCardForm/CreditCardForm";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+import { useState } from "react";
 
 const PaymentForm = ({ orderId, setModalShow }) => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const [showCreditCardForm, setShowCreditCardForm] = useState(false);
 
   const navigate = useNavigate();
   const {
@@ -43,26 +47,33 @@ const PaymentForm = ({ orderId, setModalShow }) => {
         <span>Select payment method</span>
 
         <div className="d-flex flex-column align-items-start">
-          <div className="d-flex py-3 align-items-center" style={{ height: "5rem" }}>
-            <input
-              type="radio"
-              id="credit-debit-card"
-              {...register("paymentMethod")}
-              value="credit or debit card"
-              required
-            ></input>
-            <label htmlFor="credit-debit-card" className="mx-3">
-              Credit / Debit card
-            </label>
-            <div className="d-flex align-items-center" style={{ width: "9rem" }}>
-              <img
-                alt="credit-debit-card"
-                src={creditCards}
-                style={{ maxWidth: "100%", height: "auto", margin: "0" }}
-              ></img>
+          <div style={{ maxWidth: "337px" }}>
+            <div className="d-flex py-3 align-items-center" style={{ height: "5rem" }}>
+              <input
+                type="radio"
+                id="credit-debit-card"
+                {...register("paymentMethod")}
+                value="credit or debit card"
+                required
+                onChange={() => setShowCreditCardForm(!showCreditCardForm)}
+              ></input>
+              <label htmlFor="credit-debit-card" className="mx-3">
+                Credit / Debit card
+              </label>
+              <div className="d-flex align-items-center" style={{ width: "9rem" }}>
+                <img
+                  alt="credit-debit-card"
+                  src={creditCards}
+                  style={{ maxWidth: "100%", height: "auto", margin: "0" }}
+                ></img>
+              </div>
             </div>
+            {showCreditCardForm && <CreditCardForm />}
+            {/* <Alert severity="warning">
+              <AlertTitle>Info</AlertTitle>
+              Just in case, this is a fake form, your data will not be stored in the database :)
+            </Alert> */}
           </div>
-          <CreditCardForm />
         </div>
 
         <div className="d-flex flex-column align-items-start">

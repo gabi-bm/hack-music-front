@@ -1,6 +1,7 @@
 import { Form, Input, InputGroup, FormControl, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import "./CreditCardForm.css";
 
 const CreditCardForm = () => {
   const {
@@ -32,8 +33,8 @@ const CreditCardForm = () => {
               maxLength: 16,
             })}
             type="text"
-            placeholder="Credit number"
-            className="ps-0"
+            placeholder="Credit card number"
+            className="credit-card-input"
           />
         </Form.Group>
         <Form.Group className="mb-3">
@@ -44,10 +45,10 @@ const CreditCardForm = () => {
             })}
             type="text"
             placeholder="Name"
-            className="ps-0"
+            className="credit-card-input"
           />
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3 d-inline-block" style={{ width: "47%" }}>
           <Form.Control
             {...register("creditCardValidThru", {
               required: true,
@@ -55,10 +56,10 @@ const CreditCardForm = () => {
             })}
             type="text"
             placeholder="Valid Thru"
-            className="ps-0"
+            className="credit-card-input"
           />
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3 d-inline-block" style={{ width: "47%", float: "right" }}>
           <Form.Control
             {...register("creditCardCvc", {
               required: true,
@@ -66,7 +67,7 @@ const CreditCardForm = () => {
             })}
             type="text"
             placeholder="CVC"
-            className="ps-0"
+            className="credit-card-input d-inline"
           />
         </Form.Group>
       </Form>
