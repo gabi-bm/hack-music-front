@@ -7,7 +7,7 @@ import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { ToastContainer, toast } from "react-toastify";
-
+import "./UserProfile.css";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,7 +17,13 @@ const UserProfile = () => {
   const storeUser = useSelector((state) => state.user);
   const [user, setUser] = useState(null);
 
-  const notify = () => toast("User info succesfully updated!");
+  const notify = () =>
+    toast("User info succesfully updated!", {
+      className: "toast-black-background",
+      bodyClassName: "toast-font-color",
+      progressClassName: "toast-progress-bar",
+      autoClose: 2000,
+    });
 
   useEffect(() => {
     const getUserInfo = async () => {
