@@ -48,7 +48,9 @@ const AddressForm = ({ addresses, orderId, handleShowAddress }) => {
     <div>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Select className="my-3" onChange={(e) => handleSetValues(e)}>
-          <option disabled>Choose an address or add new one</option>
+          <option disabled selected>
+            Choose an address or add new one
+          </option>
           <option value="newAddress">Add new address</option>
           <option value={addresses[0]._id}>{addresses[0].streetAddress}</option>
         </Form.Select>
