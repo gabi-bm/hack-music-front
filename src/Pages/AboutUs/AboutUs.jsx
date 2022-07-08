@@ -3,32 +3,36 @@ import NavBar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footter/Footer";
 import * as FaIcons from "react-icons/fa";
 import { SiMongodb, SiRedux, SiJavascript } from "react-icons/si";
-import { Parallax} from "react-parallax"
+import { Parallax } from "react-parallax";
+import sheet from "../../Images/Headers/partitura.png";
 const AboutUs = () => {
   return (
     <div>
       <NavBar />
-      <div className="container w-100">
-        <div className="desc-about">
-          <h1
-            className="p-3"
-            style={{ textAlign: "center", marginTop: "7rem", marginBottom: "3rem" }}
-          >
-            ¿What is Hack Music?
-          </h1>
-          <p className="p-3" style={{ textAlign: "justify" }}>
-            Hack Music is a web application done under the MERN stack as a final project of a Coding
-            Bootcamp in Hack Academy, an educational institution founded in 2016 in Montevideo,
-            Uruguay, specialized in programming courses. The bootcamp is a full-time course that
-            prepares young professionals as Full Stack Jr Devs. The purpose of the final project
-            being to put in practice adquired knowledge using diverse technologies. The project was
-            developed in three weeks by four people, accounting a total of 480 hours.
-          </p>
+
+      <Parallax className="image pb-5" bgImage={sheet} strength={500}>
+        <div className="container w-75-lg">
+          <div className="desc-about">
+            <h1 style={{ textAlign: "center", margin: "2rem", marginBottom: "3rem" }}>
+              What is HackMusic?
+            </h1>
+            <p className="p-5-lg" style={{ textAlign: "justify" }}>
+              
+                HackMusic is a web application done under the MERN stack as a final project of a
+                Coding Bootcamp in Hack Academy, an educational institution founded in 2016 in
+                Montevideo, Uruguay, specialized in programming courses. The bootcamp is a full-time
+                course that prepares young professionals as Full Stack Jr Devs. The purpose of the
+                final project being to put in practice adquired knowledge using diverse
+                technologies. The project was developed in three weeks by four people, accounting a
+                total of 480 hours.
+              
+            </p>
+          </div>
         </div>
-      </div>
-      {/* <div className="parallax bg"></div> */}
-      <div className="container w-100">
-        <h1 style={{ textAlign: "center", marginTop: "7rem", marginBottom: "3rem" }}>Planning:</h1>
+      </Parallax>
+
+      <div className="container w-75">
+        <h1 style={{ textAlign: "center", marginTop: "3rem", marginBottom: "3rem" }}>Planning:</h1>
 
         <div className="d-flex mer-card row">
           <div className="col-12 col-lg-6 col-left">
@@ -50,7 +54,8 @@ const AboutUs = () => {
             </p>
           </div>
         </div>
-
+      </div>
+      <div className="container w-75">
         <div className="d-flex mer-card row">
           <div className="col-12 col-lg-6 col-left">
             <h4>4 - Work methodology </h4>
@@ -73,10 +78,12 @@ const AboutUs = () => {
             <img className="mer-img" src="https://i.postimg.cc/9Fhq0Rfz/mer2byn.jpg" alt="" />
           </div>
         </div>
+      </div>
 
-        <h1 style={{ textAlign: "center", marginTop: "6rem", marginBottom: "4rem" }}>
-          Used Technologies:
-        </h1>
+      <h1 style={{ textAlign: "center", marginTop: "6rem", marginBottom: "4rem" }}>
+        Used Technologies:
+      </h1>
+      <Parallax className="image" bgImage={sheet} strength={200}>
         <div className="d-flex mer-card row list-tecs mx-auto w-75">
           <div className="col-xl-4 col-md-4 col-sm-6 col-12 mb-5 d-flex flex-column justify-content-center align-items-center">
             <FaIcons.FaReact className="tec-icon mb-2" /> React
@@ -107,6 +114,8 @@ const AboutUs = () => {
             <FaIcons.FaBootstrap className="tec-icon mb-3" /> Bootstrap
           </div>
         </div>
+      </Parallax>
+      <div className="container w-75">
         <div className="row d-flex card-group pb-5">
           <h1 style={{ textAlign: "center", marginTop: "3rem", marginBottom: "4rem" }}>Team:</h1>
 
