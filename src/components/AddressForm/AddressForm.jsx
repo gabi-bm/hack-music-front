@@ -52,7 +52,9 @@ const AddressForm = ({ addresses, orderId, handleShowAddress }) => {
             Choose an address or add new one
           </option>
           <option value="newAddress">Add new address</option>
-          <option value={addresses[0]._id}>{addresses[0].streetAddress}</option>
+          {addresses.length > 0 && (
+            <option value={addresses[0]._id}>{addresses[0].streetAddress}</option>
+          )}
         </Form.Select>
 
         <Form.Group className="mb-3">
