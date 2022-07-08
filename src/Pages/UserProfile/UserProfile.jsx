@@ -37,6 +37,11 @@ const UserProfile = () => {
       const response = await axios.patch(
         process.env.REACT_APP_SERVER_URL + "/users/" + user._id,
         data,
+        {
+          headers: {
+            Authorization: `Bearer ${user.accessToken}`,
+          },
+        },
       );
       if (response.status === 200) {
         notify();
